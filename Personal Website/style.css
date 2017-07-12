@@ -1,13 +1,125 @@
 #header {
-	background-color: #E8E8E8;
-	text-align:center;
+	background-color: #1a1a1a;
+	text-align:left;
 	font-family:copperplate gothic light,serif;
 }
 
-#div1{
-	background-color: #66CCCC 
+#wayne {
+	padding: 0px;
+	padding-top: 50px;
+	color:white;
 }
 
-.navbar-brand{
-	padding: 20px 20px;
+#div1{
+	background-color: #66CCCC; 
+}
+
+
+#nav-head .navbar-brand {
+	padding-right:110px;
+	
+}
+#nav-head a:hover{
+	color: #C9C9C9;
+}
+
+#fb, #twitter {
+	width:40px;
+	height: 40px;
+}
+
+.info {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background-color: #1a1a1a;
+	color: #cccccc;
+	
+}
+
+.copyright {
+	background-color: #ff7733;
+	text-align: center;
+	padding:10px;
+}
+
+.img-circle{
+	float: left;
+	height: 175px;
+	width:200px;
+}
+
+.nav1{
+	margin:0px;
+	padding-right: 20px;
+}
+
+.animation-list {
+    width: 100px;
+    height: 100px;
+    
+    animation-name: example;
+    animation-duration: 4s;
+}
+
+#myCarousel {
+	margin-bottom: 30px;
+}
+
+#below_carousel {
+	background-color: #1a1a1a;
+	color:white;
+}
+
+#img-fill {
+	width: 100%;
+
+}
+
+#about{
+	text-align: justify;
+}
+
+.img-responsive{
+	float:none;
+}
+
+
+#united {
+	height:200px;
+}
+
+.img-circle{
+	height:200px;
+	width:300px;
+
+}
+
+#club_career {
+	background-color: #ccffe6;
+}
+
+#club_career #clubs a:hover{
+	text-decoration: none;
+	color:black;
+}
+
+
+
+#trophies {
+	background-color:#1a1a1a;
+	color: white 
+}
+
+#myCarousel {
+	width:auto;
+}
+
+#statistics{
+	background-color: #ccffe6;
+	color: black;
+}
+
+img {
+	border: 5px;
+	border-color: blue;
 }
