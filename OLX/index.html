@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>OLX</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+
+	
+
+<body>
+	<header id="top">
+		<nav class="navbar navbar-inverse navbar-fixed-top" id="nav1">
+		  <div class="container-fluid" >
+		    <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>                        
+		    </button>
+		    <a class="navbar-brand" href="#">OLX</a>
+		    </div>
+		    <div class="collapse navbar-collapse" id="myNavbar">
+		    	<ul class="nav navbar-nav">
+		      	<li class="active"><a href="index.html"><span class="glyphicon glyphicon-home"></span>HOME</a></li>
+		      	<li><a href="post_ad.html">POST AD</a></li>
+		      	<li class="dropdown">
+		         	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CATEGORIES<span class="caret"></span></a>
+		         	<ul class="dropdown-menu">
+		            <li><a href="#">CARS</a></li>
+		            <li><a href="#">BIKES</a></li>
+		            <li><a href="#">MOBILES</a></li>
+		            <li><a href="#"></a></li>
+		          </ul>
+		        </li>
+		    </ul>
+		    <ul class="nav navbar-nav navbar-right">
+		      	<li><input type="text" class="form-control" name="" placeholder="Search" id="search_box"></li>
+		      	<li><a href="login" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span>LOGIN</a></li>
+      			
+				<li><a href="login" data-toggle="modal" data-target="#signup"><span class="glyphicon glyphicon-user"></span>SIGN UP</a></li>
+      			
+		    </ul>
+
+		    </div>
+		    
+		  </div>
+		</nav>
+	</header>
+	<div class="row">
+		<div class="col-md-2 col-lg-2">
+			<nav class="navbar navbar-default">
+				<ul class="nav nav-pills nav-stacked">
+					<li><a href="#"><img src="https://dummyimage.com/150.png/09f/fff"></a></li>
+					<li><a href="#"><img src="https://dummyimage.com/150.png/09f/fff"></a></li>
+					<li><a href="#"><img src="https://dummyimage.com/150.png/09f/fff"></a></li>
+					<li><a href="#"><img src="https://dummyimage.com/150.png/09f/fff"></a></li>
+					<li><a href="#"><img src="https://dummyimage.com/150.png/09f/fff"></a></li>
+					<li><a href="#"><img src="https://dummyimage.com/150.png/09f/fff"></a></li>
+					<li><a href="#"><img src="https://dummyimage.com/150.png/09f/fff"></a></li>
+					<li><a href="#"><img src="https://dummyimage.com/150.png/09f/fff"></a></li>
+
+
+				</ul>
+			</nav>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-4 col-md-4"></div>
+			<div class="col-lg-4 col-md-4"></div>
+			<div class="col-lg-4 col-md-4"></div>
+
+		</div>
+
+		<footer>
+			<div class="row">
+				<div class="col-lg-4 col-md-4">
+				
+				</div>
+				<div class="col-lg-4 col-md-4">
+				
+				</div>
+				<div class="col-lg-4 col-md-4">
+				
+				</div>	
+			
+			</div>
+
+		</footer>
+	</div>
+	<!-- Login modal -->
+    <div class="modal fade" id="login" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				    <h4 class="modal-title">Login</h4>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+					    	<label for="email_id">Email Address:</label>
+					        <input type="email" class="form-control" name="" placeholder="Email"/>
+					    </div>
+					    <div class="form-group">
+					    	<label for="password">Password:</label>
+					        <input type="password" class="form-control" name="" placeholder="Password"/>
+					    </div>
+					</form>
+		        </div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-success">Login</button>
+				 	<button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+				</div>
+	      	</div>
+				      
+		</div>
+	</div>
+	<!-- Sign-up modal -->
+    <div class="modal fade" id="signup" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				    <h4 class="modal-title">Sign Up</h4>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+					    	<label for="email_id">First Name:</label>
+					        <input type="text" class="form-control" name="" placeholder="First Name"/>
+					    </div>
+					    <div class="form-group">
+					    	<label for="password">Last Name:</label>
+					        <input type="text" class="form-control" name="" placeholder="Last Name"/>
+					    </div>
+					    <div class="form-group">
+					    	<label for="email_id">Phone:</label>
+					        <input type="text" class="form-control" name="" placeholder="Number"/>
+					    </div>
+					    <div class="form-group">
+
+					    	<label for="email_id"></span>Email:</label>
+					        <input type="email" class="form-control" name="" placeholder="Email"/>
+					    </div>
+					    <div class="form-group">
+					    	<label for="email_id">Password:</label>
+					        <input type="Password" class="form-control" name="" placeholder="Password"/>
+					    </div>
+					    <div class="form-group">
+						  	<label id="gender">Gender</label>
+						  	
+						 		<div class="radio">
+						    		<label for="radios-0">
+						     		<input type="radio" name="radios" id="Male" value="1" checked="checked">
+						     	 	Male
+						    		</label>
+								</div>
+						  		<div class="radio">
+						    		<label for="radios-1">
+						     		<input type="radio" name="radios" id="Female" value="2">
+						     	 	Female
+						    	</label>
+								</div>
+							
+						</div>
+					</form>
+		        </div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-success">Submit</button>
+				 	<button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+				</div>
+	      	</div>
+				      
+		</div>
+	</div>	
+</body>
+</html>
