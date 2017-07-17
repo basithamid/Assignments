@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>OLX</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<link rel="stylesheet" type="text/css" href="./css/style.css">
+  	<link rel="stylesheet" type="text/css" href="./css/footer.css">
+  	<link rel="stylesheet" type="text/css" href="./css/user_ads.css">
+  	<link rel="stylesheet" type="text/css" href="./css/search.css">
+
+</head>
+
+	
+
+<body>
+	<header id="top">
+		<nav class="navbar navbar-inverse navbar-fixed-top" id="nav1">
+		  <div class="container-fluid" >
+		    <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>                        
+		    </button>
+		    <a class="navbar-brand" href="#">OLX</a>
+		    </div>
+		    <div class="collapse navbar-collapse" id="myNavbar">
+		    	<ul class="nav navbar-nav">
+		      	<li><a href="landing.html"><span class="glyphicon glyphicon-home"></span>HOME</a></li>
+		      	<li><a href="post_ad.html">POST AD</a></li>
+		      	<li class="dropdown">
+		         	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CATEGORIES<span class="caret"></span></a>
+		         	<ul class="dropdown-menu">
+		            <li><a href="#">CARS</a></li>
+		            <li><a href="#">BIKES</a></li>
+		            <li><a href="#">MOBILES</a></li>
+		            <li><a href="#"></a></li>
+		          </ul>
+		        </li>
+		    </ul>
+		    <ul class="nav navbar-nav navbar-right">
+		      	<li><a href="landing.html" span class="glyphicon glyphicon-log-out"></span>LOGOUT</a></li>
+      			
+				
+      			
+		    </ul>
+
+		    </div>
+		    
+		  </div>
+		  <div class="row" id="search_box">
+        	<div class="col-md-12">
+            	<div class="input-group" id="adv-search">
+                	<input type="text" class="form-control" placeholder="Search for snippets" />
+                	<div class="input-group-btn">
+                    	<div class="btn-group" role="group">
+                        	<div class="dropdown dropdown-lg">
+                            	<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+                            	<div class="dropdown-menu dropdown-menu-right" role="menu">
+                                	<form class="form-horizontal" role="form">
+                                  		<div class="form-group">
+                                    		<label for="filter">Filter by</label>
+                                    		<select class="form-control">
+                                        		<option value="0" selected>All Snippets</option>
+                                        		<option value="1">Featured</option>
+                                        		<option value="2">Most popular</option>
+                                        		<option value="3">Top rated</option>
+                                        		<option value="4">Most commented</option>
+                                    		</select>
+                                  		</div>
+                                  		<div class="form-group">
+                                    		<label for="contain">Author</label>
+		                                    <input class="form-control" type="text" />
+        		                        </div>
+                                  		<div class="form-group">
+                                    		<label for="contain">Contains the words</label>
+                                    		<input class="form-control" type="text" />
+                                  		</div>
+                                  		<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                	</form>
+                            	</div>
+                        	</div>
+                        	<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                    	</div>
+                	</div>
+            	</div>
+          	</div>
+        </div>
+		</nav>
+
+	</header>
+
+	<div class="container-fluid">
+		<div class="row" id="user_details">
+			<div class="col-lg-4 col-md-4 col-sm-12">
+				<img src="https://dummyimage.com/200x250/9c8e9c/fff" class="img-responsive img-circle center-block" id="user_img">
+			</div>
+			<div class="col-sm-4 col-md-4 col-lg-4" id="user_desc">
+				<h3>Basit Hamid</h3>
+				<h5>Age:</h5>
+				<h5>City:</h5>
+				<h5>State:</h5>
+				<h5>Description:</h5>
+			</div>
+		</div>
+		<br>
+		<div class="row" >
+			<div class="col-md-2 col-lg-2"">			
+			</div>
+			<div class="col-lg-8 col-md-8" id="user_ads_outer">
+				<h2>Ads by You</h2>
+				<div class="row" id="user_ads">
+					<div class="col-md-3 col-lg-3">
+						<img src="https://dummyimage.com/200x200/b5aeb5/fff" class="img-responsive img-rounded">
+					</div>
+					<div class="col-lg-6 col-md-6">
+						<h3>Title</h3>
+						<p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos .</p>
+						<button type="button" class="btn btn-default"  data-toggle="modal" data-target="#edit_modal">Edit</button>
+						<button type="button" class="btn btn-default" >Delete</button>
+					</div>
+					<div class="col-lg-3 col-md-3">
+						<h3>Price</h3>
+					</div>
+				</div>
+				<div class="row" id="user_ads" >
+					<div class="col-md-3 col-lg-3 " >
+						<img src="https://dummyimage.com/200x200/b5aeb5/fff" class="img-responsive img-rounded">
+					</div>
+					<div class="col-lg-6 col-md-6">
+						<h3>Title</h3>
+						<p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos .</p>
+						<button type="button" class="btn btn-default"  data-toggle="modal" data-target="#edit_modal">Edit</button>
+						<button type="button" class="btn btn-default" >Delete</button>
+					</div>
+					<div class="col-lg-3 col-md-3">
+						<h3>Price</h3>
+					</div>
+				</div>
+				<div class="row" id="user_ads">
+					<div class="col-md-3 col-lg-3">
+						<img src="https://dummyimage.com/200x200/b5aeb5/fff" class="img-responsive img-rounded">
+					</div>
+					<div class="col-lg-6 col-md-6">
+						<h3>Title</h3>
+						<p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos .</p>
+						<button type="button" class="btn btn-default"  data-toggle="modal" data-target="#edit_modal">Edit</button>
+						<button type="button" class="btn btn-default" >Delete</button>
+					</div>
+					<div class="col-lg-3 col-md-3">
+						<h3>Price</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+	<footer id="footer-Section">
+	  	<div class="footer-top-layout">
+	    	<div class="container">
+	     		<div class="row">
+	        		
+	        		<div class=" col-lg-8 col-lg-offset-2">
+	          			<div class="col-sm-4">
+	            			<div class="footer-col-item">
+	              				<h4>Address</h4>
+	              				<address>
+				              	Company Name, ABC, Maharashtra,
+				              	India
+			              		</address>
+	            			</div>
+	          			</div>
+	          			<div class="col-sm-4">
+	            			<div class="footer-col-item">
+	              				<h4>Reach Us</h4>
+	              				<div class="item-contact"> <a href="tel:020-1234567"><span class="link-id">P</span>:<span>020-1234567</span></a> <a href="tel:630-839.2006"><span class="link-id">F</span>:<span>020-1234567</span></a> <a href="mailto:info@brandcatmedia.com"><span class="link-id">E</span>:<span>info@abc.com</span></a> </div>
+	            			</div>
+	          			</div>
+	          			<div class="col-sm-4">
+	            			<div class="footer-col-item">
+	             				<h4>Sign up for Newsletter</h4>
+	              				<form class="signUpNewsletter" action="" method="get">
+	                				<input name="" class="gt-email form-control" placeholder="You@youremail.com" type="text">
+	                				<input name="" class="btn-go" value="Go" type="button">
+	              				</form>
+	              				
+	            			</div>
+	          			</div>
+	        		</div>
+	      		</div>
+	    	</div>
+	 	</div>
+	 	
+	</footer>
+
+	<!-- Edit modal -->
+    <div class="modal fade" id="edit_modal" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				    <h4 class="modal-title">Edit Product Description</h4>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+					    	<label for="title">Title:</label>
+					        <input type="text" class="form-control" name="" placeholder="Title"/>
+					    </div>
+					    <div class="form-group">
+					    	<label for="price">Price:</label>
+					        <input type="text" class="form-control" name="" placeholder="Price"/>
+					    </div>
+					    <div class="form-group">
+					    	<label for="description">Description:</label>
+					        <input type="textbox" class="form-control" name=""/>
+					    </div>
+					    <div class="form-group">
+					    	<label for="textbox">Price:</label>
+					        <input type="text" class="form-control" name="" placeholder="Price"/>
+					    </div>
+					</form>
+		        </div>
+				<div class="modal-footer">
+					<a href="users_ads.html"><button type="button" class="btn btn-success ">Confirm</button></a>
+				 	<button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+				</div>
+	      	</div>
+				      
+		</div>
+	</div>
+	</body>
+</html>

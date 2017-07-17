@@ -7,6 +7,9 @@
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   	<link rel="stylesheet" type="text/css" href="./css/style.css">
+  	<link rel="stylesheet" type="text/css" href="./css/footer.css">
+  	<link rel="stylesheet" type="text/css" href="./css/search.css">
+  	<
 </head>
 
 	
@@ -25,7 +28,7 @@
 		    </div>
 		    <div class="collapse navbar-collapse" id="myNavbar">
 		    	<ul class="nav navbar-nav">
-		      	<li><a href="index.html"><span class="glyphicon glyphicon-home"></span>HOME</a></li>
+		      	<li><a href="landing.html"><span class="glyphicon glyphicon-home"></span>HOME</a></li>
 		      	<li class="active"><a href="post_ad.html">POST AD</a></li>
 		      	<li class="dropdown">
 		         	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CATEGORIES<span class="caret"></span></a>
@@ -38,16 +41,53 @@
 		        </li>
 		    </ul>
 		    <ul class="nav navbar-nav navbar-right">
-		      	<li><input type="text" class="form-control" name="" placeholder="Search" id="search_box"></li>
 		      	<li><a href="login" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span>LOGIN</a></li>
-      			
-				<li><a href="login" data-toggle="modal" data-target="#signup"><span class="glyphicon glyphicon-user"></span>SIGN UP</a></li>
+      			<li><a href="login" data-toggle="modal" data-target="#signup"><span class="glyphicon glyphicon-user"></span>SIGN UP</a></li>
       			
 		    </ul>
 		    </div>
 		    
 		  </div>
+		  <div class="row" id="search_box">
+        	<div class="col-md-12">
+            	<div class="input-group" id="adv-search">
+                	<input type="text" class="form-control" placeholder="Search for snippets" />
+                	<div class="input-group-btn">
+                    	<div class="btn-group" role="group">
+                        	<div class="dropdown dropdown-lg">
+                            	<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+                            	<div class="dropdown-menu dropdown-menu-right" role="menu">
+                                	<form class="form-horizontal" role="form">
+                                  		<div class="form-group">
+                                    		<label for="filter">Filter by</label>
+                                    		<select class="form-control">
+                                        		<option value="0" selected>All Snippets</option>
+                                        		<option value="1">Featured</option>
+                                        		<option value="2">Most popular</option>
+                                        		<option value="3">Top rated</option>
+                                        		<option value="4">Most commented</option>
+                                    		</select>
+                                  		</div>
+                                  		<div class="form-group">
+                                    		<label for="contain">Author</label>
+		                                    <input class="form-control" type="text" />
+        		                        </div>
+                                  		<div class="form-group">
+                                    		<label for="contain">Contains the words</label>
+                                    		<input class="form-control" type="text" />
+                                  		</div>
+                                  		<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                	</form>
+                            	</div>
+                        	</div>
+                        	<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                    	</div>
+                	</div>
+            	</div>
+          	</div>
+          </div>
 		</nav>
+
 	</header>
 	
 	
@@ -85,11 +125,11 @@
 	<div class="row">
 		<div class="col-md-3 col-lg-3"></div>
 		<div class="col-lg-6 col-mg-6">
-			<form class="form-horizontal ">
+			<form class="form-horizontal box-shadow " id="form">
 				<fieldset>
 
 				<!-- Form Name -->
-				<legend>POST AD</legend>
+				<center><legend>POST AD</legend></center>
 
 				<!-- Text input-->
 				<div class="form-group">
@@ -97,6 +137,21 @@
 				  	<div class="col-md-4">
 				  	<input id="textinput" name="textinput" type="text" class="form-control input-md">
 				 	</div>
+				</div>
+
+				<!--category-->
+				<div class="form-group">
+ 					<label class="col-md-4 control-label" for="textinput">Categoies</label>
+				  	<div class="col-md-4 dropdown">
+				    	<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Choose
+				    	<span class="caret"></span></button>
+				    	<ul class="dropdown-menu">
+				      		<li><a href="#">Cars</a></li>
+				      		<li><a href="#">Electronics</a></li>
+				      		<li><a href="#">Bikes</a></li>
+				      		<li><a href="#">Phones</a></li>
+					    </ul>
+					</div>
 				</div>
 
 				<!-- Text input-->
@@ -112,6 +167,33 @@
 				  	<div class="col-md-4">
 				  	<input id="description" name="textinput" type="textbox" class="form-control input-md">
 				 	</div>
+				</div>
+
+				<div class="form-group">
+					 <label class="col-md-4 control-label" for="textinput">City</label>  
+					 <div class="col-md-4">
+					 <input id="textinput" name="textinput" type="text" class="form-control input-md">
+					 </div>
+				</div>
+
+				<div class="form-group">
+					 <label class="col-md-4 control-label" for="textinput">Locality</label>  
+					 <div class="col-md-4">
+					 <input id="textinput" name="textinput" type="text" class="form-control input-md">
+					 </div>
+				</div>
+
+				<div class="form-group">
+					 <label class="col-md-4 control-label" for="textinput">Contact Number</label>  
+					 <div class="col-md-4">
+					 <input id="textinput" name="textinput" type="text" class="form-control input-md">
+					 </div>
+				</div>
+				<div class="form-group">
+					 <label class="col-md-4 control-label" for="textinput">Price</label>  
+					 <div class="col-md-4">
+					 <input id="textinput" name="textinput" type="text" class="form-control input-md">
+					 </div>
 				</div>
 
 				<!-- File Button --> 
@@ -132,11 +214,46 @@
 				</div>
 
 				</fieldset>
-</form>
+			</form>
 
 		</div>
 	</div>
-
+	<footer id="footer-Section">
+	  	<div class="footer-top-layout">
+	    	<div class="container">
+	     		<div class="row">
+	        		
+	        		<div class=" col-lg-8 col-lg-offset-2">
+	          			<div class="col-sm-4">
+	            			<div class="footer-col-item">
+	              				<h4>Go Travel Cloud</h4>
+	              				<address>
+				              	501,507 your company address<br>
+				              	400015 Maharashtra, UK
+			              		</address>
+	            			</div>
+	          			</div>
+	          			<div class="col-sm-4">
+	            			<div class="footer-col-item">
+	              				<h4>Reach Us</h4>
+	              				<div class="item-contact"> <a href="tel:630-885-9200"><span class="link-id">P</span>:<span>630-885-9200</span></a> <a href="tel:630-839.2006"><span class="link-id">F</span>:<span>630-839.2006</span></a> <a href="mailto:info@brandcatmedia.com"><span class="link-id">E</span>:<span>info@brandcatmedia.com</span></a> </div>
+	            			</div>
+	          			</div>
+	          			<div class="col-sm-4">
+	            			<div class="footer-col-item">
+	             				<h4>Sign up for Newsletter</h4>
+	              				<form class="signUpNewsletter" action="" method="get">
+	                				<input name="" class="gt-email form-control" placeholder="You@youremail.com" type="text">
+	                				<input name="" class="btn-go" value="Go" type="button">
+	              				</form>
+	            			</div>
+	          			</div>
+	        		</div>
+	      		</div>
+	    	</div>
+	  </div>
+	 
+	</footer>
 	<!-- Sign-up modal -->
     <div class="modal fade" id="signup" role="dialog">
 		<div class="modal-dialog">

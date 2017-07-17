@@ -1,0 +1,32 @@
+body {
+	background-color: #dce4f2;
+}
+img {
+	border: 1px solid black;
+	margin-top:40px;
+	padding: 10px;
+}
+
+.btn-lg {
+	width:150px;
+}
+
+#myCarousel {
+	margin-bottom: 20px;
+}
+ h3{
+	margin-top: 20px;
+}
+
+li {
+	list-style-type: none;
+}
+
+#buy_button {
+	margin-top: 40px;
+	
+}
+
+#features li {
+	list-style-type: disc;
+}

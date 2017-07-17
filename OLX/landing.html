@@ -9,6 +9,7 @@
   	<link rel="stylesheet" type="text/css" href="./css/style.css">
   	<link rel="stylesheet" type="text/css" href="./css/footer.css">
   	<link rel="stylesheet" type="text/css" href="./css/search.css">
+  	<link rel="stylesheet" type="text/css" href="./css/landing.css">
 </head>
 
 <body>
@@ -25,7 +26,7 @@
 		    </div>
 		    <div class="collapse navbar-collapse" id="myNavbar">
 		    	<ul class="nav navbar-nav">
-			      	<li><a href="landing.html"><span class="glyphicon glyphicon-home"></span>HOME</a></li>
+			      	<li class="active"><a href="landing.html"><span class="glyphicon glyphicon-home"></span>HOME</a></li>
 			      	<li><a href="post_ad.html">POST AD</a></li>
 			      	<li class="dropdown">
 			         	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CATEGORIES<span class="caret"></span></a>
@@ -90,93 +91,50 @@
 
 	</header>
 	
-   		
-    
-
-	<div class="row">
-		<!--vertical navbar for images-->
-		<div class="col-md-2 col-lg-2">
-			<nav class="navbar navbar-default" id="vertical_navbar">
-				<ul class="nav nav-pills nav-stacked">
-					<li><a href="#"><img src="https://dummyimage.com/150x150/9c8e9c/fff"></a></li>
-					<li><a href="#"><img src="https://dummyimage.com/150x150/9c8e9c/fff"></a></li>
-					<li><a href="#"><img src="https://dummyimage.com/150x150/9c8e9c/fff"></a></li>
-					<li><a href="#"><img src="https://dummyimage.com/150x150/9c8e9c/fff"></a></li>
-					<li><a href="#"><img src="https://dummyimage.com/150x150/9c8e9c/fff"></a></li>
-					<li><a href="#"><img src="https://dummyimage.com/150x150/9c8e9c/fff"></a></li>
-					<li><a href="#"><img src="https://dummyimage.com/150x150/9c8e9c/fff"></a></li>
-				</ul>
-			</nav>
+	<div class="row" id="categories">
+		
+		<div class="col-lg-4 col-md-4" id="images">
+			<a href="index.html"><img src="./images/car.png" class="img-responsive img-rounded center-block">
+			<center><caption><h4>Cars</h4></caption></center></a>
 		</div>
-
-		<!--div for ad images-->
-		<div class="col-lg-10 col-md-10">
-			<div class="row" id="ads">
-				<div class="col-lg-4 col-md-4" id="ad_1">
-					<a href="ad_description.html"><img src="./images/swift.jpg" class="img-responsive center-block">
-					<center><caption><h4>Something</h4></caption></center>
-					</a>
-				</div>
-				<div class="col-lg-4 col-md-4">
-					<a href="ad_description.html"><img src="./images/figo.jpg" class="img-responsive center-block">
-					<center><caption><h4>Something</h4></caption></center></a>
-				</div>
-				<div class="col-lg-4 col-md-4">
-					<a href="ad_description.html"><img src="./images/i20.png" class="img-responsive center-block">
-					<center><caption><h4>Something</h4></caption></center></a>
-				</div>
-			</div>
-			<div class="row" id="ads">
-				<div class="col-lg-4 col-md-4" id="ad_1">
-					<a href="ad_description.html"><img src="./images/swift.jpg" class="img-responsive center-block">
-					<center><caption><h4>Something</h4></caption></center>
-					</a>
-				</div>
-				<div class="col-lg-4 col-md-4">
-					<a href="ad_description.html"><img src="./images/figo.jpg" class="img-responsive center-block">
-					<center><caption><h4>Something</h4></caption></center></a>
-				</div>
-				<div class="col-lg-4 col-md-4">
-					<a href="ad_description.html"><img src="./images/i20.png" class="img-responsive center-block">
-					<center><caption><h4>Something</h4></caption></center></a>
-				</div>
-			</div>
-			<div class="row" id="ads">
-				<div class="col-lg-4 col-md-4" id="ad_1">
-					<a href="ad_description.html"><img src="./images/swift.jpg" class="img-responsive center-block">
-					<center><caption><h4>Something</h4></caption></center>
-					</a>
-				</div>
-				<div class="col-lg-4 col-md-4">
-					<a href="ad_description.html"><img src="./images/figo.jpg" class="img-responsive center-block">
-					<center><caption><h4>Something</h4></caption></center></a>
-				</div>
-				<div class="col-lg-4 col-md-4">
-					<a href="ad_description.html"><img src="./images/i20.png" class="img-responsive center-block">
-					<center><caption><h4>Something</h4></caption></center></a>
-				</div>
-			</div>
-			<div class="row" id="ads">
-				<div class="col-lg-4 col-md-4" id="ad_1">
-					<a href="ad_description.html"><img src="./images/swift.jpg" class="img-responsive center-block">
-					<center><caption><h4>Something</h4></caption></center>
-					</a>
-				</div>
-				<div class="col-lg-4 col-md-4">
-					<a href="ad_description.html"><img src="./images/figo.jpg" class="img-responsive center-block">
-					<center><caption><h4>Something</h4></caption></center></a>
-				</div>
-				<div class="col-lg-4 col-md-4">
-					<a href="ad_description.html"><img src="./images/i20.png" class="img-responsive center-block">
-					<center><caption><h4>Something</h4></caption></center></a>
-				</div>
-			</div>
-
+		<div class="col-lg-4 col-md-4" id="images">
+			<a href=""><img src="./images/phone.png" class="img-responsive img-rounded center-block">
+			<center><caption><h4>Phones</h4></caption></center></a>
 		</div>
-		<div class="col-lg-2 col-md-2">
-			
+		<div class="col-lg-4 col-md-4" id="images">
+			<a href=""><img src="./images/bike.png" class="img-responsive img-rounded center-block">
+			<center><caption><h4>Bikes</h4></caption></center></a>
 		</div>
 	</div>
+	<div class="row" id="categories">
+		<div class="col-lg-4 col-md-4" id="images">
+			<a href="index.html"><img src="./images/gaming.png" class="img-responsive img-rounded center-block">
+			<center><caption><h4>Gaming</h4></caption></center></a>
+		</div>
+		<div class="col-lg-4 col-md-4"  id="images">
+			<a href=""><img src="./images/appliances.png" class="img-responsive img-rounded center-block">
+			<center><caption><h4>Appliances</h4></caption></center></a>
+		</div>
+		<div class="col-lg-4 col-md-4" id="images">
+			<a href=""><img src="./images/furniture.png" class="img-responsive img-rounded center-block"><br>
+			<center><caption><h4>Furniture</h4></caption></center></a>
+		</div>
+	</div>
+	<div class="row" id="categories">
+		<div class="col-lg-4 col-md-4"  id="images">
+			<a href=""><img src="./images/clothing.png" class="img-responsive img-rounded center-block">
+			<center><caption><h4>Clothing</h4></caption></center></a>
+		</div>
+		<div class="col-lg-4 col-md-4" id="images">
+			<a href=""><img src="./images/computer_acc.png" class="img-responsive img-rounded center-block">
+			<center><caption><h4>Computer Accessories</h4></caption></center></a>
+		</div>
+		<div class="col-lg-4 col-md-4" id="images">
+			<a href=""><img src="./images/car.png" class="img-responsive img-rounded center-block">
+			<center><caption><h4>Cars</h4></caption></center></a>
+		</div>
+	</div>
+
 	<footer id="footer-Section">
 	  	<div class="footer-top-layout">
 	    	<div class="container">

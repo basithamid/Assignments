@@ -1,0 +1,32 @@
+body {
+	background-color: #c0c5ce;
+}
+#user_img {
+	margin: 40px;
+}
+
+#user_desc {
+	margin-top: 150px;
+	margin-left: -100px;
+}
+
+#user_details {
+	border-bottom:5px solid black;
+	margin: 50px;
+}
+#user_ads {
+	padding-top: 40px;
+	margin-bottom: 50px;
+	padding-bottom: 3em;
+	box-shadow: 2px 2px 2px 2px gray;
+	background-color:white;
+}
+
+#user_ads_outer{
+	box-shadow: 2px 2px 2px 2px gray;
+	margin-bottom: 20px;
+}
+
+.btn btn-warning{
+	background-color: 
+}
