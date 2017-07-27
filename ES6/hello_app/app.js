@@ -1,3 +1,5 @@
+//require('babel-polyfill');
+import "babel-polyfill";
 //document.write('Hello from ES6!!');
 //console.log('ES6 app loaded');
 
@@ -28,5 +30,12 @@
 //import {iterate} from './components/symbols.js';
 //iterate();
 
-import {assignment10} from './components/armstrong.js';
-assignment10();
+//import {assignment10} from './components/armstrong.js';
+//assignment10();
+
+//import {assignment11} from './components/generators.js';
+//assignment11();
+
+import {display_messages,display_users} from './components/set_map.js';
+display_messages('musicMsg')
+display_users('musicUsers')
