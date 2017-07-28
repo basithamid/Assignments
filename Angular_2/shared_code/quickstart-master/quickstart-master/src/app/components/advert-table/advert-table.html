@@ -1,0 +1,19 @@
+<input type="text" class="form-control" (keyup)="0" placeholder="Search" #searchAd>
+<button type="button" class="btn btn-primary" >Search</button>
+<br>
+ <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Category</th>
+            <th>Description</th>
+
+        </tr>
+        <tr *ngFor='let ad of postAdArray|search:searchAd.value' >
+            <td>{{ad.name}}</td>
+            <td>{{ad.qty}}</td>
+            <td>{{ad.category}}</td>
+            <td>{{ad.desc}}</td>
+            
+        </tr>
+    </table>

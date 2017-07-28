@@ -5,22 +5,33 @@
     <div class="form-group row">
         <div class="col-md-3">
             <label>Name</label>
-            <input type="text" name="name" class="form-control">
+            <input type="text" name="name" class="form-control" [value]='customerName' #nameRef>
         </div>
     </div>
     <div class="form-group row">
         <div class="col-md-3">
             <label>Quantity</label>
-            <input type="text" name="quantity" class="form-control">
+            <input type="text" name="quantity" class="form-control" #qtyRef>
         </div>
     </div>
     <div class="form-group row">
         <div class="col-md-3">
-            <label>Price</label>
-            <input type="text" name="price" class="form-control">
+            <label>Categories</label>
+            <select name="cars" class="form-control" #categoryRef>
+                <option *ngFor="let categories of categoriesArray">{{categories}}</option>
+                
+            </select>
         </div>
     </div>
-    <button type="button" class="btn btn-primary">ADD PRODUCT</button>
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label>Description</label>
+            <input type="textbox" name="description" class="form-control" #descriptionRef>
+        </div>
+    </div>
+    <button (click)='addProduct(nameRef.value,qtyRef.value,categoryRef.value,descriptionRef.value)'type="button" class="btn btn-primary">ADD PRODUCT</button>
 
 </div>
+   <br>
+
 </html>
