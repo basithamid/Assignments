@@ -1,0 +1,32 @@
+<div class="container-fluid">
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="col-md-4 col-lg-4" >
+        <div class="form-group row">
+            <label>Name</label>
+            <input type="text" formControlName="name" class="form-control">
+            <div *ngIf="productForm.controls['name'].hasError('required') && (productForm.controls.name.touched) " class="alert alert-danger">
+               Please enter name
+            </div>
+            <div *ngIf="productForm.controls['name'].hasError('minlength')" class="alert alert-danger"> 
+                Please enter atleast 3 characters
+            </div>
+            <div *ngIf="productForm.controls['name'].hasError('maxlength')" class="alert alert-danger">
+                Name cannot exceed 8 characters 
+            </div> 
+        </div>
+        <div class="form-group row"> 
+            <label>Quantity</label> 
+            <input type="number" formControlName="quantity" class="form-control"> 
+            <div *ngIf="productForm.controls['quantity'].hasError('required') && (productForm.controls.quantity.touched)" class="alert alert-danger">
+                Please enter number
+            </div>
+        </div>
+        <div class="form-group row"> 
+            <label>Price</label> 
+            <input type="text" formControlName="price" class="form-control"> 
+            <div *ngIf="productForm.controls['price'].hasError('required') && (productForm.controls.price.touched)" class="alert alert-danger">
+                Please enter number
+            </div>
+        </div> 
+        <button   type="submit" class="btn btn-primary">ADD PRODUCT</button> 
+    </form>
+</div>

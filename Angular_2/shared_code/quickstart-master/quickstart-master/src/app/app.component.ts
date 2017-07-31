@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
+import { AdvertisementService } from './services/AdvertisementService'
 
 @Component({
   selector: 'my-app',
-  template: `<advert-form (adArray)="pushAd($event)"></advert-form>
-             <advert-table [postAdArray] = "advertisements"></advert-table>`,
+  template: `<advert-form></advert-form>
+             <advert-table ></advert-table>`,
+  providers:[AdvertisementService]
 })
+
 export class AppComponent  { 
-  advertisements:Array<object>=[] ;
-  pushAd(ad:object){
-    this.advertisements.push(ad)
-    console.log(this.advertisements)
-  }
+
 }
 

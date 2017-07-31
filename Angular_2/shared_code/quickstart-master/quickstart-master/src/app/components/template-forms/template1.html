@@ -1,0 +1,24 @@
+<form #productForm="ngForm" (ngSubmit)="onSubmit(productForm.value)" class= "col-md-4 col-lg-4" novalidate>
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" name="name" required minlength="5" class="form-control" #nameRef #nameModelRef="ngModel" ngModel>
+        <div *ngIf="nameModelRef.errors && nameModelRef.touched" class="alert alert-danger">
+            <div [hidden]="!nameModelRef.errors.required">Please enter name</div>
+            <div [hidden]="!nameModelRef.errors.minlength">Name should be of minimum 5 characters</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Quantity</label>
+        <input type="text/number" name="quantity" required class="form-control" #quantityRef #quantityModelRef="ngModel" ngModel>
+        <div *ngIf="quantityModelRef.errors && quantityModelRef.touched" class="alert alert-danger">
+            <div [hidden]="!quantityModelRef.errors.required">Please enter quantity</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Categories</label>
+        <select name="cars" required class="form-control" #categoryRef>
+                <option *ngFor="let categories of categoriesArray">{{categories}}</option>
+        </select>
+    </div>
+    <button [disabled]="!productForm.form.valid"type="submit" class="btn btn-primary">ADD PRODUCT</button>
+</form>

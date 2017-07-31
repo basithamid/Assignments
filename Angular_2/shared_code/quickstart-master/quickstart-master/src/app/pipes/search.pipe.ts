@@ -3,7 +3,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({ name : 'search'})
 
 export class SearchPipe implements PipeTransform{
-    transform(value: Array<object>,searchTxt:string){
+    transform(value: any, ...args: any[]): any{
+        let searchTxt = args[0];
         let matchingAds=[];
         console.log(value)
         
