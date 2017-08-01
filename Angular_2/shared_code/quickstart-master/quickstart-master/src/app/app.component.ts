@@ -3,8 +3,7 @@ import { AdvertisementService } from './services/AdvertisementService'
 
 @Component({
   selector: 'my-app',
-  template: `<advert-form></advert-form>
-             <advert-table ></advert-table>`,
+  template: `<router-outlet></router-outlet>`,
   providers:[AdvertisementService]
 })
 

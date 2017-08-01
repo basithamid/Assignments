@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 export class AdvertisementService{
     adArray:Array<any> = [];
     setAdvertise(ad:any):void{
-        console.log(ad)
+        //console.log(ad)
         this.adArray.push(ad);
         //console.log(this.adArray)
     }
@@ -25,7 +25,20 @@ export class AdvertisementService{
 
     }
 
-    getAdvertise(){
-
+    getAdvertise(name:string):any{
+        for(let ad of this.adArray){
+            if(ad.name==name){
+                return ad;
+            }
+        }
+       
+        // this.adArray.forEach((f)=>
+        // {
+        //     if(f.name === name)
+        //     {
+        //         console.log(f,"service");
+        //         return f.name;
+        //     }
+        // })
     }
 }

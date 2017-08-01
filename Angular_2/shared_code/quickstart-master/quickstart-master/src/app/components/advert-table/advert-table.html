@@ -16,8 +16,32 @@
             <td>{{ad.qty}}</td>
             <td>{{ad.category}}</td>
             <td>{{ad.desc}}</td>
-            <td><button type="button" class="btn btn-primary">EDIT</button></td>
+            <td><button (click)="updateProduct(ad)" type="button" class="btn btn-primary">EDIT</button></td>
             <td><button (click)="deleteAd(ad)"type="button" class="btn btn-primary">DELETE</button></td>
             
         </tr>
+        
     </table>
+
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Edit</th>
+            <th>Delete</th>
+
+        </tr>
+        <tr *ngFor='let ad of postAdArray | search:searchAd.value'>
+            <td>{{ad.name}}</td>
+            <td>{{ad.qty}}</td>
+            <td>{{ad.category}}</td>
+            <td>{{ad.desc}}</td>
+            <td><button (click)="updateProduct(ad)" type="button" class="btn btn-primary">EDIT</button></td>
+            <td><button (click)="deleteAd(ad)"type="button" class="btn btn-primary">DELETE</button></td>
+            
+        </tr>
+        
+    </table>
+
