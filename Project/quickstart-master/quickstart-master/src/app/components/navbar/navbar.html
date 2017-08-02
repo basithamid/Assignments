@@ -1,0 +1,188 @@
+<header id="top">
+		<nav class="navbar navbar-inverse navbar-fixed-top" id="nav1">
+		  <div class="container-fluid" >
+		    <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>                        
+		    </button>
+		    <a class="navbar-brand" href="#">OLX</a>
+		    </div>
+		    <div class="collapse navbar-collapse" id="myNavbar">
+		    	<ul class="nav navbar-nav">
+			      	<li class="active"><a href="landing.html"><span class="glyphicon glyphicon-home"></span>HOME</a></li>
+			      	<li><a href="post_ad.html">POST AD</a></li>
+			      	<li class="dropdown">
+			         	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CATEGORIES<span class="caret"></span></a>
+			         	<ul class="dropdown-menu">
+			            
+						<li *ngFor="let category of categoryArray"><a href="#">{{category}}</a></li>
+			            
+			          </ul>
+			        </li>
+		    	</ul>
+			    <ul *ngIf="" class="nav navbar-nav navbar-right">
+			      	<li ><a href="" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span>LOGIN</a></li>
+	      			<li><a href="" data-toggle="modal" data-target="#signup"><span class="glyphicon glyphicon-user"></span>SIGN UP</a></li>
+	      			<li *ngIf="authToken != null">{{userName}}</li>
+			    </ul>
+				<ul class="nav navbar-nav navbar-right">
+			      	<li><a (click)="signout()"><span class="glyphicon glyphicon-log-out"></span>LOGOUT</a></li>
+			    </ul>
+
+		    </div>
+		    
+		  </div>
+		  <div class="row" id="search_box">
+        	<div class="col-md-12">
+            	<div class="input-group" id="adv-search">
+                	<input type="text" class="form-control" placeholder="Search for snippets" />
+                	<div class="input-group-btn">
+                    	<div class="btn-group" role="group">
+                        	<div class="dropdown dropdown-lg">
+                            	<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+                            	<div class="dropdown-menu dropdown-menu-right" role="menu">
+                                	<form class="form-horizontal" role="form">
+                                  		<div class="form-group">
+                                    		<label for="filter">Filter by</label>
+                                    		<select class="form-control">
+                                        		<option value="0" selected>All Snippets</option>
+                                        		<option value="1">Featured</option>
+                                        		<option value="2">Most popular</option>
+                                        		<option value="3">Top rated</option>
+                                        		<option value="4">Most commented</option>
+                                    		</select>
+                                  		</div>
+                                  		<div class="form-group">
+                                    		<label for="contain">Author</label>
+		                                    <input class="form-control" type="text" />
+        		                        </div>
+                                  		<div class="form-group">
+                                    		<label for="contain">Contains the words</label>
+                                    		<input class="form-control" type="text" />
+                                  		</div>
+                                  		<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                	</form>
+                            	</div>
+                        	</div>
+                        	<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                    	</div>
+                	</div>
+            	</div>
+          	</div>
+          </div>
+		</nav>
+
+	</header>
+<router-outlet></router-outlet>
+	<!-- Login modal -->
+    <div class="modal fade" id="login" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				    <h4 class="modal-title">Login</h4>
+				</div>
+				<form #loginForm #ngloginForm="ngForm" (ngSubmit)="serverLogin(ngloginForm.value)"  novalidate>
+					<div class="modal-body">
+						<div class="form-group">
+							<label>Username</label>
+							<input type="text" name="userName" required minlength="8" class="form-control" #loginUsernameRef #loginUsernameModelRef="ngModel" ngModel>
+							<div *ngIf="loginUsernameModelRef.errors && loginUsernameModelRef.touched" class="alert alert-danger">
+								<div [hidden]="!loginUsernameModelRef.errors.required">Please enter you username</div>
+								<div [hidden]="!loginUsernameModelRef.errors.minlength">Usernames have minimum length of 8 characters </div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>Password</label>
+							<input type="password" name="password" required class="form-control" #passwordRef #passwordModelRef="ngModel" ngModel>
+							<div *ngIf="passwordModelRef.errors && passwordModelRef.touched" class="alert alert-danger">
+								<div [hidden]="!passwordModelRef.errors.required">Please enter password</div>
+							</div>
+						</div>
+						
+		        </div>
+					<div class="modal-footer">
+						<button [disabled]="!ngloginForm.form.valid"  type="submit" class="btn btn-success" data-toggle="modal">Login</button>
+						<button  id="closeModal" type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+					</div>
+				</form>
+	      	</div>
+				      
+		</div>
+	</div>
+
+	<!-- Sign-up modal -->
+    <div class="modal fade" id="signup" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				    <h4 class="modal-title">Sign Up</h4>
+				</div>
+				<form #registrationForm #ngRegistrationForm="ngForm" (ngSubmit)="registration(ngRegistrationForm.value)" novalidate>
+					<div class="modal-body">
+						<div [hidden]='showError' id="userExists" class="alert alert-danger">
+							<h5>User Exists</h5>
+						</div>
+						<div [hidden]='showSuccess' id="userAdded" class="alert alert-success">
+							<h3>Registration Successful</h3>
+						</div>
+						<div class="form-group">
+							<label>First Name</label>
+							<input type="text" name="firstName" required class="form-control" #firstNameRef #firstNameModelRef="ngModel" ngModel>
+							<div *ngIf="firstNameModelRef.errors && firstNameModelRef.touched" class="alert alert-danger">
+								<div [hidden]="!firstNameModelRef.errors.required">Please enter your first name</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>Last Name</label>
+							<input type="text" name="lastName" required class="form-control" #lastNameRef #lastNameModelRef="ngModel" ngModel>
+							<div *ngIf="lastNameModelRef.errors && lastNameModelRef.touched" class="alert alert-danger">
+								<div [hidden]="!lastNameModelRef.errors.required">Please enter your last name</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>Username</label>
+							<input type="text" name="userName" required minlength="8" class="form-control" #usernameRef #usernameModelRef="ngModel" ngModel>
+							<div *ngIf="usernameModelRef.errors && usernameModelRef.touched" class="alert alert-danger">
+								<div [hidden]="!usernameModelRef.errors.required">Please enter username</div>
+								<div [hidden]="!usernameModelRef.errors.minlength">Username should be of minimum 8 characters</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>Password</label>
+							<input type="password" name="password" required minlength="8" class="form-control" #passwordRef #passwordModelRef="ngModel" ngModel>
+							<div *ngIf="passwordModelRef.errors && passwordModelRef.touched" class="alert alert-danger">
+								<div [hidden]="!passwordModelRef.errors.required">Please enter password</div>
+								<div [hidden]="!passwordModelRef.errors.minlength">Password should be of minimum 8 characters</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>Email</label>
+							<input type="email" name="email" required minlength="8" class="form-control" #emailRef #emailModelRef="ngModel" ngModel>
+							<div *ngIf="emailModelRef.errors && emailModelRef.touched" class="alert alert-danger">
+								<div [hidden]="!emailModelRef.errors.required">Please enter email ID</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>Phone</label>
+							<input type="phone" name="phone" required minlength="10" maxlength="10" class="form-control" #phoneRef #phoneModelRef="ngModel" ngModel>
+							<div *ngIf="phoneModelRef.errors && phoneModelRef.touched" class="alert alert-danger">
+								<div [hidden]="!phoneModelRef.errors.required">Please enter password</div>
+								<div [hidden]="!phoneModelRef.errors.minlength || !phoneModelRef.errors.maxlength">Phone number should be of 10 characters</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button [disabled]="!ngRegistrationForm.form.valid" type="submit" class="btn btn-success">Submit</button>
+						<button  type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+					</div>
+				</form>
+	      	</div>
+				      
+		</div>
+	</div>

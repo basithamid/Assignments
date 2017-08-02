@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)http://localhost:3004/user-ads -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Angular QuickStart</title>
+    <!--<base href="/">--><base href=".">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./Angular QuickStart_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./Angular QuickStart_files/styles.css">
+    <script src="./Angular QuickStart_files/jquery.min.js.download"></script>
+  	<script src="./Angular QuickStart_files/bootstrap.min.js.download"></script>
+    
+    <!-- jquery for angular-->
+    <script src="./Angular QuickStart_files/jquery.min.js.download"></script>
+    <!-- Polyfill(s) for older browsers -->
+    <script src="./Angular QuickStart_files/shim.min.js.download"></script>
+
+    <script src="./Angular QuickStart_files/zone.js.download"></script>
+    <script src="./Angular QuickStart_files/system.src.js.download"></script>
+
+    <script src="./Angular QuickStart_files/systemjs.config.js.download"></script>
+    <script>
+      System.import('main.js').catch(function(err){ console.error(err); });
+    </script>
+  <style>input.ng-invalid[_ngcontent-c0] {border-bottom: 3px solid red}   input.ng-valid[_ngcontent-c0] {border-bottom: 3px solid green}</style><style>body[_ngcontent-c0] {
+	background-color: white;
+	padding-top: 50px;
+}
+
+
+
+.glyphicon[_ngcontent-c0] {
+	padding-right: 5px;
+}
+
+#vertical_navbar[_ngcontent-c0]{
+	background-color:#0c182d;
+	margin-top: 45px;
+}
+.navbar[_ngcontent-c0]   .navbar-default[_ngcontent-c0] {
+	background-color: white;
+}
+
+
+.form-horizontal[_ngcontent-c0] {
+	border:1px solid gray;
+	margin-top: 50px;
+}
+
+#description[_ngcontent-c0] {
+	height:100px;
+}
+
+#ads[_ngcontent-c0]{
+	padding:30px;
+	margin-top: 40px;
+}
+
+h4[_ngcontent-c0] {
+	color: black;
+	padding-top: 10px;
+}
+a[_ngcontent-c0]:hover {
+	color: black;
+	text-decoration: none;
+}
+
+footer[_ngcontent-c0] {
+	background-color: #222b3a;
+}
+
+#form[_ngcontent-c0] {
+	margin-top: 90px;
+	margin-bottom: 20px;
+	box-shadow: 2px 2px 2px 2px gray;
+}
+
+.modal-header[_ngcontent-c0]{
+    background-color: #42a4f4;
+}</style><style>body[_ngcontent-c0] {
+    padding-top: 50px;
+}
+.dropdown.dropdown-lg[_ngcontent-c0]   .dropdown-menu[_ngcontent-c0] {
+    margin-top: -1px;
+    padding: 6px 20px;
+}
+.input-group-btn[_ngcontent-c0]   .btn-group[_ngcontent-c0] {
+    display: flex !important;
+}
+.btn-group[_ngcontent-c0]   .btn[_ngcontent-c0] {
+    border-radius: 0;
+    margin-left: -1px;
+}
+.btn-group[_ngcontent-c0]   .btn[_ngcontent-c0]:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.btn-group[_ngcontent-c0]   .form-horizontal[_ngcontent-c0]   .btn[type="submit"][_ngcontent-c0] {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.form-horizontal[_ngcontent-c0]   .form-group[_ngcontent-c0] {
+    margin-left: 0;
+    margin-right: 0;
+}
+.form-group[_ngcontent-c0]   .form-control[_ngcontent-c0]:last-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+@media screen and (min-width: 768px) {
+    #adv-search[_ngcontent-c0] {
+        width: 500px;
+        margin: 0 auto;
+    }
+    .dropdown.dropdown-lg[_ngcontent-c0] {
+        position: static !important;
+    }
+    .dropdown.dropdown-lg[_ngcontent-c0]   .dropdown-menu[_ngcontent-c0] {
+        min-width: 500px;
+    }
+}
+
+#search_box[_ngcontent-c0] {
+    background-color: #b76409;
+    padding: 7px;
+    position: relative;
+}</style><style>.footer-top-layout[_ngcontent-c1] {
+  background: #1c1c1c none repeat scroll 0 0;
+  color: #ffffff;
+  padding: 40px 0;
+}
+.footer-top-layout[_ngcontent-c1]   h4[_ngcontent-c1] {
+  color: #ffffff;
+  font-size: 18px;
+  margin-bottom: 21px;
+}
+
+.post-blog-date[_ngcontent-c1]::after {
+  background: #ffffff none repeat scroll 0 0;
+  bottom: 0;
+  content: "";
+  height: 4px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  width: 50px;
+}
+.post-blog-date[_ngcontent-c1] {
+  padding-bottom: 25px;
+  position: relative;
+}
+
+body[_ngcontent-c1] {
+  color: #666666;
+  font-family: "Open Sans",sans-serif;
+  line-height: 24px;
+}
+
+.footer-top-layout[_ngcontent-c1]   [class*="col-sm-"][_ngcontent-c1]:first-child {
+  padding: 0;
+  
+}
+.footer-top-layout[_ngcontent-c1]   [class*="col-sm-"][_ngcontent-c1] {
+  border-right: 2px solid #333333;
+  padding: 0 0 0 28px;
+  margin-top:10px;
+  
+}
+footer[_ngcontent-c1]{
+    margin-top:100px;
+}
+.footer-top-layout[_ngcontent-c1] {
+  color: #ffffff;
+}
+.footer-col-item[_ngcontent-c1] {
+  min-height: 140px;
+}
+
+address[_ngcontent-c1] {
+  color: #545454;
+}
+
+
+.footer-top-layout[_ngcontent-c1]   [class*="col-sm-"][_ngcontent-c1]:last-child {
+  border-right: medium none;
+} 
+.footer-top-layout[_ngcontent-c1] {
+  color: #ffffff;
+}
+body[_ngcontent-c1] {
+  color: #666666;
+  font-family: "Open Sans",sans-serif;
+
+}
+.footer-top-layout[_ngcontent-c1]   h4[_ngcontent-c1] {
+  color: #ffffff;
+  font-size: 18px;
+  margin-bottom: 21px;
+}
+.h1[_ngcontent-c1], .h2[_ngcontent-c1], .h3[_ngcontent-c1], .h4[_ngcontent-c1], .h5[_ngcontent-c1], .h6[_ngcontent-c1], h1[_ngcontent-c1], h2[_ngcontent-c1], h3[_ngcontent-c1], h4[_ngcontent-c1], h5[_ngcontent-c1], h6[_ngcontent-c1] {
+  color: #333333;
+  font-family: "Roboto",sans-serif;
+  font-weight: 500;
+  line-height: 1.1;
+  margin-top: 0;
+}
+body[_ngcontent-c1] {
+  color: #666666;
+  font-family: "Open Sans",sans-serif;
+  line-height: 24px;
+}
+.footer-col-item[_ngcontent-c1]   .item-contact[_ngcontent-c1]   a[_ngcontent-c1] {
+  color: #545454;
+  display: inline-block;
+  margin-bottom: 7px;
+  width: 100%;
+}
+
+.footer-col-item[_ngcontent-c1]   .item-contact[_ngcontent-c1]   a[_ngcontent-c1]   .link-id[_ngcontent-c1] {
+  color: #ffffff;
+  margin-left: 0;
+  margin-right: 6px;
+}
+.footer-col-item[_ngcontent-c1]   span[_ngcontent-c1] {
+  margin-left: 7px;
+}
+.footer-col-item[_ngcontent-c1]   .item-contact[_ngcontent-c1]   a[_ngcontent-c1] {
+  color: #545454;
+}
+
+.footer-top-layout[_ngcontent-c1]   h4[_ngcontent-c1] {
+  color: #ffffff;
+  font-size: 18px;
+  margin-bottom: 21px;
+}
+.signUpNewsletter[_ngcontent-c1] {
+  position: relative;
+}
+.signUpNewsletter[_ngcontent-c1]   .gt-email[_ngcontent-c1] {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: 1px solid #666666;
+  border-radius: 0;
+  color: #ffffff;
+  height: 52px;
+}
+.signUpNewsletter[_ngcontent-c1]   .btn-go[_ngcontent-c1] {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border-color: #666666;
+  border-style: solid;
+  border-width: 0 0 0 1px;
+  bottom: 0;
+  color: #ffffff;
+  font-size: 16px;
+  position: absolute;
+  right: 0;
+  text-transform: uppercase;
+  top: 0;
+  width: 52px;
+}
+
+.footer-bottom-layout[_ngcontent-c1] {
+  background: #222222 none repeat scroll 0 0;
+  padding: 20px 0;
+  text-align: center;
+}
+body[_ngcontent-c1] {
+  color: #666666;
+  font-family: "Open Sans",sans-serif;
+  line-height: 24px;
+}
+.socialMedia-footer[_ngcontent-c1] {
+  margin-bottom: 20px;
+}
+.socialMedia-footer[_ngcontent-c1]    > a[_ngcontent-c1] {
+  display: inline-block;
+  margin: 0 8px;
+}
+.footer-bottom-layout[_ngcontent-c1] {
+  text-align: center;
+}</style><style>body[_ngcontent-c2] {
+	background-color: #c0c5ce;
+}
+#user_img[_ngcontent-c2] {
+	margin: 40px;
+}
+
+#user_desc[_ngcontent-c2] {
+	margin-top: 150px;
+	margin-left: -100px;
+}
+
+#user_details[_ngcontent-c2] {
+	border-bottom:5px solid black;
+	margin: 100px;
+}
+#user_ads[_ngcontent-c2] {
+	padding-top: 40px;
+	margin-bottom: 50px;
+	padding-bottom: 3em;
+	box-shadow: 2px 2px 2px 2px gray;
+	background-color:white;
+}
+
+#user_ads_outer[_ngcontent-c2]{
+	box-shadow: 2px 2px 2px 2px gray;
+	margin-bottom: 20px;
+}</style></head>
+
+  <body><script id="__bs_script__">//<![CDATA[
+    document.write("<script async src='/browser-sync/browser-sync-client.js?v=2.18.13'><\/script>".replace("HOST", location.hostname));
+//]]></script><script async="" src="./Angular QuickStart_files/browser-sync-client.js.download"></script>
+
+    <my-app ng-version="4.0.3"><nav-bar _nghost-c0=""><header _ngcontent-c0="" id="top">
+		<nav _ngcontent-c0="" class="navbar navbar-inverse navbar-fixed-top" id="nav1">
+		  <div _ngcontent-c0="" class="container-fluid">
+		    <div _ngcontent-c0="" class="navbar-header">
+		    <button _ngcontent-c0="" class="navbar-toggle" data-target="#myNavbar" data-toggle="collapse" type="button">
+		        <span _ngcontent-c0="" class="icon-bar"></span>
+		        <span _ngcontent-c0="" class="icon-bar"></span>
+		        <span _ngcontent-c0="" class="icon-bar"></span>                        
+		    </button>
+		    <a _ngcontent-c0="" class="navbar-brand" href="http://localhost:3004/#">OLX</a>
+		    </div>
+		    <div _ngcontent-c0="" class="collapse navbar-collapse" id="myNavbar">
+		    	<ul _ngcontent-c0="" class="nav navbar-nav">
+			      	<li _ngcontent-c0="" class="active"><a _ngcontent-c0="" href="http://localhost:3004/landing.html"><span _ngcontent-c0="" class="glyphicon glyphicon-home"></span>HOME</a></li>
+			      	<li _ngcontent-c0=""><a _ngcontent-c0="" href="http://localhost:3004/post_ad.html">POST AD</a></li>
+			      	<li _ngcontent-c0="" class="dropdown">
+			         	<a _ngcontent-c0="" aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="http://localhost:3004/#" role="button">CATEGORIES<span _ngcontent-c0="" class="caret"></span></a>
+			         	<ul _ngcontent-c0="" class="dropdown-menu">
+			            
+						<!--bindings={
+  "ng-reflect-ng-for-of": ""
+}--><li _ngcontent-c0=""><a _ngcontent-c0="" href="http://localhost:3004/#">Cloths</a></li><li _ngcontent-c0=""><a _ngcontent-c0="" href="http://localhost:3004/#">Furniture</a></li><li _ngcontent-c0=""><a _ngcontent-c0="" href="http://localhost:3004/#">Mobile</a></li><li _ngcontent-c0=""><a _ngcontent-c0="" href="http://localhost:3004/#">Real Estate</a></li>
+			            
+			          </ul>
+			        </li>
+		    	</ul>
+			    <ul _ngcontent-c0="" class="nav navbar-nav navbar-right">
+			      	<li _ngcontent-c0=""><a _ngcontent-c0="" data-target="#login" data-toggle="modal" href="http://localhost:3004/"><span _ngcontent-c0="" class="glyphicon glyphicon-log-in"></span>LOGIN</a></li>
+	      			<li _ngcontent-c0=""><a _ngcontent-c0="" data-target="#signup" data-toggle="modal" href="http://localhost:3004/"><span _ngcontent-c0="" class="glyphicon glyphicon-user"></span>SIGN UP</a></li>
+	      			<!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><li _ngcontent-c0=""></li>
+			    </ul>
+
+		    </div>
+		    
+		  </div>
+		  <div _ngcontent-c0="" class="row" id="search_box">
+        	<div _ngcontent-c0="" class="col-md-12">
+            	<div _ngcontent-c0="" class="input-group" id="adv-search">
+                	<input _ngcontent-c0="" class="form-control" placeholder="Search for snippets" type="text">
+                	<div _ngcontent-c0="" class="input-group-btn">
+                    	<div _ngcontent-c0="" class="btn-group" role="group">
+                        	<div _ngcontent-c0="" class="dropdown dropdown-lg">
+                            	<button _ngcontent-c0="" aria-expanded="false" class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button"><span _ngcontent-c0="" class="caret"></span></button>
+                            	<div _ngcontent-c0="" class="dropdown-menu dropdown-menu-right" role="menu">
+                                	<form _ngcontent-c0="" class="form-horizontal ng-untouched ng-pristine ng-valid" novalidate="" role="form">
+                                  		<div _ngcontent-c0="" class="form-group">
+                                    		<label _ngcontent-c0="" for="filter">Filter by</label>
+                                    		<select _ngcontent-c0="" class="form-control">
+                                        		<option _ngcontent-c0="" selected="" value="0" ng-reflect-value="0">All Snippets</option>
+                                        		<option _ngcontent-c0="" value="1" ng-reflect-value="1">Featured</option>
+                                        		<option _ngcontent-c0="" value="2" ng-reflect-value="2">Most popular</option>
+                                        		<option _ngcontent-c0="" value="3" ng-reflect-value="3">Top rated</option>
+                                        		<option _ngcontent-c0="" value="4" ng-reflect-value="4">Most commented</option>
+                                    		</select>
+                                  		</div>
+                                  		<div _ngcontent-c0="" class="form-group">
+                                    		<label _ngcontent-c0="" for="contain">Author</label>
+		                                    <input _ngcontent-c0="" class="form-control" type="text">
+        		                        </div>
+                                  		<div _ngcontent-c0="" class="form-group">
+                                    		<label _ngcontent-c0="" for="contain">Contains the words</label>
+                                    		<input _ngcontent-c0="" class="form-control" type="text">
+                                  		</div>
+                                  		<button _ngcontent-c0="" class="btn btn-primary" type="submit"><span _ngcontent-c0="" aria-hidden="true" class="glyphicon glyphicon-search"></span></button>
+                                	</form>
+                            	</div>
+                        	</div>
+                        	<button _ngcontent-c0="" class="btn btn-primary" type="button"><span _ngcontent-c0="" aria-hidden="true" class="glyphicon glyphicon-search"></span></button>
+                    	</div>
+                	</div>
+            	</div>
+          	</div>
+          </div>
+		</nav>
+
+	</header>
+<router-outlet _ngcontent-c0=""></router-outlet><user-ads _nghost-c2="" ng-version="4.0.3"><div _ngcontent-c2="" class="container-fluid">
+		<div _ngcontent-c2="" class="row" id="user_details">
+			<div _ngcontent-c2="" class="col-lg-4 col-md-4 col-sm-12">
+				<img _ngcontent-c2="" class="img-responsive img-circle center-block" id="user_img" src="./Angular QuickStart_files/fff">
+			</div>
+			<div _ngcontent-c2="" class="col-sm-4 col-md-4 col-lg-4" id="user_desc">
+				<h3 _ngcontent-c2=""></h3>
+				<h5 _ngcontent-c2="">Age:</h5>
+				<h5 _ngcontent-c2="">City:</h5>
+				<h5 _ngcontent-c2="">State:</h5>
+				<h5 _ngcontent-c2="">Description:</h5>
+			</div>
+		</div>
+		<br _ngcontent-c2="">
+		<div _ngcontent-c2="" class="row">
+			<div _ngcontent-c2="" class="col-md-2 col-lg-2">			
+			</div>
+			<div _ngcontent-c2="" class="col-lg-8 col-md-8" id="user_ads_outer">
+				<h2 _ngcontent-c2="">Ads by You</h2>
+				<div _ngcontent-c2="" class="row" id="user_ads">
+					<div _ngcontent-c2="" class="col-md-3 col-lg-3">
+						<img _ngcontent-c2="" class="img-responsive img-rounded" src="./Angular QuickStart_files/fff(1)">
+					</div>
+					<div _ngcontent-c2="" class="col-lg-6 col-md-6">
+						<h3 _ngcontent-c2="">Title</h3>
+						<p _ngcontent-c2="">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos .</p>
+						<button _ngcontent-c2="" class="btn btn-default" data-target="#edit_modal" data-toggle="modal" type="button">Edit</button>
+						<button _ngcontent-c2="" class="btn btn-default" type="button">Delete</button>
+					</div>
+					<div _ngcontent-c2="" class="col-lg-3 col-md-3">
+						<h3 _ngcontent-c2="">Price</h3>
+					</div>
+				</div>
+				<div _ngcontent-c2="" class="row" id="user_ads">
+					<div _ngcontent-c2="" class="col-md-3 col-lg-3 ">
+						<img _ngcontent-c2="" class="img-responsive img-rounded" src="./Angular QuickStart_files/fff(1)">
+					</div>
+					<div _ngcontent-c2="" class="col-lg-6 col-md-6">
+						<h3 _ngcontent-c2="">Title</h3>
+						<p _ngcontent-c2="">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos .</p>
+						<button _ngcontent-c2="" class="btn btn-default" data-target="#edit_modal" data-toggle="modal" type="button">Edit</button>
+						<button _ngcontent-c2="" class="btn btn-default" type="button">Delete</button>
+					</div>
+					<div _ngcontent-c2="" class="col-lg-3 col-md-3">
+						<h3 _ngcontent-c2="">Price</h3>
+					</div>
+				</div>
+				<div _ngcontent-c2="" class="row" id="user_ads">
+					<div _ngcontent-c2="" class="col-md-3 col-lg-3">
+						<img _ngcontent-c2="" class="img-responsive img-rounded" src="./Angular QuickStart_files/fff(1)">
+					</div>
+					<div _ngcontent-c2="" class="col-lg-6 col-md-6">
+						<h3 _ngcontent-c2="">Title</h3>
+						<p _ngcontent-c2="">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos .</p>
+						<button _ngcontent-c2="" class="btn btn-default" data-target="#edit_modal" data-toggle="modal" type="button">Edit</button>
+						<button _ngcontent-c2="" class="btn btn-default" type="button">Delete</button>
+					</div>
+					<div _ngcontent-c2="" class="col-lg-3 col-md-3">
+						<h3 _ngcontent-c2="">Price</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div></user-ads>
+	
+    <div _ngcontent-c0="" class="modal fade" id="login" role="dialog">
+		<div _ngcontent-c0="" class="modal-dialog">
+			
+			<div _ngcontent-c0="" class="modal-content">
+				<div _ngcontent-c0="" class="modal-header">
+					<button _ngcontent-c0="" class="close" data-dismiss="modal" type="button">×</button>
+				    <h4 _ngcontent-c0="" class="modal-title">Login</h4>
+				</div>
+				<form _ngcontent-c0="" novalidate="" class="ng-untouched ng-pristine ng-invalid">
+					<div _ngcontent-c0="" class="modal-body">
+						<div _ngcontent-c0="" class="form-group">
+							<label _ngcontent-c0="">Username</label>
+							<input _ngcontent-c0="" class="form-control ng-untouched ng-pristine ng-invalid" minlength="8" name="userName" ngmodel="" required="" type="text" ng-reflect-required="" ng-reflect-minlength="8" ng-reflect-name="userName" ng-reflect-model="">
+							<!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+						</div>
+						<div _ngcontent-c0="" class="form-group">
+							<label _ngcontent-c0="">Password</label>
+							<input _ngcontent-c0="" class="form-control ng-untouched ng-pristine ng-invalid" name="password" ngmodel="" required="" type="password" ng-reflect-required="" ng-reflect-name="password" ng-reflect-model="">
+							<!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+						</div>
+						
+		        </div>
+					<div _ngcontent-c0="" class="modal-footer">
+						<button _ngcontent-c0="" class="btn btn-success" data-toggle="modal" type="submit" disabled="">Login</button>
+						<button _ngcontent-c0="" class="btn btn-primary" data-dismiss="modal" id="closeModal" type="button">Cancel</button>
+					</div>
+				</form>
+	      	</div>
+				      
+		</div>
+	</div>
+
+	
+    <div _ngcontent-c0="" class="modal fade" id="signup" role="dialog">
+		<div _ngcontent-c0="" class="modal-dialog">
+			
+			<div _ngcontent-c0="" class="modal-content">
+				<div _ngcontent-c0="" class="modal-header">
+					<button _ngcontent-c0="" class="close" data-dismiss="modal" type="button">×</button>
+				    <h4 _ngcontent-c0="" class="modal-title">Sign Up</h4>
+				</div>
+				<form _ngcontent-c0="" novalidate="" class="ng-untouched ng-pristine ng-invalid">
+					<div _ngcontent-c0="" class="modal-body">
+						<div _ngcontent-c0="" class="alert alert-danger" id="userExists" hidden="">
+							<h5 _ngcontent-c0="">User Exists</h5>
+						</div>
+						<div _ngcontent-c0="" class="alert alert-success" id="userAdded" hidden="">
+							<h3 _ngcontent-c0="">Registration Successful</h3>
+						</div>
+						<div _ngcontent-c0="" class="form-group">
+							<label _ngcontent-c0="">First Name</label>
+							<input _ngcontent-c0="" class="form-control ng-untouched ng-pristine ng-invalid" name="firstName" ngmodel="" required="" type="text" ng-reflect-required="" ng-reflect-name="firstName" ng-reflect-model="">
+							<!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+						</div>
+						<div _ngcontent-c0="" class="form-group">
+							<label _ngcontent-c0="">Last Name</label>
+							<input _ngcontent-c0="" class="form-control ng-untouched ng-pristine ng-invalid" name="lastName" ngmodel="" required="" type="text" ng-reflect-required="" ng-reflect-name="lastName" ng-reflect-model="">
+							<!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+						</div>
+						<div _ngcontent-c0="" class="form-group">
+							<label _ngcontent-c0="">Username</label>
+							<input _ngcontent-c0="" class="form-control ng-untouched ng-pristine ng-invalid" minlength="8" name="userName" ngmodel="" required="" type="text" ng-reflect-required="" ng-reflect-minlength="8" ng-reflect-name="userName" ng-reflect-model="">
+							<!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+						</div>
+						<div _ngcontent-c0="" class="form-group">
+							<label _ngcontent-c0="">Password</label>
+							<input _ngcontent-c0="" class="form-control ng-untouched ng-pristine ng-invalid" minlength="8" name="password" ngmodel="" required="" type="password" ng-reflect-required="" ng-reflect-minlength="8" ng-reflect-name="password" ng-reflect-model="">
+							<!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+						</div>
+						<div _ngcontent-c0="" class="form-group">
+							<label _ngcontent-c0="">Email</label>
+							<input _ngcontent-c0="" class="form-control ng-untouched ng-pristine ng-invalid" minlength="8" name="email" ngmodel="" required="" type="email" ng-reflect-required="" ng-reflect-minlength="8" ng-reflect-name="email" ng-reflect-model="">
+							<!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+						</div>
+						<div _ngcontent-c0="" class="form-group">
+							<label _ngcontent-c0="">Phone</label>
+							<input _ngcontent-c0="" class="form-control ng-untouched ng-pristine ng-invalid" maxlength="10" minlength="10" name="phone" ngmodel="" required="" type="phone" ng-reflect-required="" ng-reflect-minlength="10" ng-reflect-maxlength="10" ng-reflect-name="phone" ng-reflect-model="">
+							<!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+						</div>
+					</div>
+					<div _ngcontent-c0="" class="modal-footer">
+						<button _ngcontent-c0="" class="btn btn-success" type="submit" disabled="">Submit</button>
+						<button _ngcontent-c0="" class="btn btn-danger" data-dismiss="modal" type="button">Cancel</button>
+					</div>
+				</form>
+	      	</div>
+				      
+		</div>
+	</div></nav-bar>
+            <router-outlet></router-outlet>
+            <myfooter _nghost-c1=""><footer _ngcontent-c1="" id="footer-Section">
+	  	<div _ngcontent-c1="" class="footer-top-layout">
+	    	<div _ngcontent-c1="" class="container">
+	     		<div _ngcontent-c1="" class="row">
+	        		
+	        		<div _ngcontent-c1="" class=" col-lg-8 col-lg-offset-2">
+	          			<div _ngcontent-c1="" class="col-sm-4">
+	            			<div _ngcontent-c1="" class="footer-col-item">
+	              				<h4 _ngcontent-c1="">Go Travel Cloud</h4>
+	              				<address _ngcontent-c1="">
+				              	501,507 your company address<br _ngcontent-c1="">
+				              	400015 Maharashtra, UK
+			              		</address>
+	            			</div>
+	          			</div>
+	          			<div _ngcontent-c1="" class="col-sm-4">
+	            			<div _ngcontent-c1="" class="footer-col-item">
+	              				<h4 _ngcontent-c1="">Reach Us</h4>
+	              				<div _ngcontent-c1="" class="item-contact"> <a _ngcontent-c1="" href="tel:630-885-9200"><span _ngcontent-c1="" class="link-id">P</span>:<span _ngcontent-c1="">630-885-9200</span></a> <a _ngcontent-c1="" href="tel:630-839.2006"><span _ngcontent-c1="" class="link-id">F</span>:<span _ngcontent-c1="">630-839.2006</span></a> <a _ngcontent-c1="" href="mailto:info@brandcatmedia.com"><span _ngcontent-c1="" class="link-id">E</span>:<span _ngcontent-c1="">info@brandcatmedia.com</span></a> </div>
+	            			</div>
+	          			</div>
+	          			<div _ngcontent-c1="" class="col-sm-4">
+	            			<div _ngcontent-c1="" class="footer-col-item">
+	             				<h4 _ngcontent-c1="">Sign up for Newsletter</h4>
+	              				<form _ngcontent-c1="" action="http://localhost:3004/" class="signUpNewsletter ng-untouched ng-pristine ng-valid" method="get" novalidate="">
+	                				<input _ngcontent-c1="" class="gt-email form-control" name="" placeholder="You@youremail.com" type="text">
+	                				<input _ngcontent-c1="" class="btn-go" name="" type="button" value="Go">
+	              				</form>
+	              				
+	            			</div>
+	          			</div>
+	        		</div>
+	      		</div>
+	    	</div>
+	 	</div>
+	 	
+	</footer></myfooter></my-app>
+  
+
+</body></html>

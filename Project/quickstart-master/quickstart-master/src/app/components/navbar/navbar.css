@@ -1,0 +1,58 @@
+body {
+	background-color: white;
+	padding-top: 50px;
+}
+
+
+
+.glyphicon {
+	padding-right: 5px;
+}
+
+#vertical_navbar{
+	background-color:#0c182d;
+	margin-top: 45px;
+}
+.navbar .navbar-default {
+	background-color: white;
+}
+
+
+.form-horizontal {
+	border:1px solid gray;
+	margin-top: 50px;
+}
+
+#description {
+	height:100px;
+}
+
+#ads{
+	padding:30px;
+	margin-top: 40px;
+}
+
+h4 {
+	color: black;
+	padding-top: 10px;
+}
+a:hover {
+	color: black;
+	text-decoration: none;
+}
+
+footer {
+	background-color: #222b3a;
+}
+
+#form {
+	margin-top: 90px;
+	margin-bottom: 20px;
+	box-shadow: 2px 2px 2px 2px gray;
+}
+
+.modal-header{
+    background-color: #42a4f4;
+}
+
+
