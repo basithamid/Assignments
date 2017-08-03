@@ -13,10 +13,12 @@ import { UserService } from '../../services/user.Service'
 export class NavbarComponent{
     public showSuccess:boolean=true;
     public showError:boolean=true;
+    public showErrorCredentials:boolean=true;
+    adsByCategory:Array<any>;
     categoryArray:Array<any> = [];
     userName:string=''
     authToken:any=''
-    loggedIn:boolean=false;
+    isLoggedIn:boolean=false;
     constructor(private adService:AdvertisementService,private router:Router, private userService: UserService){
         adService.getCategories().subscribe((data)=>{
             for(let item of data.data.itemList){
@@ -33,15 +35,18 @@ export class NavbarComponent{
             if(res.data['auth-token']!=null){
                 this.userName=res.data.userId;
                 this.authToken=res.data['auth-token']
-                this.loggedIn=true;
+                this.isLoggedIn=true;
                 alert('Login Successful')
                 console.log("Login Successful")
                 sessionStorage.setItem('authenticationToken',this.authToken);
                 sessionStorage.setItem('userId',this.userName)
-
+                document.getElementById('closeModal').click();
+                this.router.navigate(['user-ads'])
             }
-            document.getElementById('closeModal').click();
-            this.router.navigate(['user-ads'])
+            else{
+                this.showErrorCredentials=false;
+            }
+            
         })
     }
 
@@ -55,7 +60,6 @@ export class NavbarComponent{
             (error:any)=>{
                 this.showError=false;
                 this.showSuccess=true;
-
             }
 
         )
@@ -63,10 +67,22 @@ export class NavbarComponent{
 
     signout(){
         this.userService.logoutService().subscribe(
-            (response)=>{       console.log('hihihi')
-
-            }
+            (response)=>{      
+                this.isLoggedIn=false;
+                sessionStorage.removeItem('authenticationToken')
+                sessionStorage.removeItem('userId')
+                this.router.navigate([''])
+                }
         )
+        
+    }
+
+    postAd(){
+        this.router.navigate(['/postAD']);
+    }
+
+    searchByCategory(category:string){
+        this.router.navigate(['/adsByCategory',category])
     }
     
 

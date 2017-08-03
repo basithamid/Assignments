@@ -17,48 +17,23 @@
 			</div>
 			<div class="col-lg-8 col-md-8" id="user_ads_outer">
 				<h2>Ads by You</h2>
-				<div class="row" id="user_ads">
+				<div *ngFor="let ad of myAds" class="row" id="user_ads">
 					<div class="col-md-3 col-lg-3">
-						<img src="https://dummyimage.com/200x200/b5aeb5/fff" class="img-responsive img-rounded">
+						<img src="https://dummyimage.com/300x250/000/fff" class="img-responsive img-rounded">
 					</div>
 					<div class="col-lg-6 col-md-6">
-						<h3>Title</h3>
-						<p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos .</p>
-						<button type="button" class="btn btn-default"  data-toggle="modal" data-target="#edit_modal">Edit</button>
-						<button type="button" class="btn btn-default" >Delete</button>
+						<h3>{{ad.title}}</h3><h4>{{ad.category}}</h4>
+						<p>{{ad.description}} .</p>
+							
+						
+						
 					</div>
 					<div class="col-lg-3 col-md-3">
-						<h3>Price</h3>
-					</div>
+						<button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span>{{updateAction}}</button>
+						<button (click)="deleteAd(ad.id)" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span>{{deleteAction}}</button>
+						</div>
 				</div>
-				<div class="row" id="user_ads" >
-					<div class="col-md-3 col-lg-3 " >
-						<img src="https://dummyimage.com/200x200/b5aeb5/fff" class="img-responsive img-rounded">
-					</div>
-					<div class="col-lg-6 col-md-6">
-						<h3>Title</h3>
-						<p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos .</p>
-						<button type="button" class="btn btn-default"  data-toggle="modal" data-target="#edit_modal">Edit</button>
-						<button type="button" class="btn btn-default" >Delete</button>
-					</div>
-					<div class="col-lg-3 col-md-3">
-						<h3>Price</h3>
-					</div>
-				</div>
-				<div class="row" id="user_ads">
-					<div class="col-md-3 col-lg-3">
-						<img src="https://dummyimage.com/200x200/b5aeb5/fff" class="img-responsive img-rounded">
-					</div>
-					<div class="col-lg-6 col-md-6">
-						<h3>Title</h3>
-						<p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos .</p>
-						<button type="button" class="btn btn-default"  data-toggle="modal" data-target="#edit_modal">Edit</button>
-						<button type="button" class="btn btn-default" >Delete</button>
-					</div>
-					<div class="col-lg-3 col-md-3">
-						<h3>Price</h3>
-					</div>
-				</div>
+				
 			</div>
 		</div>
 

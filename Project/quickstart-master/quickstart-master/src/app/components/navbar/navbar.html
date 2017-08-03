@@ -7,71 +7,28 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>                        
 		    </button>
-		    <a class="navbar-brand" href="#">OLX</a>
+		    <a class="navbar-brand" routerLink="" routerLinkActive="active" >OLX</a>
 		    </div>
 		    <div class="collapse navbar-collapse" id="myNavbar">
 		    	<ul class="nav navbar-nav">
-			      	<li class="active"><a href="landing.html"><span class="glyphicon glyphicon-home"></span>HOME</a></li>
-			      	<li><a href="post_ad.html">POST AD</a></li>
-			      	<li class="dropdown">
+			      	<li class="active"><a routerLink="" routerLinkActive="active"  ><span class="glyphicon glyphicon-home"></span>HOME</a></li>
+			      	<li *ngIf="isLoggedIn"><a role="button" (click)="postAd()">POST AD</a></li>
+			      	<li *ngIf="isLoggedIn"><a routerLink="user-ads" routerLinkActive="active" >YOUR PROFILE</a></li>
+					  <li class="dropdown">
 			         	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CATEGORIES<span class="caret"></span></a>
 			         	<ul class="dropdown-menu">
-			            
-						<li *ngFor="let category of categoryArray"><a href="#">{{category}}</a></li>
-			            
-			          </ul>
+							<li (click)="searchByCategory(category)" *ngFor="let category of categoryArray"><a>{{category}}</a></li>
+			            </ul>
 			        </li>
 		    	</ul>
-			    <ul *ngIf="" class="nav navbar-nav navbar-right">
-			      	<li ><a href="" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span>LOGIN</a></li>
-	      			<li><a href="" data-toggle="modal" data-target="#signup"><span class="glyphicon glyphicon-user"></span>SIGN UP</a></li>
-	      			<li *ngIf="authToken != null">{{userName}}</li>
+			    <ul class="nav navbar-nav navbar-right">
+			      	<li *ngIf="!isLoggedIn"><a href="" data-toggle="modal" data-target="#login"><span class="glyphicon glyphicon-log-in"></span>LOGIN</a></li>
+	      			<li *ngIf="!isLoggedIn"><a data-toggle="modal" data-target="#signup"><span class="glyphicon glyphicon-user"></span>SIGN UP</a></li>
+	      			<li *ngIf="isLoggedIn"><a (click)="signout()"><span class="glyphicon glyphicon-log-out"></span>LOGOUT</a></li>
 			    </ul>
-				<ul class="nav navbar-nav navbar-right">
-			      	<li><a (click)="signout()"><span class="glyphicon glyphicon-log-out"></span>LOGOUT</a></li>
-			    </ul>
-
-		    </div>
-		    
+			</div>
 		  </div>
-		  <div class="row" id="search_box">
-        	<div class="col-md-12">
-            	<div class="input-group" id="adv-search">
-                	<input type="text" class="form-control" placeholder="Search for snippets" />
-                	<div class="input-group-btn">
-                    	<div class="btn-group" role="group">
-                        	<div class="dropdown dropdown-lg">
-                            	<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
-                            	<div class="dropdown-menu dropdown-menu-right" role="menu">
-                                	<form class="form-horizontal" role="form">
-                                  		<div class="form-group">
-                                    		<label for="filter">Filter by</label>
-                                    		<select class="form-control">
-                                        		<option value="0" selected>All Snippets</option>
-                                        		<option value="1">Featured</option>
-                                        		<option value="2">Most popular</option>
-                                        		<option value="3">Top rated</option>
-                                        		<option value="4">Most commented</option>
-                                    		</select>
-                                  		</div>
-                                  		<div class="form-group">
-                                    		<label for="contain">Author</label>
-		                                    <input class="form-control" type="text" />
-        		                        </div>
-                                  		<div class="form-group">
-                                    		<label for="contain">Contains the words</label>
-                                    		<input class="form-control" type="text" />
-                                  		</div>
-                                  		<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                                	</form>
-                            	</div>
-                        	</div>
-                        	<button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                    	</div>
-                	</div>
-            	</div>
-          	</div>
-          </div>
+		  
 		</nav>
 
 	</header>
@@ -87,6 +44,9 @@
 				</div>
 				<form #loginForm #ngloginForm="ngForm" (ngSubmit)="serverLogin(ngloginForm.value)"  novalidate>
 					<div class="modal-body">
+						<div [hidden]='showErrorCredentials' id="invalidCredentials" class="alert alert-danger">
+							<h5>Invalid Credentials. Enter details again</h5>
+						</div>
 						<div class="form-group">
 							<label>Username</label>
 							<input type="text" name="userName" required minlength="8" class="form-control" #loginUsernameRef #loginUsernameModelRef="ngModel" ngModel>
@@ -97,9 +57,9 @@
 						</div>
 						<div class="form-group">
 							<label>Password</label>
-							<input type="password" name="password" required class="form-control" #passwordRef #passwordModelRef="ngModel" ngModel>
-							<div *ngIf="passwordModelRef.errors && passwordModelRef.touched" class="alert alert-danger">
-								<div [hidden]="!passwordModelRef.errors.required">Please enter password</div>
+							<input type="password" name="password" required class="form-control" #passwordRef #loginPasswordModelRef="ngModel" ngModel>
+							<div *ngIf="loginPasswordModelRef.errors && loginPasswordModelRef.touched" class="alert alert-danger">
+								<div [hidden]="!loginPasswordModelRef.errors.required">Please enter password</div>
 							</div>
 						</div>
 						
@@ -170,7 +130,7 @@
 						</div>
 						<div class="form-group">
 							<label>Phone</label>
-							<input type="phone" name="phone" required minlength="10" maxlength="10" class="form-control" #phoneRef #phoneModelRef="ngModel" ngModel>
+							<input type="number" name="phone" required minlength="10" maxlength="10" class="form-control" #phoneRef #phoneModelRef="ngModel" ngModel>
 							<div *ngIf="phoneModelRef.errors && phoneModelRef.touched" class="alert alert-danger">
 								<div [hidden]="!phoneModelRef.errors.required">Please enter password</div>
 								<div [hidden]="!phoneModelRef.errors.minlength || !phoneModelRef.errors.maxlength">Phone number should be of 10 characters</div>

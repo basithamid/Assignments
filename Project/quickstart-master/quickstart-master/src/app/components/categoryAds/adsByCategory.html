@@ -1,0 +1,14 @@
+<table border="1" class="table">
+    <tr>
+        <th>Title</th>
+        <th>Name</th>
+        <th>Desciption</th>
+        <th>Category</th>
+    </tr>
+    <tr *ngFor="let ad of adsByCategory">
+        <td>{{ad.title}}</td>
+        <td>{{ad.name}}</td>
+        <td>{{ad.description}}</td>
+        <td>{{ad.category}}</td>
+    </tr>
+</table>
