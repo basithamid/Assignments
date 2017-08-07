@@ -44,35 +44,38 @@ class ComplexNumber{
 		prod.setImaginary(num1.getImaginary() * num2.getImaginary() * (-1));
 		return prod;
 	}
-	public static void swap(ComplexNumber num1, ComplexNumber num2){
+	public static void swap(ComplexNumber num[]){
 		ComplexNumber temp=new ComplexNumber(0,0);	
-		System.out.println("Before swapping");
-		System.out.println("Number 1: "+ num1.getReal() + " " + num1.getImaginary() + "i");
-		System.out.println("Number 2: "+ num2.getReal() + " " + num2.getImaginary() + "i");
-		temp=num1;
-		num1=num2;
-		num2=temp;
-		System.out.println("After swapping");
-		System.out.println("Number 1: "+ num1.getReal() + " " + num1.getImaginary() + "i");
-		System.out.println("Number 2: "+ num2.getReal() + " " + num2.getImaginary() + "i");
+		temp=num[0];
+		num[0]=num[1];
+		num[1]=temp;
+		
 
 	}
 }
 
 public class ComplexArithmetic{
 	public static void main(String args[]){
-		ComplexNumber num1=new ComplexNumber();
-		ComplexNumber num2=new ComplexNumber(3,5);
+		ComplexNumber num[] = new ComplexNumber[2];
+		num[0] = new ComplexNumber();
+		num[1] = new ComplexNumber(3,5);
+		
 		//findng sum of Complex Numbers
-		ComplexNumber sum = ComplexNumber.add(num1,num2);
+		ComplexNumber sum = ComplexNumber.add(num[0],num[1]);
 		System.out.println("The sum is: "+sum.getReal()+"  "+sum.getImaginary()+"i");
 		//finding difference of Complex Numbers
-		ComplexNumber diff = ComplexNumber.sub(num1,num2);
+		ComplexNumber diff = ComplexNumber.sub(num[0],num[1]);
 		System.out.println("The difference is: "+diff.getReal()+"  "+diff.getImaginary()+"i");
 		//finding product of Complex Numbers
-		ComplexNumber prod = ComplexNumber.mult(num1,num2);
+		ComplexNumber prod = ComplexNumber.mult(num[0],num[1]);
 		System.out.println("The product is: "+(prod.getReal() + prod.getImaginary()));
-		ComplexNumber.swap(num1,num2);
+		System.out.println("Before swapping");
+		System.out.println("Number 1: "+ num[0].getReal() + " " + num[0].getImaginary() + "i");
+		System.out.println("Number 2: "+ num[1].getReal() + " " + num[1].getImaginary() + "i");
+		ComplexNumber.swap(num);
+		System.out.println("After swapping");
+		System.out.println("Number 1: "+ num[0].getReal() + " " + num[0].getImaginary() + "i");
+		System.out.println("Number 2: "+ num[1].getReal() + " " + num[1].getImaginary() + "i");
 	}
 	
 }
