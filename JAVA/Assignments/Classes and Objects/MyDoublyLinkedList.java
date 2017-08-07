@@ -51,6 +51,11 @@ class MyDoublyLinkedList{
 		return count;
 	}
 
+	public static void insertBeginning(){
+		if(head==null){
+			head=newNode;
+		}
+	}
 	public static void insertNode(int data){
 		Node temp = head;
 		while(temp.data!=data){
@@ -88,6 +93,17 @@ class MyDoublyLinkedList{
 					addNode(newNode);
 					break;
 				case 2:
+					System.out.println("Enter element:\n1. At the beginning\n2. In the middle\n3. At the end");
+					int ch=scan.nextInt();
+					if(ch==1){
+						insertBeginning();
+					}
+					else if(ch==2){
+						insertNode();
+					}
+					else if(ch==3){
+						insertEnd();
+					}
 					System.out.println("Enter data of element after which node has to be inserted:");
 					data = scan.nextInt();
 					insertNode(data);
