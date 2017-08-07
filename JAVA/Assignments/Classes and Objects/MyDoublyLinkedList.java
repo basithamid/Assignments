@@ -20,7 +20,7 @@ class MyDoublyLinkedList{
 	
 	public static void addNode(Node newNode){
 		if(head==null){
-			head=newNode;
+			head=tail=newNode;
 		}
 		else{
 			Node temp=head;
@@ -51,9 +51,14 @@ class MyDoublyLinkedList{
 		return count;
 	}
 
-	public static void insertBeginning(){
+	public static void insertBeginning(Node newNode){
 		if(head==null){
 			head=newNode;
+		}
+		else{
+			newNode.next = head;
+			head.prev = newNode;
+			head = newNode;
 		}
 	}
 	public static void insertNode(int data){
@@ -77,6 +82,33 @@ class MyDoublyLinkedList{
 		}
 	}
 
+	public static void deleteFirst(){
+		if(head == null){
+			return;
+		}
+		else{
+			Node temp = head;
+			head = temp.next;
+			head.prev=null;
+			temp = null;
+
+		}
+	}
+
+	public static void deleteLast(){
+		if(head==null){
+			return;
+		}
+		else if(head!=tail){
+			tail.prev.next = null;
+			tail = tail.prev;
+		}
+		else if(head==tail){
+			head=tail=null;
+		}
+	}
+
+
 	public static void main(String args[]){
 		Scanner scan=new Scanner(System.in);
 		int data;
@@ -93,20 +125,33 @@ class MyDoublyLinkedList{
 					addNode(newNode);
 					break;
 				case 2:
-					System.out.println("Enter element:\n1. At the beginning\n2. In the middle\n3. At the end");
+					System.out.println("Enter element:\n1. At the beginning\n2. In the middle");
 					int ch=scan.nextInt();
 					if(ch==1){
-						insertBeginning();
+						System.out.println("Insert data element:");
+						data = scan.nextInt();
+						newNode = new Node(null,data,null);
+						insertBeginning(newNode);
 					}
 					else if(ch==2){
-						insertNode();
+						System.out.println("Enter data of element after which node has to be inserted:");
+						data = scan.nextInt();
+						insertNode(data);
+						
+					}					
+					break;
+				case 3:
+					System.out.println("Delete\n1. First element\n2. Last element\n3. Middle element");
+					ch=scan.nextInt();
+					if(ch==1){
+						deleteFirst();
+					}
+					else if(ch==2){
+						deleteLast();
 					}
 					else if(ch==3){
-						insertEnd();
+						
 					}
-					System.out.println("Enter data of element after which node has to be inserted:");
-					data = scan.nextInt();
-					insertNode(data);
 					break;
 				case 4:
 					int count = countNodes();
