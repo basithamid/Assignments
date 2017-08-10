@@ -1,0 +1,14 @@
+package annotation1;
+
+import java.lang.reflect.*;
+
+public class Test{
+	public static void main(String args[]){
+		Class cls = Getter.class;
+		Method[] methods = cls.getDeclaredMethods();
+		Field[] field = cls.getDeclaredFields();
+		
+		
+		
+	}
+}

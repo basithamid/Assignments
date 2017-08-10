@@ -1,0 +1,21 @@
+package annotation1;
+import annotation1.*;
+import java.lang.reflect.*;
+
+public class Test{
+	public static void main(String args[]){
+		GetterTest gt = new GetterTest();
+		Method[] methods =gt.getClass().getDeclaredMethods();
+		Field[] fields = gt.getClass().getDeclaredFields();
+		//System.out.println(methods);
+		System.out.println();
+		for(Method meth: methods){
+			System.out.println(meth);
+			Getter annotation = meth.getAnnotation(Getter.class);
+		}
+		for(Field field: fields){
+			System.out.println(field);
+		}
+		
+	}
+}
