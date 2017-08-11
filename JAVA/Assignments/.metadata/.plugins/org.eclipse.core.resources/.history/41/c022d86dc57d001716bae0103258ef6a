@@ -1,0 +1,28 @@
+package cache;
+import java.util.HashMap;
+import java.sql.Timestamp;
+class App {
+	String name;
+	Cache cache = new Cache();
+	private class Cache{
+		HashMap<Integer,String> map = new HashMap<Integer,String>();
+		
+		public HashMap<Integer, String> getMap() {
+			return map;
+		}
+
+		public void setMap(HashMap<Integer, String> map) {
+			this.map = map;
+		}
+		
+	}
+}
+
+public class MyApp{
+	public static void main(String args[]){
+		App app = new App();
+//		App.Cache cache = app.new Cache();
+		
+		
+	}
+}

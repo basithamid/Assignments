@@ -1,0 +1,46 @@
+package threading;
+
+
+class PingPong implements Runnable{
+	Thread t1,t2;
+	public PingPong(){
+		t1 = new Thread();
+		t1.setName("PING");
+		t1.start();
+		t2 = new Thread();
+		t2.setName("PONG");
+		t2.start();
+	}
+	
+	public void run(){
+		Thread currentThread = new Thread();
+		if(currentThread.getName().equals("PING")){
+			for(int i =0; i<10; i++){
+				System.out.println("PING");
+				try {
+					Thread.sleep(200);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		else if(currentThread.getName().equals("PONG")){
+			for(int i =0;i<10;i++){
+				System.out.println("\tPONG");
+				try {
+					Thread.sleep(400);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+}
+public class PingPongTest {
+
+	public static void main(String[] args) {
+		new PingPong();
+		
+	}
+
+}
