@@ -1,0 +1,9 @@
+package collections;
+
+public class ChatRoom {
+	public static void main(String args[]){
+		while(true){
+			System.out.println("A. Create a Chatroom\nB. Add user\nC. User Login\nD. Send a message\nE. Display messages from specific chatroom\nF. List user belonging to specific chatroom\nG. Logout\nH. Delete user\nI. Delete chartoom");
+		}
+	}
+}

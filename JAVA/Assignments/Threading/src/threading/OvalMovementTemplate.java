@@ -7,6 +7,8 @@ public class OvalMovementTemplate extends Frame implements Runnable{
 
 	int y1 = 400, y2 = 400, y3 = 400;
 	Thread t1,t2,t3;
+	boolean running=true;
+	public volatile int count = 0;
 	
 	public OvalMovementTemplate() {
 		super("Oval Game");
@@ -21,60 +23,141 @@ public class OvalMovementTemplate extends Frame implements Runnable{
 		t3 = new Thread(this);
 		t3.setName("Ball 3");
 		t3.start();
-//		this.addWindowListener(new WindowAdapter() {
-//			public void windowClosing(WindowEvent e) {
-//				System.exit(0);
-//			}
-//		});
+		this.addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				System.exit(0);
+			}
+		});
+	}
+	
+	public synchronized void halt(){
+		if(count!=3){
+			try {
+				this.wait();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		else if(count==3){
+			count=0;
+			this.notifyAll();
+		}
 	}
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
 		Thread currentThread = Thread.currentThread();
 		if(currentThread.getName().equals("Ball 1")){
-			for(;;){
-				this.y1--;
-				if(this.y1<0){
-					this.y1=400;
-				}
-				repaint();
-				try {
-					Thread.sleep(50);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+				
+				for(;;){
+					for(;this.y1>=100;){
+						this.y1--;
+						if(this.y1==100){
+							count++;
+							this.halt();
+						}
+						
+						
+						repaint();
+						try {
+							Thread.sleep(5);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+					for(;this.y1<=400;){
+						this.y1++;
+						if(this.y1==400){
+							count++;
+							this.halt();
+						}
+						repaint();
+						try {
+							Thread.sleep(5);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
 				}
 			}
-		}
+			
+			
+		
+		
 		else if(currentThread.getName().equals("Ball 2")){
+			
 			for(;;){
-				this.y2--;
-				if(this.y2<0){
-					this.y2=400;
+				for(;this.y2>=100;){
+					this.y2--;
+					if(this.y2==100){
+						count++;
+						this.halt();
+					}
+					
+					
+					repaint();
+					try {
+						Thread.sleep(10);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
-				repaint();
-				try {
-					Thread.sleep(100);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+				for(;this.y2<=400;){
+					this.y2++;
+					if(this.y2==400){
+						count++;
+						this.halt();
+					}
+					repaint();
+					try {
+						Thread.sleep(10);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 			}
 		}
+		
 		else if(currentThread.getName().equals("Ball 3")){
 			for(;;){
-				this.y3--;
-				if(this.y3<0){
-					this.y3=400;
+				for(;this.y3>=100;){
+					this.y3--;
+					if(this.y3==100){
+						count++;
+						this.halt();
+					}
+					
+					
+					repaint();
+					try {
+						Thread.sleep(15);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
-				repaint();
-				try {
-					Thread.sleep(150);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+				for(;this.y3<=400;){
+					this.y3++;
+					if(this.y3==400){
+						count++;
+						this.halt();
+					}
+					repaint();
+					try {
+						Thread.sleep(15);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 			}
+			
+		
 		}
 	}
 	

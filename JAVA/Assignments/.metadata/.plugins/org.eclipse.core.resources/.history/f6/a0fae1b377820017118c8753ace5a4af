@@ -1,0 +1,6 @@
+package collections;
+
+class ParkedCar_OwnerDetails {
+	private String ownerName, carModel, ownerAddress, carNo;
+	private long ownerMobileNo;
+}

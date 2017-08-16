@@ -1,0 +1,27 @@
+package collections;
+
+import java.util.HashMap;
+
+class Employee{
+	public boolean equals(){
+		return true;
+	}
+	
+	public int hashCode(){
+		return 1;
+	}
+}
+
+
+public class Assignment4 {
+
+	public static void main(String[] args) {
+		HashMap<Employee,String> map = new HashMap<>();
+		Employee e1 = new Employee();
+		Employee e2 = new Employee();
+		Employee e3 = new Employee();
+		Employee e4 = new Employee();
+		
+	}
+
+}
