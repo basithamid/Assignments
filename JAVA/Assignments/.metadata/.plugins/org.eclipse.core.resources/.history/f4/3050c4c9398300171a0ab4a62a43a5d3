@@ -1,0 +1,18 @@
+package lambdaexpressions;
+import java.util.function.Predicate;
+
+
+public class Orders {
+	int orderNo;
+	String status;
+	public Orders(int orderNo, String status){
+		this.orderNo=orderNo;
+		this.status=status;
+	}
+	
+	public static void main(String[] args) {
+		
+
+	}
+
+}

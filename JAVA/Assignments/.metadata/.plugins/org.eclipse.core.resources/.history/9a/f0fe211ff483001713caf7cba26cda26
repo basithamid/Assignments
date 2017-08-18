@@ -1,0 +1,34 @@
+package streams;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import static java.util.stream.Collectors.*; 
+
+import streams.TestData;
+public class Test {
+
+	public static void main(String[] args) {
+		
+		List<Fruit> lowCalFruits = TestData.getAllFruits().stream()
+				.filter(fruit -> fruit.getCalories() < 100 )
+				.sorted(Comparator.comparing(Fruit::getCalories).reversed())
+				.collect(Collectors.toList());
+//		lowCalFruits.forEach(System.out::println);
+		
+		Map<String,List<Fruit>> colorWise = TestData.getAllFruits().stream()
+				.collect(Collectors.groupingBy(Fruit::getColor));
+		//colorWise.entrySet().forEach(System.out::println);		
+		
+		List<Fruit> onlyRed = TestData.getAllFruits().stream()
+				.filter(fruit -> fruit.getColor().equals("Red"))
+				.sorted(Comparator.comparing(Fruit::getPrice)).collect(Collectors.toList());
+//		onlyRed.forEach(System.out::println);
+		
+		Map<Integer,Integer> mapOfIdComments = TestData.getAllNews().stream()
+				.mapToInt(News::getNewsId)
+				.collect(Collectors.groupingBy(News::getNewsId))
+		
+	}
+
+}

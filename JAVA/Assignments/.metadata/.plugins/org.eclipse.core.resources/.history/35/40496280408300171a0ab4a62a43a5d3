@@ -1,0 +1,9 @@
+package lambdaexpressions;
+import java.util.function.*;
+public class FirstCharString {
+
+	public static void main(String[] args) {
+		
+	}
+
+}

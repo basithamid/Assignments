@@ -1,0 +1,22 @@
+package generics;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+class List{
+	public void display(ArrayList<? extends Number> list){
+		Iterator itr = list.iterator();
+		while(itr.hasNext()){
+			System.out.println("Number element: "+itr.next());
+		}
+	}
+}
+
+public class NumberList {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

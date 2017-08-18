@@ -1,0 +1,6 @@
+package lambdaexpressions;
+
+@FunctionalInterface
+public interface MathInterface<T> {
+	public T calculate();
+}

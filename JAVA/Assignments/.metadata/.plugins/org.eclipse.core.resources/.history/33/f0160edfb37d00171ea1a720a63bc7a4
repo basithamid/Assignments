@@ -1,9 +1,0 @@
-package annotation1;
-import java.lang.annotation.*;
-import java.lang.reflect.*;
-
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.METHOD)
-public @interface Getter{
-	public int age() default 20;
-}

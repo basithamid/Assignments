@@ -1,0 +1,15 @@
+package lambdaexpressions;
+import java.util.function.Consumer;
+
+public class FirstCharString {
+	static StringBuilder name;
+	public static void main(String[] args) {
+		String names[] = null;
+		names[0]="Basit";
+		names[1]="Anusha";
+		names[2]="Sarthak";
+		names[3]="Ivan";
+		names[4]="Tanya";
+	}
+
+}

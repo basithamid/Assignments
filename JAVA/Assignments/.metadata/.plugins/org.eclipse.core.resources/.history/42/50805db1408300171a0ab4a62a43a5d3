@@ -1,0 +1,10 @@
+package lambdaexpressions;
+import java.util.function.Consumer;
+
+public class FirstCharString {
+
+	public static void main(String[] args) {
+		
+	}
+
+}
