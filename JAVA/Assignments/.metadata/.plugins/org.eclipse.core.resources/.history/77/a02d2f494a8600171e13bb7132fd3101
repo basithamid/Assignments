@@ -1,0 +1,48 @@
+package file;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.Scanner;
+
+public class RandonAccessTest {
+
+	public static void create(RandomAccessFile raf, Account acc) throws IOException{
+		raf.writeInt(acc.getAccNo());
+		raf.writeUTF(acc.getName());
+		raf.writeDouble(acc.getBalance());
+		}
+	
+	public static void read(RandomAccessFile raf) throws IOException{
+		raf.seek(0);
+		for(int i=0;i<3;i++){
+			System.out.println("[ ID: " +raf.readInt()+", Name: "+raf.readUTF()+", Balance: "+raf.readDouble()+" ]");
+		}
+	}
+	
+	public static void update(RandomAccessFile raf) throws IOException{
+		System.out.println("Enter ID of record to be updated: ");
+		Scanner scan = new Scanner(System.in);
+		int id = scan.nextInt();
+		raf.seek(0);
+		int tempid = 0;
+		
+	}
+	
+	public static void main(String[] args) throws Exception {
+		Account arr[] = new Account[3];
+		arr[0] = new Account(1, 10000, "Basit");
+		arr[1] = new Account(2, 20000, "BD");
+		arr[2]= new Account(3, 30000, "Anusha"); 
+		File file = new File("rafFile");
+		RandomAccessFile raf = new RandomAccessFile(file, "rw");
+		for(int i=0;i<3;i++){
+			create(raf,arr[i]);
+		}
+		read(raf);
+		update(raf);
+		read(raf);
+	}
+
+}

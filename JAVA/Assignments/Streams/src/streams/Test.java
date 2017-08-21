@@ -31,7 +31,11 @@ public class Test {
 		int maxIdComment = TestData.getAllNews().stream()
 				.collect(Collectors.groupingBy(News::getNewsId,counting())).entrySet().stream().max(Entry.comparingByValue()).get().getKey();
 
-		//6.6.	Display commentByUser wise number of comments.
+//		5. Find out how many times the word 'budget' arrived in user comments of all news.
+		long countBudget = TestData.getAllNews().stream()
+				.filter(comment -> comment.getComment().contains("budget")).count();
+		System.out.println(countBudget);
+		//6.	Display commentByUser wise number of comments.
 		Map<String,Long> noOfComments = TestData.getAllNews().stream()
 				.collect(Collectors.groupingBy(News::getCommentByUser, counting()));
 //		noOfComments.entrySet().forEach(System.out::println);
