@@ -1,0 +1,16 @@
+127.0.0.1 - - [22/Aug/2017:15:20:14 +0530] "GET / HTTP/1.1" 404 1000
+0:0:0:0:0:0:0:1 - - [22/Aug/2017:15:20:15 +0530] "GET /Servlet2/login HTTP/1.1" 500 1466
+0:0:0:0:0:0:0:1 - - [22/Aug/2017:15:20:21 +0530] "GET /Servlet2/login HTTP/1.1" 500 1466
+0:0:0:0:0:0:0:1 - - [22/Aug/2017:15:20:21 +0530] "GET /favicon.ico HTTP/1.1" 404 1022
+0:0:0:0:0:0:0:1 - - [22/Aug/2017:15:20:25 +0530] "GET /Servlet2 HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [22/Aug/2017:15:20:25 +0530] "GET /Servlet2/ HTTP/1.1" 404 1018
+0:0:0:0:0:0:0:1 - - [22/Aug/2017:15:20:37 +0530] "GET /Servlet2/login HTTP/1.1" 500 1466
+0:0:0:0:0:0:0:1 - - [22/Aug/2017:15:23:21 +0530] "GET /Servlet2/login.html HTTP/1.1" 200 277
+0:0:0:0:0:0:0:1 - - [22/Aug/2017:15:23:29 +0530] "GET /Servlet2/login?uname=basit&pass=basit HTTP/1.1" 200 53
+0:0:0:0:0:0:0:1 - - [22/Aug/2017:15:23:33 +0530] "GET /Servlet2/login?uname=basit&pass=hamid HTTP/1.1" 200 55
+0:0:0:0:0:0:0:1 - - [22/Aug/2017:15:24:39 +0530] "GET /Servlet2/login.html HTTP/1.1" 200 277
+0:0:0:0:0:0:0:1 - - [22/Aug/2017:15:24:43 +0530] "GET /Servlet2/login?uname=basit&pass=basit HTTP/1.1" 200 53
+0:0:0:0:0:0:0:1 - - [22/Aug/2017:15:24:48 +0530] "GET /Servlet2/login?uname=basit&pass=kjashjkahs HTTP/1.1" 200 55
+127.0.0.1 - - [22/Aug/2017:15:26:35 +0530] "GET / HTTP/1.1" 404 1000
+0:0:0:0:0:0:0:1 - - [22/Aug/2017:15:26:36 +0530] "GET /Servlet2/login.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [22/Aug/2017:15:26:42 +0530] "GET /Servlet2/login?uname=basit&pass=basit HTTP/1.1" 200 53

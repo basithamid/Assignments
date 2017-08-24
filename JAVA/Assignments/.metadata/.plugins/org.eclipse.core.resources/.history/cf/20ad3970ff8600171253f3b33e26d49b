@@ -1,0 +1,12 @@
+package jdbc;
+
+
+
+public class AddImage {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

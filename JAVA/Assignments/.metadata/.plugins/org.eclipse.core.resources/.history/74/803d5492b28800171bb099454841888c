@@ -1,0 +1,23 @@
+package com.spring.FirstSpringDemo1;
+
+import java.util.HashMap;
+
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+        AbstractApplicationContext iocContainer = new ClassPathXmlApplicationContext("Beans_simple.xml");
+        HashMap <String,Employee> orders = (HashMap<String, Employee>) iocContainer.getBeansOfType(Employee.class);
+        int total=0;
+        for(OrderBean item:orders.values()){
+        	total+=item.getItem().getPrice();
+        }
+        System.out.println("Total price:"+total);
+    }
+}

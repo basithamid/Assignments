@@ -1,5 +1,0 @@
-package lambdaexpressions;
-
-public interface MathInterface {
-
-}
