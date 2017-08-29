@@ -1,0 +1,7 @@
+package com.spring.advertisement.service;
+
+import com.spring.advertisement.entity.User;
+
+public interface UserService {
+	public User createUser(User user);
+}

@@ -1,0 +1,19 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/data/mongo
+http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd">
+
+
+<mongo:mongo host="localhost" port="27017" />
+	<mongo:db-factory dbname="advertisement" />
+
+<bean id="userServiceImpl" class="com.spring.advertisement.service.UserServiceImpl"></bean>
+<bean id="userDaoImpl" class="com.spring.advertisement.dao.UserDaoImpl"></bean>
+<bean id="userController" class="com.spring.advertisement.controller.UserController"></bean>
+<bean id="userCollection" class="com.spring.advertisement.collection.UserCollection"></bean>
+<bean id="userController" class="com.spring.advertisement.controller.UserController"></bean>
+
+</beans>

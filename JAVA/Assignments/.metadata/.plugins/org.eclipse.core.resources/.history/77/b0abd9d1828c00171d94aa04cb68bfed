@@ -1,0 +1,5 @@
+package com.spring.advertisement.service;
+
+public class UserServiceImpl implements UserService {
+
+}

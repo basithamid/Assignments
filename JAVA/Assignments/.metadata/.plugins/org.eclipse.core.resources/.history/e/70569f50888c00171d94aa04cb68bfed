@@ -1,0 +1,9 @@
+package com.spring.advertisement.service;
+
+import com.spring.advertisement.entity.User;
+
+public class UserServiceImpl implements UserService {
+	public User createUser(User user){
+		return userDao.createUser(user);
+	}
+}

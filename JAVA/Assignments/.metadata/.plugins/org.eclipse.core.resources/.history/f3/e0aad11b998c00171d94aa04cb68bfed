@@ -1,0 +1,10 @@
+package com.spring.advertisement.collection;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection="Items")
+public class ItemCollection {
+	@Id
+	private String itemName;
+}

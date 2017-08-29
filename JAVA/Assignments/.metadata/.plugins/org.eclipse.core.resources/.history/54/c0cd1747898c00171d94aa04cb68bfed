@@ -1,0 +1,5 @@
+package com.spring.advertisement.repository;
+
+public interface UserRepository {
+
+}

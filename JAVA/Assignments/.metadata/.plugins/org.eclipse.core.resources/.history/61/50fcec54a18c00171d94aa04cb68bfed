@@ -1,0 +1,39 @@
+package com.spring.advertisement.dao;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.spring.advertisement.collection.ItemCollection;
+import com.spring.advertisement.collection.UserCollection;
+import com.spring.advertisement.entity.User;
+import com.spring.advertisement.repository.ItemRepository;
+import com.spring.advertisement.repository.UserRepository;
+
+public class UserDaoImpl implements UserDao {
+
+	@Autowired
+	UserRepository userRepository;
+	
+	@Autowired
+	ItemRepository itemRepository;
+	public User createUser(User user) {
+		UserCollection userCollection = new UserCollection();
+		userCollection.setFname(user.getFname());
+		userCollection.setLname(user.getlname());
+		userCollection.setId(user.getId());
+		userCollection.setUname(user.getUname());
+		userCollection.setPwd(user.getPwd());
+		System.out.println("Inside DAO");
+		userRepository.save(userCollection);
+		
+		return user;
+	}
+	public List<ItemCollection> getCategoires() {
+		List<ItemCollection> categories = itemRepository.findAll();
+		System.out.println(categories);
+		return categories;
+	}
+	
+
+}

@@ -1,0 +1,32 @@
+package com.spring.advertisement.collection;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection="Items")
+public class ItemCollection {
+	@Id
+	private String id;
+	private String name;
+	public ItemCollection(){}
+	public ItemCollection(String id, String name) {
+		super();
+		this.id=id;
+		this.name = name;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getname() {
+		return name;
+	}
+	public void setname(String name) {
+		this.name = name;
+	}
+	public String toString(){
+		return "Categories: [ name:"+ name+" ]";
+	}
+}

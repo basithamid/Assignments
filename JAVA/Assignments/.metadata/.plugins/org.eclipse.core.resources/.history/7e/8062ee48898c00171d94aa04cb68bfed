@@ -1,0 +1,18 @@
+package com.spring.advertisement.dao;
+
+import com.spring.advertisement.collection.UserCollection;
+import com.spring.advertisement.entity.User;
+
+public class UserDaoImpl implements UserDao {
+
+	public User createUser(User user) {
+		UserCollection userCollection = new UserCollection();
+		userCollection.setFname(user.getFname());
+		userCollection.setLname(user.getlname());
+		userCollection.setId(user.getId());
+		userCollection.setUname(user.getUname());
+		userCollection.setPwd(user.getPwd());
+		return null;
+	}
+
+}
