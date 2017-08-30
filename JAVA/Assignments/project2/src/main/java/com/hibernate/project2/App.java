@@ -19,25 +19,38 @@ public class App
         Configuration config = new Configuration();
         config.configure("hibernate.cfg.xml");
         SessionFactory sessionFactory = config.buildSessionFactory();
-        insert(sessionFactory);
-        totalSalary(sessionFactory);
+//        insert(sessionFactory);
+//        totalSalary(sessionFactory);
+//        listEmpBySal(sessionFactory);
+        groupByCity(sessionFactory);
         
     }
     
-    public static void insert(SessionFactory sessionFactory){
+    private static void groupByCity(SessionFactory sessionFactory) {
+    	Session session = sessionFactory.openSession();
+    	Transaction tx = session.beginTransaction();
+    	Query query=session.createQuery("SELECT SUM(E.salary) FROM Employee E group by E.city");
+    	List<Integer> sal = query.list();
+    	System.out.println(sal);
+    	tx.commit();
+    	session.close();
+		
+	}
+
+	public static void insert(SessionFactory sessionFactory){
     	Session session = sessionFactory.openSession();
     	Transaction tx = session.beginTransaction();
     	
     	
     	
-    	Employee e1 = new Employee(1,"Basit", 34500, "Srinagar");
+    	Employee e1 = new Employee(1,"Basit", 14500, "Srinagar");
 //    	String hql = "INSERT INTO Employee(name, salary, city) SELECT name, salary, city FROM Employee e1";
 //    	Query query = session.createQuery(hql);
 //    	query.executeUpdate();
     	Employee e2 = new Employee(2,"Anusha", 34500, "Pune");
-    	Employee e3 = new Employee(3,"BD", 34500, "Bombay");
-    	Employee e4 = new Employee(4,"Shruti", 34500, "Bangalore");
-    	Employee e5 = new Employee(5,"Piyush", 34500, "Pune");
+    	Employee e3 = new Employee(3,"BD", 4500, "Bombay");
+    	Employee e4 = new Employee(4,"Shruti", 500, "Bangalore");
+    	Employee e5 = new Employee(5,"Piyush", 54500, "Pune");
     	
     	session.save(e1);
     	session.save(e2);
@@ -55,6 +68,15 @@ public class App
     	Query query = session.createQuery("SELECT SUM(salary) FROM Employee");
     	List<Integer> total = query.list();
     	System.out.println("TOTAL:"+total);
+    	tx.commit();
+    	session.close();
+    }
+    public static void listEmpBySal(SessionFactory sessionFactory){
+    	Session session = sessionFactory.openSession();
+    	Transaction tx = session.beginTransaction();
+    	Query query = session.createQuery("FROM Employee E order by E.salary");
+    	List<Employee> empList = query.list();
+    	System.out.println("Employees:"+empList);
     	tx.commit();
     	session.close();
     }
