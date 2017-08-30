@@ -44,6 +44,7 @@
 	</section>
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="D:\GIT\Assignments\JAVA\Assignments\Servlet2"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -56,6 +57,9 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.hibernate.project2"/>
+			<item value="com.hibernate.project1"/>
+			<item value="com.hibernate.project"/>
 			<item value="com.spring.advertisement"/>
 			<item value="com.spring.restAssignment"/>
 			<item value="com.spring.rest"/>
@@ -63,9 +67,13 @@
 			<item value="com.spring.FirstSpringDemo"/>
 		</list>
 		<list key="groupId">
+			<item value="com.hibernate"/>
 			<item value="com.spring"/>
 		</list>
 		<list key="artifactId">
+			<item value="project2"/>
+			<item value="project1"/>
+			<item value="project"/>
 			<item value="advertisement"/>
 			<item value="restAssignment"/>
 			<item value="rest"/>
