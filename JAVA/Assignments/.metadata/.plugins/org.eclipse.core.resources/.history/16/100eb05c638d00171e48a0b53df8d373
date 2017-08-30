@@ -1,0 +1,52 @@
+package com.hibernate.project;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+        Configuration configuration = new Configuration();
+        configuration.configure("hibernate.cfg.xml");
+        SessionFactory sessionFactory = configuration.buildSessionFactory();
+        insert(sessionFactory);
+        update(sessionFactory);
+        delete(sessionFactory);
+        sessionFactory.close();
+    }
+    public static void insert(SessionFactory sessionFactory){
+    	Session session = sessionFactory.openSession();
+    	Transaction tx = session.beginTransaction();
+    	Product product = new Product("Play Station 3", 10000);
+    	Product product1 = new Product("Play Station 4", 24000);
+    	session.save(product);
+    	session.save(product1);
+    	tx.commit();
+    	session.close();
+    	System.out.println("Inserted");
+    }
+    
+    public static void update(SessionFactory sessionFactory){
+    	Session session = sessionFactory.openSession();
+    	Transaction tx = session.beginTransaction();
+    	Product product = session.load(Product.class, 1L);
+    	product.setPrice(15000);
+    	tx.commit();
+    	session.close();
+    }
+    public static void delete(SessionFactory sessionFactory){
+    	Session session = sessionFactory.openSession();
+    	Transaction tx = session.beginTransaction();
+    	Product product = session.load(Product.class, 1L);
+    	session.delete(product);
+    	tx.commit();
+    	session.close();
+    }
+}

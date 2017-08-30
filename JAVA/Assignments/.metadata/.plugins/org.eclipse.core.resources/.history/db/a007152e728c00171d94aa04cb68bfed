@@ -1,9 +1,0 @@
-package com.spring.rest;
-
-
-
-@RestController
-public class UserController {
-	
-	
-}

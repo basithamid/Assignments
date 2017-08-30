@@ -1,9 +1,0 @@
-package jdbc;
-
-public class BatchUpdatesTest {
-
-	public static void main(String[] args) {
-		
-	}
-
-}

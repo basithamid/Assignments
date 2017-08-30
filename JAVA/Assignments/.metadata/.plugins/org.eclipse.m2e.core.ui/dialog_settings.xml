@@ -56,6 +56,9 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.spring.advertisement"/>
+			<item value="com.spring.restAssignment"/>
+			<item value="com.spring.rest"/>
 			<item value="com.spring.FirstSpringDemo1"/>
 			<item value="com.spring.FirstSpringDemo"/>
 		</list>
@@ -63,6 +66,9 @@
 			<item value="com.spring"/>
 		</list>
 		<list key="artifactId">
+			<item value="advertisement"/>
+			<item value="restAssignment"/>
+			<item value="rest"/>
 			<item value="FirstSpringDemo1"/>
 			<item value="FirstSpringDemo"/>
 		</list>

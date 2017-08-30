@@ -1,0 +1,5 @@
+package com.hibernate.project2;
+
+public class Employee {
+
+}
