@@ -1,0 +1,8 @@
+package com.hibernate.mapping;
+
+import javax.persistence.*;
+
+@Entity
+public class Customer {
+	@Id
+}

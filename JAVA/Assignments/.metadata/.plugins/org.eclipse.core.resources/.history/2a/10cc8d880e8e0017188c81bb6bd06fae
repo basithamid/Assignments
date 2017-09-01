@@ -1,0 +1,5 @@
+package com.hibernate.mapping;
+
+public class Customer {
+
+}

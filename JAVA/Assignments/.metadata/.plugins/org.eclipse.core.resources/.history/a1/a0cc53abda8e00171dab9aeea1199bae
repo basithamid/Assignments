@@ -1,0 +1,28 @@
+package com.hibernate.caching;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+        Configuration config = new Configuration();
+        config.configure("hibernate.cfg.xml");
+        SessionFactory sessionFactory = config.buildSessionFactory();
+        
+        caching(sessionFactory);
+        sessionFactory.close();
+    }
+    public static void caching(SessionFactory sessionFactory){
+    	Session session = sessionFactory.getCurrentSession();
+    	Transaction tx = session.beginTransaction();
+    	
+    }
+}

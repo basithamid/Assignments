@@ -1,0 +1,8 @@
+package com.hibernate.inheritance;
+
+import javax.persistence.*;
+
+@Entity
+public class Car extends Vehicle{
+
+}

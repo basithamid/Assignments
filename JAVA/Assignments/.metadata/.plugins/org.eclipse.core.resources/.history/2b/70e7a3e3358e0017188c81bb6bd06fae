@@ -1,0 +1,220 @@
+package com.hibernate.mapping;
+
+import java.util.HashSet;
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+       Configuration config = new Configuration();
+       config.configure("hibernate.cfg.xml");
+       SessionFactory sessionFactory = config.buildSessionFactory();
+       //one to one
+       //create
+//       createCustomer(sessionFactory);
+       //read
+//       readCustomer(sessionFactory);
+       //update
+//       update(sessionFactory);
+       //remove
+//       remove(sessionFactory);
+       
+       
+       //one to many
+       //create
+       //createMarketStock(sessionFactory);
+       //read
+//       readFromStock(sessionFactory);
+       //update
+//       updateMarketStock(sessionFactory);
+       //remove
+//       removeStock(sessionFactory);
+       
+       //many to many
+       //create
+       createStudent(sessionFactory);
+       createCourse(sessionFactory);
+       //read
+       read(sessionFactory);
+       //update
+//       updateStudent(sessionFactory);
+       
+       //Assignment 4
+       create(sessionFactory);
+       find(sessionFactory);
+       
+       sessionFactory.close();
+    }
+    public static void create(SessionFactory sessionFactory){
+    	Session session=sessionFactory.openSession();
+    	Transaction transaction=session.beginTransaction();
+    	Emp manager=new Emp("shruti");
+        
+        Emp e1=new Emp("rakhi");
+        Emp e2=new Emp("pranav");
+        Emp e3=new Emp("sai");
+        
+        e1.setmanager(manager);
+        e2.setmanager(manager);
+        
+        session.save(e1);
+        session.save(e2);
+        session.save(e3);
+
+    }
+    public static void find(SessionFactory sessionFactory){
+    		Session session=sessionFactory.openSession();
+        	Transaction transaction=session.beginTransaction();
+            String HQL="from Employee E where E.manager is not null";
+            Query q=session.createQuery(HQL);
+            List<Employee> list=q.list();
+            list.forEach(System.out::println);
+            transaction.commit();
+            session.close();
+        }
+
+    private static void updateStudent(SessionFactory sessionFactory) {
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		Student stud = session.get(Student.class, 1L);
+//		stud.setCourses(new Course("C"), new Course("Dot NET"));
+		stud.setStudentName("BD");
+		
+		tx.commit();
+		session.close();
+	}
+	private static void read(SessionFactory sessionFactory) {
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery("from Student");
+		List<Student> students = query.list();
+		System.out.println("Students and their courses: "+ students);
+		session.close();
+	}
+	private static void createCourse(SessionFactory sessionFactory) {
+    	Session session = sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();	
+		
+		Student s1 = new Student("Anusha");
+		Student s2 = new Student("BD");
+		HashSet<Student> students = new HashSet<Student>();
+		students.add(s1);students.add(s2);
+		
+		Course course = new Course("C++",students);
+		
+		session.persist(course);
+    	tx.commit();
+    	session.close();
+	}
+	private static void createStudent(SessionFactory sessionFactory) {
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+    	
+    	Course c1 = new Course("Java");
+		Course c2 = new Course("Angular2");
+		HashSet<Course> courses = new HashSet<Course>();
+		courses.add(c1);courses.add(c2);
+    	Student stud = new Student("Basit",courses);
+    	
+    	session.persist(stud);
+    	tx.commit();
+    	session.close();
+    	
+	}
+	public static void removeStock(SessionFactory sessionFactory){
+    	Session session = sessionFactory.openSession();
+    	Transaction tx = session.beginTransaction();
+    	Stock stock = session.get(Stock.class, 2);
+    	session.delete(stock);
+//    	Market market = session.get(Market.class, 1L);
+//    	session.delete(market);
+    	tx.commit();
+    	session.close();
+    }
+    
+    public static void updateMarketStock(SessionFactory sessionFactory){
+    	Session session = sessionFactory.openSession();
+    	Transaction tx = session.beginTransaction();
+    	Market market = session.get(Market.class, 1L);
+    	market.setName("My Market");
+//    	Stock stock = session.get(Stock.class, 2);
+//    	stock.setName("MyStock");
+    	session.update(market);
+    	tx.commit();
+    	session.close();
+    }
+    public static void createMarketStock(SessionFactory sessionFactory){
+    	Session session = sessionFactory.openSession();
+    	Transaction tx = session.beginTransaction();
+    	Market market = new Market("Market", "Pune");
+    	Stock s1 = new Stock("ABC", 10000, market);
+    	Stock s2 = new Stock("DEF", 20000, market);
+    	Stock s3 = new Stock("XYZ", 30000, market);
+    	HashSet<Stock> stockSet = new HashSet<Stock>();
+    	stockSet.add(s1);stockSet.add(s2);stockSet.add(s3);
+    	market.setStock(stockSet);
+    	session.persist(market);
+    	tx.commit();
+    	session.close();
+    }
+    
+    public static void readFromStock(SessionFactory sessionFactory){
+    	Session session = sessionFactory.openSession();
+    	Query query = session.createQuery("from Stock");
+    	List<Stock> stock = query.list();
+    	System.out.println("Stock details: " + stock);
+    	session.close();
+    }
+    
+    public static void createCustomer(SessionFactory sessionFactory){
+    	Session session = sessionFactory.openSession();
+    	Transaction tx = session.beginTransaction();
+    	Address add = new Address("Srinagar","Kashmir");
+    	Address add2 = new Address("Bangalore","Karnataka");
+    	Customer cust = new Customer("Basit",add);
+    	Customer cust2 = new Customer("Anusha",add2);
+    	
+    	session.persist(cust);
+    	session.persist(cust2);
+    	tx.commit();
+    	
+    	session.close();
+    }
+    
+    public static void readCustomer(SessionFactory sessionFactory){
+    	Session session = sessionFactory.openSession();
+    	Query query = session.createQuery("from Customer");
+    	List<Customer> customers = query.list();
+    	System.out.println("Customers: " + customers);
+    	session.close();
+    }
+    
+    public static void update(SessionFactory sessionFactory){
+    	Session session = sessionFactory.openSession();
+    	Transaction tx = session.beginTransaction();
+    	Customer cust = session.get(Customer.class, 1);
+    	cust.getAddress().setState("J & K");
+    	tx.commit();
+    	session.close();
+    }
+    public static void remove(SessionFactory sessionFactory){
+    	Session session = sessionFactory.openSession();
+    	Transaction tx = session.beginTransaction();
+//    	Address add = session.get(Address.class, 2);
+    	Customer cust = session.get(Customer.class, 1);
+    	session.delete(cust);
+//    	session.delete(add);
+    	tx.commit();
+    	session.close();
+    }
+}

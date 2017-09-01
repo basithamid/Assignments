@@ -1,0 +1,10 @@
+package tableperclass;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="Vehicle")
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+public class Vehicle {
+	
+}

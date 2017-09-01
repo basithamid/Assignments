@@ -1,0 +1,13 @@
+package tableperclass;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="Car")
+@AttributeOverrides({
+	@AttributeOverride(name="car_id", column=@Column(name="v_id")),
+	@AttributeOverride(name="car_name", column=@Column(name="name")),
+})
+public class Car {
+
+}

@@ -1,0 +1,28 @@
+package tableperclass;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="Car")
+@AttributeOverrides({
+	@AttributeOverride(name="car_id", column=@Column(name="v_id")),
+	@AttributeOverride(name="car_name", column=@Column(name="name")),
+	@AttributeOverride(name="car_price", column=@Column(name="price"))
+})
+public class Car extends Vehicle {
+	@Column(name="carmodel")
+	private String model;
+
+	public Car(String name, double cost, String model) {
+		super(name, cost);
+		this.model = model;
+	}
+
+	public String getModel() {
+		return model;
+	}
+
+	public void setModel(String model) {
+		this.model = model;
+	}
+}

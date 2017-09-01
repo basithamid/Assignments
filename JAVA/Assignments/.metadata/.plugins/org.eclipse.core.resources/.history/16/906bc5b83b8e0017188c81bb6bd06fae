@@ -1,0 +1,24 @@
+package com.hibernate.inheritance;
+
+import javax.persistence.*;
+
+@Entity
+@DiscriminatorValue(value="bike")
+public class Bike extends Vehicle{
+	@Column(name="bikeBikeModel")
+	private String bikeBikeModel;
+
+	public Bike(String name, double cost, String BikeModel) {
+		super(name, cost);
+		this.BikeModel = BikeModel;
+	}
+
+	public String getBikeModel() {
+		return BikeModel;
+	}
+
+	public void setBikeModel(String BikeModel) {
+		this.BikeModel = BikeModel;
+	}
+	
+}

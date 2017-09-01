@@ -1,0 +1,70 @@
+package com.hibernate.mapping;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="EMP")
+public class Emp {
+	@Id
+	@GeneratedValue
+	@Column(name="EMPNO")
+	private int id;
+	
+	@Column(name="ENAME")
+	private String name;
+	
+	
+	@ManyToOne
+	@JoinColumn(name="MGR", referencedColumnName="EMPNO")
+	private Emp manager;
+	
+	public Emp(){}
+
+	public Emp(String name, Emp mgrId) {
+		super();
+		this.name = name;
+		this.mgrId = mgrId;
+	}
+
+	public Emp(int id, String name, Emp mgrId) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.mgrId = mgrId;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public Emp(String name) {
+		super();
+		this.name = name;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Emp getMgrId() {
+		return mgrId;
+	}
+
+	public void setMgrId(Emp mgrId) {
+		this.mgrId = mgrId;
+	}
+
+	@Override
+	public String toString() {
+		return "Emp [id=" + id + ", name=" + name + ", mgrId=" + mgrId + "]";
+	}
+		
+}

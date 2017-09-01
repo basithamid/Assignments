@@ -22,7 +22,9 @@ public class App
 //        insert(sessionFactory);
 //        totalSalary(sessionFactory);
 //        listEmpBySal(sessionFactory);
-        groupByCity(sessionFactory);
+//        groupByCity(sessionFactory);
+//        getAvgSal(sessionFactory);
+        empSalGt10000(sessionFactory);
         
     }
     
@@ -36,7 +38,21 @@ public class App
     	session.close();
 		
 	}
+    public static void empSalGt10000(SessionFactory sessionFactory){
+    	Session session = sessionFactory.openSession();
+    	Query query = session.createQuery("SELECT E.name FROM Employee E where E.salary>10000");
+    	List<String> emps = query.list();
+    	System.out.println("Employees having salary greater than 10K: "+emps);
+    	session.close();
+    }
 
+    public static void getAvgSal(SessionFactory sessionFactory){
+    	Session session = sessionFactory.openSession();
+    	Query query = session.createQuery("SELECT AVG(salary) FROM Employee");
+    	List<Integer> avgSal = query.list();
+    	System.out.println("Avg Sal: "+ avgSal);
+    	session.close();
+    }
 	public static void insert(SessionFactory sessionFactory){
     	Session session = sessionFactory.openSession();
     	Transaction tx = session.beginTransaction();

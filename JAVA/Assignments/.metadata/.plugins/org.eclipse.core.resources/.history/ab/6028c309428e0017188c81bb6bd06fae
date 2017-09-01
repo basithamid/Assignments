@@ -1,0 +1,51 @@
+package com.hibernate.inheritance;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import com.hibernate.inheritance.tableperclass.Vehicle;
+import com.hibernate.inheritance.tableperclass.Car;
+import com.hibernate.inheritance.tableperclass.Bike;
+
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	Configuration config = new Configuration();
+    	config.configure("hibernate.cfg.xml");
+    	SessionFactory sessionFactory = config.buildSessionFactory();
+//    	singleTable(sessionFactory);
+    	tableperclass(sessionFactory);
+    	sessionFactory.close();
+    }
+    private static void tableperclass(SessionFactory sessionFactory) {
+    	Session session = sessionFactory.openSession();
+    	Transaction tx = session.beginTransaction();
+    	Vehicle v = new Vehicle("Truck", 20000);
+    	Car car = new Car("AUDI",1000000,"A7");
+    	Bike bike = new Bike("BMX",50000,"Sports");
+    	session.persist(v);
+    	session.persist(car);
+    	session.persist(bike);
+    	tx.commit();
+    	session.close();
+	}
+	public static void singleTable(SessionFactory sessionFactory){
+    	Session session = sessionFactory.openSession();
+    	Transaction tx = session.beginTransaction();
+    	Vehicle v = new Vehicle("Truck", 20000);
+    	Car car = new Car("AUDI",1000000,"A7");
+    	Bike bike = new Bike("BMX",50000,"Sports");
+    	session.persist(v);
+    	session.persist(car);
+    	session.persist(bike);
+    	tx.commit();
+    	session.close();
+    }
+}

@@ -57,6 +57,9 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.hibernate.caching"/>
+			<item value="com.hibernate.inheritance"/>
+			<item value="com.hibernate.mapping"/>
 			<item value="com.hibernate.project2"/>
 			<item value="com.hibernate.project1"/>
 			<item value="com.hibernate.project"/>
@@ -71,6 +74,9 @@
 			<item value="com.spring"/>
 		</list>
 		<list key="artifactId">
+			<item value="caching"/>
+			<item value="inheritance"/>
+			<item value="mapping"/>
 			<item value="project2"/>
 			<item value="project1"/>
 			<item value="project"/>

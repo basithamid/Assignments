@@ -2082,3 +2082,858 @@ Caused by: java.net.UnknownHostException: repo.maven.apache.org
 	at io.takari.aether.connector.AetherRepositoryConnector$GetTask.run(AetherRepositoryConnector.java:453)
 	at io.takari.aether.connector.AetherRepositoryConnector.get(AetherRepositoryConnector.java:304)
 	... 24 more
+!SESSION 2017-08-31 09:28:02.006 -----------------------------------------------
+eclipse.buildId=4.5.0.I20150603-2000
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jgit 4 0 2017-08-31 09:28:03.334
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.jgit [920]
+  Unresolved requirement: Import-Package: com.googlecode.javaewah; version="[1.1.6,2.0.0)"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.eclipse.jgit.http.apache 4 0 2017-08-31 09:28:03.334
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.jgit.http.apache [921]
+  Unresolved requirement: Import-Package: org.eclipse.jgit.nls; version="[4.8.0,4.9.0)"
+    -> Export-Package: org.eclipse.jgit.nls; bundle-symbolic-name="org.eclipse.jgit"; bundle-version="4.8.0.201706111038-r"; version="4.8.0"
+       org.eclipse.jgit [920]
+         Unresolved requirement: Import-Package: com.googlecode.javaewah; version="[1.1.6,2.0.0)"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-08-31 09:28:25.801
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\sofi_b'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.recommenders.rcp 2 15 2017-08-31 11:29:11.459
+!MESSAGE Failed to parse news feed
+!STACK 0
+javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.ssl.Alerts.getSSLException(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.fatal(Unknown Source)
+	at sun.security.ssl.Handshaker.fatalSE(Unknown Source)
+	at sun.security.ssl.Handshaker.fatalSE(Unknown Source)
+	at sun.security.ssl.ClientHandshaker.serverCertificate(Unknown Source)
+	at sun.security.ssl.ClientHandshaker.processMessage(Unknown Source)
+	at sun.security.ssl.Handshaker.processLoop(Unknown Source)
+	at sun.security.ssl.Handshaker.process_record(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.readRecord(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source)
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.createLayeredSocket(SSLConnectionSocketFactory.java:290)
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:259)
+	at org.apache.http.impl.conn.HttpClientConnectionOperator.connect(HttpClientConnectionOperator.java:125)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:319)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:363)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:219)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:195)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:86)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:108)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
+	at org.apache.http.client.fluent.Executor.execute(Executor.java:206)
+	at org.eclipse.recommenders.internal.rcp.news.CheckForProjectNewsJob.getRSSFeed(CheckForProjectNewsJob.java:138)
+	at org.eclipse.recommenders.internal.rcp.news.CheckForProjectNewsJob.doRun(CheckForProjectNewsJob.java:89)
+	at org.eclipse.recommenders.internal.rcp.news.CheckForProjectNewsJob.run(CheckForProjectNewsJob.java:62)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.validator.PKIXValidator.doBuild(Unknown Source)
+	at sun.security.validator.PKIXValidator.engineValidate(Unknown Source)
+	at sun.security.validator.Validator.validate(Unknown Source)
+	at sun.security.ssl.X509TrustManagerImpl.validate(Unknown Source)
+	at sun.security.ssl.X509TrustManagerImpl.checkTrusted(Unknown Source)
+	at sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(Unknown Source)
+	... 25 more
+Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.provider.certpath.SunCertPathBuilder.build(Unknown Source)
+	at sun.security.provider.certpath.SunCertPathBuilder.engineBuild(Unknown Source)
+	at java.security.cert.CertPathBuilder.build(Unknown Source)
+	... 31 more
+
+!ENTRY org.eclipse.core.resources 4 4 2017-08-31 16:19:35.394
+!MESSAGE Exception loading preferences from: /inheritance/.settings/org.eclipse.jdt.core.prefs.
+!STACK 1
+org.eclipse.core.runtime.CoreException: File not found: D:\GIT\Assignments\JAVA\Assignments\inheritance\.settings\org.eclipse.jdt.core.prefs.
+	at org.eclipse.core.internal.filesystem.Policy.error(Policy.java:49)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.openInputStream(LocalFile.java:391)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:834)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:269)
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:507)
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:492)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:409)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:670)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:812)
+	at org.eclipse.core.resources.ProjectScope.getNode(ProjectScope.java:68)
+	at org.eclipse.jdt.internal.ui.javaeditor.JavaEditor$EclipsePreferencesAdapter.getNode(JavaEditor.java:361)
+	at org.eclipse.jdt.internal.ui.javaeditor.JavaEditor$EclipsePreferencesAdapter.contains(JavaEditor.java:387)
+	at org.eclipse.ui.texteditor.ChainedPreferenceStore.getVisibleStore(ChainedPreferenceStore.java:529)
+	at org.eclipse.ui.texteditor.ChainedPreferenceStore.handlePropertyChangeEvent(ChainedPreferenceStore.java:413)
+	at org.eclipse.ui.texteditor.ChainedPreferenceStore.access$0(ChainedPreferenceStore.java:408)
+	at org.eclipse.ui.texteditor.ChainedPreferenceStore$PropertyChangeListener.propertyChange(ChainedPreferenceStore.java:69)
+	at org.eclipse.jdt.internal.ui.javaeditor.JavaEditor$EclipsePreferencesAdapter.firePropertyChangeEvent(JavaEditor.java:397)
+	at org.eclipse.jdt.internal.ui.javaeditor.JavaEditor$EclipsePreferencesAdapter$PreferenceChangeListener$1.run(JavaEditor.java:330)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4155)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3772)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.block(ModalContext.java:172)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:387)
+	at org.eclipse.ltk.internal.ui.refactoring.RefactoringWizardDialog2.run(RefactoringWizardDialog2.java:331)
+	at org.eclipse.ltk.ui.refactoring.RefactoringWizard.internalPerformFinish(RefactoringWizard.java:637)
+	at org.eclipse.ltk.ui.refactoring.UserInputWizardPage.performFinish(UserInputWizardPage.java:153)
+	at org.eclipse.ltk.ui.refactoring.resource.DeleteResourcesWizard$DeleteResourcesRefactoringConfigurationPage.performFinish(DeleteResourcesWizard.java:202)
+	at org.eclipse.ltk.ui.refactoring.RefactoringWizard.performFinish(RefactoringWizard.java:710)
+	at org.eclipse.ltk.internal.ui.refactoring.RefactoringWizardDialog2.okPressed(RefactoringWizardDialog2.java:455)
+	at org.eclipse.jface.dialogs.Dialog.buttonPressed(Dialog.java:466)
+	at org.eclipse.jface.dialogs.Dialog$2.widgetSelected(Dialog.java:619)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:248)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4180)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3769)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:827)
+	at org.eclipse.jface.window.Window.open(Window.java:803)
+	at org.eclipse.ltk.ui.refactoring.RefactoringWizardOpenOperation$1.run(RefactoringWizardOpenOperation.java:187)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ltk.ui.refactoring.RefactoringWizardOpenOperation.run(RefactoringWizardOpenOperation.java:202)
+	at org.eclipse.ltk.ui.refactoring.RefactoringWizardOpenOperation.run(RefactoringWizardOpenOperation.java:122)
+	at org.eclipse.ltk.internal.ui.refactoring.actions.DeleteResourcesHandler.execute(DeleteResourcesHandler.java:40)
+	at org.eclipse.ui.internal.handlers.HandlerProxy.execute(HandlerProxy.java:295)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:90)
+	at sun.reflect.GeneratedMethodAccessor61.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:56)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:252)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:234)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:132)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:152)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:493)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:486)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:210)
+	at org.eclipse.ui.internal.handlers.LegacyHandlerService.executeCommandInContext(LegacyHandlerService.java:396)
+	at org.eclipse.ui.internal.ide.actions.LTKLauncher.runCommand(LTKLauncher.java:96)
+	at org.eclipse.ui.internal.ide.actions.LTKLauncher.openDeleteWizard(LTKLauncher.java:48)
+	at org.eclipse.ui.actions.DeleteResourceAction.run(DeleteResourceAction.java:454)
+	at org.eclipse.jdt.internal.ui.refactoring.reorg.DeleteAction.run(DeleteAction.java:197)
+	at org.eclipse.jdt.ui.actions.SelectionDispatchAction.dispatchRun(SelectionDispatchAction.java:275)
+	at org.eclipse.jdt.ui.actions.SelectionDispatchAction.run(SelectionDispatchAction.java:251)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:473)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:595)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:511)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:420)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4180)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3769)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1127)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:654)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:598)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:139)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1488)
+Caused by: java.io.FileNotFoundException: D:\GIT\Assignments\JAVA\Assignments\inheritance\.settings\org.eclipse.jdt.core.prefs (The system cannot find the path specified)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.openInputStream(LocalFile.java:382)
+	... 94 more
+!SUBENTRY 1 org.eclipse.core.filesystem 4 271 2017-08-31 16:19:35.396
+!MESSAGE File not found: D:\GIT\Assignments\JAVA\Assignments\inheritance\.settings\org.eclipse.jdt.core.prefs.
+!STACK 0
+java.io.FileNotFoundException: D:\GIT\Assignments\JAVA\Assignments\inheritance\.settings\org.eclipse.jdt.core.prefs (The system cannot find the path specified)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.openInputStream(LocalFile.java:382)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:834)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:269)
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:507)
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:492)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:409)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:670)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:812)
+	at org.eclipse.core.resources.ProjectScope.getNode(ProjectScope.java:68)
+	at org.eclipse.jdt.internal.ui.javaeditor.JavaEditor$EclipsePreferencesAdapter.getNode(JavaEditor.java:361)
+	at org.eclipse.jdt.internal.ui.javaeditor.JavaEditor$EclipsePreferencesAdapter.contains(JavaEditor.java:387)
+	at org.eclipse.ui.texteditor.ChainedPreferenceStore.getVisibleStore(ChainedPreferenceStore.java:529)
+	at org.eclipse.ui.texteditor.ChainedPreferenceStore.handlePropertyChangeEvent(ChainedPreferenceStore.java:413)
+	at org.eclipse.ui.texteditor.ChainedPreferenceStore.access$0(ChainedPreferenceStore.java:408)
+	at org.eclipse.ui.texteditor.ChainedPreferenceStore$PropertyChangeListener.propertyChange(ChainedPreferenceStore.java:69)
+	at org.eclipse.jdt.internal.ui.javaeditor.JavaEditor$EclipsePreferencesAdapter.firePropertyChangeEvent(JavaEditor.java:397)
+	at org.eclipse.jdt.internal.ui.javaeditor.JavaEditor$EclipsePreferencesAdapter$PreferenceChangeListener$1.run(JavaEditor.java:330)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4155)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3772)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.block(ModalContext.java:172)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:387)
+	at org.eclipse.ltk.internal.ui.refactoring.RefactoringWizardDialog2.run(RefactoringWizardDialog2.java:331)
+	at org.eclipse.ltk.ui.refactoring.RefactoringWizard.internalPerformFinish(RefactoringWizard.java:637)
+	at org.eclipse.ltk.ui.refactoring.UserInputWizardPage.performFinish(UserInputWizardPage.java:153)
+	at org.eclipse.ltk.ui.refactoring.resource.DeleteResourcesWizard$DeleteResourcesRefactoringConfigurationPage.performFinish(DeleteResourcesWizard.java:202)
+	at org.eclipse.ltk.ui.refactoring.RefactoringWizard.performFinish(RefactoringWizard.java:710)
+	at org.eclipse.ltk.internal.ui.refactoring.RefactoringWizardDialog2.okPressed(RefactoringWizardDialog2.java:455)
+	at org.eclipse.jface.dialogs.Dialog.buttonPressed(Dialog.java:466)
+	at org.eclipse.jface.dialogs.Dialog$2.widgetSelected(Dialog.java:619)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:248)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4180)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3769)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:827)
+	at org.eclipse.jface.window.Window.open(Window.java:803)
+	at org.eclipse.ltk.ui.refactoring.RefactoringWizardOpenOperation$1.run(RefactoringWizardOpenOperation.java:187)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ltk.ui.refactoring.RefactoringWizardOpenOperation.run(RefactoringWizardOpenOperation.java:202)
+	at org.eclipse.ltk.ui.refactoring.RefactoringWizardOpenOperation.run(RefactoringWizardOpenOperation.java:122)
+	at org.eclipse.ltk.internal.ui.refactoring.actions.DeleteResourcesHandler.execute(DeleteResourcesHandler.java:40)
+	at org.eclipse.ui.internal.handlers.HandlerProxy.execute(HandlerProxy.java:295)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:90)
+	at sun.reflect.GeneratedMethodAccessor61.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:56)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:252)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:234)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:132)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:152)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:493)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:486)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:210)
+	at org.eclipse.ui.internal.handlers.LegacyHandlerService.executeCommandInContext(LegacyHandlerService.java:396)
+	at org.eclipse.ui.internal.ide.actions.LTKLauncher.runCommand(LTKLauncher.java:96)
+	at org.eclipse.ui.internal.ide.actions.LTKLauncher.openDeleteWizard(LTKLauncher.java:48)
+	at org.eclipse.ui.actions.DeleteResourceAction.run(DeleteResourceAction.java:454)
+	at org.eclipse.jdt.internal.ui.refactoring.reorg.DeleteAction.run(DeleteAction.java:197)
+	at org.eclipse.jdt.ui.actions.SelectionDispatchAction.dispatchRun(SelectionDispatchAction.java:275)
+	at org.eclipse.jdt.ui.actions.SelectionDispatchAction.run(SelectionDispatchAction.java:251)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:473)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:595)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:511)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:420)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4180)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3769)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1127)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:654)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:598)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:139)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1488)
+
+!ENTRY org.eclipse.equinox.preferences 4 4 2017-08-31 16:19:35.547
+!MESSAGE Exception loading preferences from: .
+!STACK 0
+org.osgi.service.prefs.BackingStoreException: Exception loading preferences from: /inheritance/.settings/org.eclipse.jdt.core.prefs.
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:515)
+	at org.eclipse.core.internal.resources.ProjectPreferences.load(ProjectPreferences.java:492)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.create(EclipsePreferences.java:409)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:670)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:812)
+	at org.eclipse.core.resources.ProjectScope.getNode(ProjectScope.java:68)
+	at org.eclipse.jdt.internal.ui.javaeditor.JavaEditor$EclipsePreferencesAdapter.getNode(JavaEditor.java:361)
+	at org.eclipse.jdt.internal.ui.javaeditor.JavaEditor$EclipsePreferencesAdapter.contains(JavaEditor.java:387)
+	at org.eclipse.ui.texteditor.ChainedPreferenceStore.getVisibleStore(ChainedPreferenceStore.java:529)
+	at org.eclipse.ui.texteditor.ChainedPreferenceStore.handlePropertyChangeEvent(ChainedPreferenceStore.java:413)
+	at org.eclipse.ui.texteditor.ChainedPreferenceStore.access$0(ChainedPreferenceStore.java:408)
+	at org.eclipse.ui.texteditor.ChainedPreferenceStore$PropertyChangeListener.propertyChange(ChainedPreferenceStore.java:69)
+	at org.eclipse.jdt.internal.ui.javaeditor.JavaEditor$EclipsePreferencesAdapter.firePropertyChangeEvent(JavaEditor.java:397)
+	at org.eclipse.jdt.internal.ui.javaeditor.JavaEditor$EclipsePreferencesAdapter$PreferenceChangeListener$1.run(JavaEditor.java:330)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4155)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3772)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.block(ModalContext.java:172)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:387)
+	at org.eclipse.ltk.internal.ui.refactoring.RefactoringWizardDialog2.run(RefactoringWizardDialog2.java:331)
+	at org.eclipse.ltk.ui.refactoring.RefactoringWizard.internalPerformFinish(RefactoringWizard.java:637)
+	at org.eclipse.ltk.ui.refactoring.UserInputWizardPage.performFinish(UserInputWizardPage.java:153)
+	at org.eclipse.ltk.ui.refactoring.resource.DeleteResourcesWizard$DeleteResourcesRefactoringConfigurationPage.performFinish(DeleteResourcesWizard.java:202)
+	at org.eclipse.ltk.ui.refactoring.RefactoringWizard.performFinish(RefactoringWizard.java:710)
+	at org.eclipse.ltk.internal.ui.refactoring.RefactoringWizardDialog2.okPressed(RefactoringWizardDialog2.java:455)
+	at org.eclipse.jface.dialogs.Dialog.buttonPressed(Dialog.java:466)
+	at org.eclipse.jface.dialogs.Dialog$2.widgetSelected(Dialog.java:619)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:248)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4180)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3769)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:827)
+	at org.eclipse.jface.window.Window.open(Window.java:803)
+	at org.eclipse.ltk.ui.refactoring.RefactoringWizardOpenOperation$1.run(RefactoringWizardOpenOperation.java:187)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ltk.ui.refactoring.RefactoringWizardOpenOperation.run(RefactoringWizardOpenOperation.java:202)
+	at org.eclipse.ltk.ui.refactoring.RefactoringWizardOpenOperation.run(RefactoringWizardOpenOperation.java:122)
+	at org.eclipse.ltk.internal.ui.refactoring.actions.DeleteResourcesHandler.execute(DeleteResourcesHandler.java:40)
+	at org.eclipse.ui.internal.handlers.HandlerProxy.execute(HandlerProxy.java:295)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:90)
+	at sun.reflect.GeneratedMethodAccessor61.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:56)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:252)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:234)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:132)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:152)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:493)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:486)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:210)
+	at org.eclipse.ui.internal.handlers.LegacyHandlerService.executeCommandInContext(LegacyHandlerService.java:396)
+	at org.eclipse.ui.internal.ide.actions.LTKLauncher.runCommand(LTKLauncher.java:96)
+	at org.eclipse.ui.internal.ide.actions.LTKLauncher.openDeleteWizard(LTKLauncher.java:48)
+	at org.eclipse.ui.actions.DeleteResourceAction.run(DeleteResourceAction.java:454)
+	at org.eclipse.jdt.internal.ui.refactoring.reorg.DeleteAction.run(DeleteAction.java:197)
+	at org.eclipse.jdt.ui.actions.SelectionDispatchAction.dispatchRun(SelectionDispatchAction.java:275)
+	at org.eclipse.jdt.ui.actions.SelectionDispatchAction.run(SelectionDispatchAction.java:251)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:473)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:595)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:511)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:420)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4180)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3769)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1127)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:654)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:598)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:139)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1488)
+
+!ENTRY org.eclipse.jface 4 0 2017-08-31 16:19:35.560
+!MESSAGE Unhandled event loop exception during blocked modal context.
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.IllegalStateException: Preference node "org.eclipse.jdt.core" has been removed.)
+	at org.eclipse.swt.SWT.error(SWT.java:4491)
+	at org.eclipse.swt.SWT.error(SWT.java:4406)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:138)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4155)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3772)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.block(ModalContext.java:172)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:387)
+	at org.eclipse.ltk.internal.ui.refactoring.RefactoringWizardDialog2.run(RefactoringWizardDialog2.java:331)
+	at org.eclipse.ltk.ui.refactoring.RefactoringWizard.internalPerformFinish(RefactoringWizard.java:637)
+	at org.eclipse.ltk.ui.refactoring.UserInputWizardPage.performFinish(UserInputWizardPage.java:153)
+	at org.eclipse.ltk.ui.refactoring.resource.DeleteResourcesWizard$DeleteResourcesRefactoringConfigurationPage.performFinish(DeleteResourcesWizard.java:202)
+	at org.eclipse.ltk.ui.refactoring.RefactoringWizard.performFinish(RefactoringWizard.java:710)
+	at org.eclipse.ltk.internal.ui.refactoring.RefactoringWizardDialog2.okPressed(RefactoringWizardDialog2.java:455)
+	at org.eclipse.jface.dialogs.Dialog.buttonPressed(Dialog.java:466)
+	at org.eclipse.jface.dialogs.Dialog$2.widgetSelected(Dialog.java:619)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:248)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4180)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3769)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:827)
+	at org.eclipse.jface.window.Window.open(Window.java:803)
+	at org.eclipse.ltk.ui.refactoring.RefactoringWizardOpenOperation$1.run(RefactoringWizardOpenOperation.java:187)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ltk.ui.refactoring.RefactoringWizardOpenOperation.run(RefactoringWizardOpenOperation.java:202)
+	at org.eclipse.ltk.ui.refactoring.RefactoringWizardOpenOperation.run(RefactoringWizardOpenOperation.java:122)
+	at org.eclipse.ltk.internal.ui.refactoring.actions.DeleteResourcesHandler.execute(DeleteResourcesHandler.java:40)
+	at org.eclipse.ui.internal.handlers.HandlerProxy.execute(HandlerProxy.java:295)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:90)
+	at sun.reflect.GeneratedMethodAccessor61.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:56)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:252)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:234)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:132)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:152)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:493)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:486)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:210)
+	at org.eclipse.ui.internal.handlers.LegacyHandlerService.executeCommandInContext(LegacyHandlerService.java:396)
+	at org.eclipse.ui.internal.ide.actions.LTKLauncher.runCommand(LTKLauncher.java:96)
+	at org.eclipse.ui.internal.ide.actions.LTKLauncher.openDeleteWizard(LTKLauncher.java:48)
+	at org.eclipse.ui.actions.DeleteResourceAction.run(DeleteResourceAction.java:454)
+	at org.eclipse.jdt.internal.ui.refactoring.reorg.DeleteAction.run(DeleteAction.java:197)
+	at org.eclipse.jdt.ui.actions.SelectionDispatchAction.dispatchRun(SelectionDispatchAction.java:275)
+	at org.eclipse.jdt.ui.actions.SelectionDispatchAction.run(SelectionDispatchAction.java:251)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:473)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:595)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:511)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:420)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4180)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3769)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1127)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:654)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:598)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:139)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1488)
+Caused by: java.lang.IllegalStateException: Preference node "org.eclipse.jdt.core" has been removed.
+	at org.eclipse.core.internal.preferences.EclipsePreferences.checkRemoved(EclipsePreferences.java:200)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:653)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:812)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalNode(EclipsePreferences.java:676)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.node(EclipsePreferences.java:812)
+	at org.eclipse.core.resources.ProjectScope.getNode(ProjectScope.java:68)
+	at org.eclipse.jdt.internal.ui.javaeditor.JavaEditor$EclipsePreferencesAdapter.getNode(JavaEditor.java:361)
+	at org.eclipse.jdt.internal.ui.javaeditor.JavaEditor$EclipsePreferencesAdapter.contains(JavaEditor.java:387)
+	at org.eclipse.ui.texteditor.ChainedPreferenceStore.getVisibleStore(ChainedPreferenceStore.java:529)
+	at org.eclipse.ui.texteditor.ChainedPreferenceStore.handlePropertyChangeEvent(ChainedPreferenceStore.java:413)
+	at org.eclipse.ui.texteditor.ChainedPreferenceStore.access$0(ChainedPreferenceStore.java:408)
+	at org.eclipse.ui.texteditor.ChainedPreferenceStore$PropertyChangeListener.propertyChange(ChainedPreferenceStore.java:69)
+	at org.eclipse.jdt.internal.ui.javaeditor.JavaEditor$EclipsePreferencesAdapter.firePropertyChangeEvent(JavaEditor.java:397)
+	at org.eclipse.jdt.internal.ui.javaeditor.JavaEditor$EclipsePreferencesAdapter$PreferenceChangeListener$1.run(JavaEditor.java:330)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	... 76 more
+
+!ENTRY org.eclipse.epp.logging.aeri.ui 2 2 2017-08-31 16:19:48.127
+!MESSAGE Failed to send error log entry.
+!SUBENTRY 1 org.eclipse.epp.logging.aeri.ui 2 0 2017-08-31 16:19:48.127
+!MESSAGE <?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Service unavailable!</title>
+<link rev="made" href="mailto:%5bno%20address%20given%5d" />
+<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
+    body { color: #000000; background-color: #FFFFFF; }
+    a:link { color: #0000CC; }
+    p, address {margin-left: 3em;}
+    span {font-size: smaller;}
+/*]]>*/--></style>
+</head>
+
+<body>
+<h1>Service unavailable!</h1>
+<p>
+
+
+    The server is temporarily unable to service your
+    request due to maintenance downtime or capacity
+    problems. Please try again later. 
+
+</p>
+<p>
+If you think this is a server error, please contact
+the <a href="mailto:%5bno%20address%20given%5d">webmaster</a>.
+
+</p>
+
+<h2>Error 503</h2>
+<address>
+  <a href="/">dev.eclipse.org</a><br />
+  
+  <span>Thu Aug 31 06:50:20 2017<br />
+  Apache/2.2.12 (Linux/SUSE)</span>
+</address>
+</body>
+</html>
+
+
+
+!ENTRY org.eclipse.epp.logging.aeri.ui 2 2 2017-08-31 16:19:48.837
+!MESSAGE Failed to send error log entry.
+!SUBENTRY 1 org.eclipse.epp.logging.aeri.ui 2 0 2017-08-31 16:19:48.837
+!MESSAGE <?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Service unavailable!</title>
+<link rev="made" href="mailto:%5bno%20address%20given%5d" />
+<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
+    body { color: #000000; background-color: #FFFFFF; }
+    a:link { color: #0000CC; }
+    p, address {margin-left: 3em;}
+    span {font-size: smaller;}
+/*]]>*/--></style>
+</head>
+
+<body>
+<h1>Service unavailable!</h1>
+<p>
+
+
+    The server is temporarily unable to service your
+    request due to maintenance downtime or capacity
+    problems. Please try again later. 
+
+</p>
+<p>
+If you think this is a server error, please contact
+the <a href="mailto:%5bno%20address%20given%5d">webmaster</a>.
+
+</p>
+
+<h2>Error 503</h2>
+<address>
+  <a href="/">dev.eclipse.org</a><br />
+  
+  <span>Thu Aug 31 06:50:20 2017<br />
+  Apache/2.2.12 (Linux/SUSE)</span>
+</address>
+</body>
+</html>
+
+
+
+!ENTRY org.eclipse.epp.logging.aeri.ui 2 2 2017-08-31 16:19:49.510
+!MESSAGE Failed to send error log entry.
+!SUBENTRY 1 org.eclipse.epp.logging.aeri.ui 2 0 2017-08-31 16:19:49.511
+!MESSAGE <?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Service unavailable!</title>
+<link rev="made" href="mailto:%5bno%20address%20given%5d" />
+<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
+    body { color: #000000; background-color: #FFFFFF; }
+    a:link { color: #0000CC; }
+    p, address {margin-left: 3em;}
+    span {font-size: smaller;}
+/*]]>*/--></style>
+</head>
+
+<body>
+<h1>Service unavailable!</h1>
+<p>
+
+
+    The server is temporarily unable to service your
+    request due to maintenance downtime or capacity
+    problems. Please try again later. 
+
+</p>
+<p>
+If you think this is a server error, please contact
+the <a href="mailto:%5bno%20address%20given%5d">webmaster</a>.
+
+</p>
+
+<h2>Error 503</h2>
+<address>
+  <a href="/">dev.eclipse.org</a><br />
+  
+  <span>Thu Aug 31 06:50:21 2017<br />
+  Apache/2.2.12 (Linux/SUSE)</span>
+</address>
+</body>
+</html>
+
+
+!SESSION 2017-09-01 11:18:54.276 -----------------------------------------------
+eclipse.buildId=4.5.0.I20150603-2000
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jgit 4 0 2017-09-01 11:18:55.089
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.jgit [920]
+  Unresolved requirement: Import-Package: com.googlecode.javaewah; version="[1.1.6,2.0.0)"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.eclipse.jgit.http.apache 4 0 2017-09-01 11:18:55.089
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.jgit.http.apache [921]
+  Unresolved requirement: Import-Package: org.eclipse.jgit.nls; version="[4.8.0,4.9.0)"
+    -> Export-Package: org.eclipse.jgit.nls; bundle-symbolic-name="org.eclipse.jgit"; bundle-version="4.8.0.201706111038-r"; version="4.8.0"
+       org.eclipse.jgit [920]
+         Unresolved requirement: Import-Package: com.googlecode.javaewah; version="[1.1.6,2.0.0)"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-09-01 11:19:03.722
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\sofi_b'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.recommenders.rcp 2 15 2017-09-01 13:22:17.957
+!MESSAGE Failed to parse news feed
+!STACK 0
+javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.ssl.Alerts.getSSLException(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.fatal(Unknown Source)
+	at sun.security.ssl.Handshaker.fatalSE(Unknown Source)
+	at sun.security.ssl.Handshaker.fatalSE(Unknown Source)
+	at sun.security.ssl.ClientHandshaker.serverCertificate(Unknown Source)
+	at sun.security.ssl.ClientHandshaker.processMessage(Unknown Source)
+	at sun.security.ssl.Handshaker.processLoop(Unknown Source)
+	at sun.security.ssl.Handshaker.process_record(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.readRecord(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source)
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.createLayeredSocket(SSLConnectionSocketFactory.java:290)
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:259)
+	at org.apache.http.impl.conn.HttpClientConnectionOperator.connect(HttpClientConnectionOperator.java:125)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:319)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:363)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:219)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:195)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:86)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:108)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
+	at org.apache.http.client.fluent.Executor.execute(Executor.java:206)
+	at org.eclipse.recommenders.internal.rcp.news.CheckForProjectNewsJob.getRSSFeed(CheckForProjectNewsJob.java:138)
+	at org.eclipse.recommenders.internal.rcp.news.CheckForProjectNewsJob.doRun(CheckForProjectNewsJob.java:89)
+	at org.eclipse.recommenders.internal.rcp.news.CheckForProjectNewsJob.run(CheckForProjectNewsJob.java:62)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.validator.PKIXValidator.doBuild(Unknown Source)
+	at sun.security.validator.PKIXValidator.engineValidate(Unknown Source)
+	at sun.security.validator.Validator.validate(Unknown Source)
+	at sun.security.ssl.X509TrustManagerImpl.validate(Unknown Source)
+	at sun.security.ssl.X509TrustManagerImpl.checkTrusted(Unknown Source)
+	at sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(Unknown Source)
+	... 25 more
+Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.provider.certpath.SunCertPathBuilder.build(Unknown Source)
+	at sun.security.provider.certpath.SunCertPathBuilder.engineBuild(Unknown Source)
+	at java.security.cert.CertPathBuilder.build(Unknown Source)
+	... 31 more
+
+!ENTRY org.eclipse.ui.workbench 4 0 2017-09-01 14:28:38.693
+!MESSAGE An unexpected exception was thrown.
+!STACK 0
+java.util.ConcurrentModificationException
+	at java.util.HashMap$HashIterator.nextNode(Unknown Source)
+	at java.util.HashMap$ValueIterator.next(Unknown Source)
+	at org.eclipse.ui.internal.services.ServiceLocator.dispose(ServiceLocator.java:136)
+	at org.eclipse.ui.internal.WorkbenchWindow.hardClose(WorkbenchWindow.java:1968)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:1575)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$16(WorkbenchWindow.java:1542)
+	at org.eclipse.ui.internal.WorkbenchWindow$11.run(WorkbenchWindow.java:1603)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:1600)
+	at org.eclipse.ui.internal.Workbench$14.run(Workbench.java:1149)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench.busyClose(Workbench.java:1131)
+	at org.eclipse.ui.internal.Workbench.access$21(Workbench.java:1073)
+	at org.eclipse.ui.internal.Workbench$19.run(Workbench.java:1414)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1411)
+	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1384)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyClose(WorkbenchWindow.java:1571)
+	at org.eclipse.ui.internal.WorkbenchWindow.access$16(WorkbenchWindow.java:1542)
+	at org.eclipse.ui.internal.WorkbenchWindow$11.run(WorkbenchWindow.java:1603)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:1600)
+	at org.eclipse.ui.internal.WorkbenchWindow.close(WorkbenchWindow.java:1614)
+	at org.eclipse.ui.internal.WorkbenchWindow$6.close(WorkbenchWindow.java:523)
+	at org.eclipse.e4.ui.workbench.renderers.swt.WBWRenderer$7.shellClosed(WBWRenderer.java:518)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:98)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1137)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1122)
+	at org.eclipse.swt.widgets.Decorations.closeWidget(Decorations.java:308)
+	at org.eclipse.swt.widgets.Decorations.WM_CLOSE(Decorations.java:1703)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4664)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:339)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1633)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2117)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5050)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProcW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(OS.java:2544)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:498)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4760)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:339)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1633)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2117)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5050)
+	at org.eclipse.swt.internal.win32.OS.PeekMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.PeekMessage(OS.java:3141)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3764)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1127)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:654)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:598)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:139)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1488)
+!SESSION 2017-09-01 14:54:43.979 -----------------------------------------------
+eclipse.buildId=4.5.0.I20150603-2000
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jgit 4 0 2017-09-01 14:54:44.791
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.jgit [920]
+  Unresolved requirement: Import-Package: com.googlecode.javaewah; version="[1.1.6,2.0.0)"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.eclipse.jgit.http.apache 4 0 2017-09-01 14:54:44.791
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.jgit.http.apache [921]
+  Unresolved requirement: Import-Package: org.eclipse.jgit.nls; version="[4.8.0,4.9.0)"
+    -> Export-Package: org.eclipse.jgit.nls; bundle-symbolic-name="org.eclipse.jgit"; bundle-version="4.8.0.201706111038-r"; version="4.8.0"
+       org.eclipse.jgit [920]
+         Unresolved requirement: Import-Package: com.googlecode.javaewah; version="[1.1.6,2.0.0)"
+
+	at org.eclipse.osgi.container.Module.start(Module.java:434)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1582)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1561)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1533)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1476)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:340)
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-09-01 14:54:50.750
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\sofi_b'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.

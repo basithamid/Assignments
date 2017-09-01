@@ -1,0 +1,22 @@
+package com.hibernate.inheritance;
+
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	Configuration config = new Configuration();
+    	config.configure("hibernate.cfg.xml");
+    	SessionFactory sessionFactory = config.buildSessionFactory();
+    	singleTable(sessionFactory);
+    }
+    public static void singleTable(SessionFactory sessionFactory){
+    	Vehicle v = new Vehicle("Truck", 20000);
+    }
+}

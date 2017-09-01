@@ -1,0 +1,14 @@
+package com.hibernate.mapping;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="Customer")
+public class Customer {
+	@Id
+	@GeneratedValue
+	@Column(name="c_id")
+	private int id;
+	
+	
+}

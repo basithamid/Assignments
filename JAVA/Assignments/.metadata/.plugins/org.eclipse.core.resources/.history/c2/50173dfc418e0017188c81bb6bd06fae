@@ -1,0 +1,24 @@
+package com.hibernate.inheritance.tableperclass;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="Car2")
+@PrimaryKeyJoinColumn(name="ID")
+public class Car extends Vehicle {
+	@Column(name="carmodel")
+	private String model;
+
+	public Car(String name, double cost, String model) {
+		super(name, cost);
+		this.model = model;
+	}
+
+	public String getModel() {
+		return model;
+	}
+
+	public void setModel(String model) {
+		this.model = model;
+	}
+}

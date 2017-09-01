@@ -1,0 +1,23 @@
+package com.hibernate.mapping;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="Stock")
+public class Stock {
+
+	@Id
+	@GeneratedValue
+	@Column(name="s_id")
+	private int id;
+	
+	@Column(name="s_name")
+	private String name;
+	
+	@Column(name="s_price")
+	private double price;
+	
+	@ManyToOne(cascade=CascadeType.ALL, fetch=Fetchtype.EAGER)
+	@JoinColumn(name="market_id")
+	private Market market;
+}

@@ -1,0 +1,23 @@
+package com.hibernate.mapping;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="EMP")
+public class Emp {
+	@Id
+	@GeneratedValue
+	@Column(name="EMPNO")
+	private int id;
+	
+	@Column(name="ENAME")
+	private String name;
+	
+	@ManyToOne(cascade=CascadeType.PERSIST, fetch=FetchType.EAGER)
+	@JoinColumn(name="MGR")
+	private int mgrId;
+	
+	
+	
+	
+}
