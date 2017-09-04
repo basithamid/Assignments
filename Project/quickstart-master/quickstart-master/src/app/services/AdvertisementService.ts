@@ -8,7 +8,7 @@ export class AdvertisementService{
     adArray:Array<any> = [];
     authToken:any;
     userName:string;
-    url:string='http://192.168.3.144:9000'
+    url:string='http://localhost:8002/advertisement'
     constructor(private _http:Http){
         
     }

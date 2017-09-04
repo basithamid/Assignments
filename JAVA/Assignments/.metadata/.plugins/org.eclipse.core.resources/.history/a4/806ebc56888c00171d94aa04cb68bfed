@@ -1,5 +1,0 @@
-package com.spring.advertisement.dao;
-
-public class UserDaoImpl implements UserDao {
-
-}

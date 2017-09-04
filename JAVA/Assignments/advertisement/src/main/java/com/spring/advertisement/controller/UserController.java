@@ -2,8 +2,11 @@ package com.spring.advertisement.controller;
 
 import java.util.List;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,12 +14,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.spring.advertisement.collection.ItemCollection;
+//import com.spring.advertisement.collection.ItemCollection;
 import com.spring.advertisement.collection.SessionCollection;
 import com.spring.advertisement.entity.User;
 import com.spring.advertisement.entity.UserLogin;
 import com.spring.advertisement.service.UserService;
 
+
+@CrossOrigin(origins="*")
 @RestController
 @RequestMapping("/advertisement")
 public class UserController {
@@ -24,7 +29,7 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	@RequestMapping(value="/user", method=RequestMethod.POST,
+	@RequestMapping(value="/register", method=RequestMethod.POST,
 			consumes=MediaType.APPLICATION_JSON_VALUE,
 			produces=MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody User createUser(@RequestBody User user) {
@@ -32,27 +37,26 @@ public class UserController {
 		return userService.createUser(user);
 	}
 	
-	@RequestMapping(value="/categories", method=RequestMethod.GET,
-			produces=MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody List<ItemCollection> getCategories(){
-		List<ItemCollection> categories = userService.getCategories();
-		System.out.println("Categories : "+categories);
-		return categories;
-	}
-	
+//	@RequestMapping(value="/categories", method=RequestMethod.GET,
+//			produces=MediaType.APPLICATION_JSON_VALUE)
+//	public @ResponseBody List<ItemCollection> getCategories(){
+//		List<ItemCollection> categories = userService.getCategories();
+//		System.out.println("Categories : "+categories);
+//		return categories;
+//	}
+//	
 	@RequestMapping(value="/login", method=RequestMethod.POST,
 			produces=MediaType.APPLICATION_JSON_VALUE,
 			consumes=MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody SessionCollection login(@RequestBody UserLogin user){
-		
-		return userService.login(user);
+	public @ResponseBody void login(@RequestBody UserLogin user) {
+		userService.login(user);
 	}
-	
-	@RequestMapping(value="/logout", method=RequestMethod.POST,
-			consumes=MediaType.APPLICATION_JSON_VALUE,
-			produces=MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody void logout(@RequestHeader(value="auth-token") String authToken){
-		userService.logout(authToken);
-		
-	}
+//	
+//	@RequestMapping(value="/logout", method=RequestMethod.POST,
+//			consumes=MediaType.APPLICATION_JSON_VALUE,
+//			produces=MediaType.APPLICATION_JSON_VALUE)
+//	public @ResponseBody void logout(@RequestHeader(value="auth-token") String authToken){
+//		userService.logout(authToken);
+//		
+//	}
 }

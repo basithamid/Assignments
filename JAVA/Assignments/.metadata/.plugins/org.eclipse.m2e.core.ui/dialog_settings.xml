@@ -57,6 +57,7 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.hibernate"/>
 			<item value="com.hibernate.caching"/>
 			<item value="com.hibernate.inheritance"/>
 			<item value="com.hibernate.mapping"/>

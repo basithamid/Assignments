@@ -1,0 +1,20 @@
+package com.spring.advertisement.service;
+
+import java.util.List;
+
+//import com.spring.advertisement.collection.ItemCollection;
+import com.spring.advertisement.collection.SessionCollection;
+import com.spring.advertisement.entity.User;
+import com.spring.advertisement.entity.UserLogin;
+
+public interface UserService {
+	public User createUser(User user);
+
+//	public List<ItemCollection> getCategories();
+//
+//	public SessionCollection login(UserLogin user);
+//
+//	public void logout(String authToken);
+
+	
+}

@@ -1,53 +1,108 @@
 package com.spring.advertisement.entity;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="Users")
 public class User {
-	private String id;
-	private String fname;
-	private String lname;
-	private String uname;
-	private String pwd;
+	
+	@Id
+	@GeneratedValue
+	@Column(name="user_id")
+	private Long id;
+	
+	@Column(name="firstName")
+	private String firstName;
+	
+	@Column(name="lastName")
+	private String lastName;
+	
+	@Column(name="userName")
+	private String userName;
+	
+	@Column(name="password")
+	private String password;
+	
+	@Column(name="emailId")
+	private String email;
+	
+	@Column(name="phone")
+	private Long phone;
+	
 	public User(){}
-	public User(String id, String fname, String lname, String uname, String pwd) {
+
+	public User(Long id, String firstName, String lastName, String userName, String password, String email,
+			Long phone) {
 		super();
 		this.id = id;
-		this.fname = fname;
-		this.lname = lname;
-		this.uname = uname;
-		this.pwd = pwd;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.userName = userName;
+		this.password = password;
+		this.email = email;
+		this.phone = phone;
 	}
-	public String getId() {
+
+	public Long getId() {
 		return id;
 	}
-	public void setId(String id) {
+
+	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getFname() {
-		return fname;
+
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setFname(String fname) {
-		this.fname = fname;
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
-	public String getlname() {
-		return lname;
+
+	public String getLastName() {
+		return lastName;
 	}
-	public void setlname(String lname) {
-		this.lname = lname;
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
-	public String getUname() {
-		return uname;
+
+	public String getUserName() {
+		return userName;
 	}
-	public void setUname(String uname) {
-		this.uname = uname;
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
-	public String getPwd() {
-		return pwd;
+
+	public String getPassword() {
+		return password;
 	}
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
-	
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Long getPhone() {
+		return phone;
+	}
+
+	public void setPhone(Long phone) {
+		this.phone = phone;
+	}
+
 	@Override
 	public String toString() {
-		return "User [uname=" + uname + ", pwd=" + pwd + ", fname=" + fname + "]";
+		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", userName=" + userName
+				+ ", password=" + password + ", email=" + email + ", phone=" + phone + "]";
 	}
+	
 }

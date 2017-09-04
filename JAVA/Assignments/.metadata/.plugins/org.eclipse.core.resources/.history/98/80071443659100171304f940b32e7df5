@@ -1,0 +1,57 @@
+package com.spring.advertisement.table;
+
+import java.sql.Date;
+
+import javax.persistence.*;
+
+@Table(name="UserSession")
+public class UserSession {
+	@Id
+	@GeneratedValue
+	@Column(name="id")
+	private Long sessionId;
+	
+	@Column(name="userName")
+	private String userName;
+	
+	@Column(name="date")
+	private Date date;
+
+	public UserSession(String userName, Date date) {
+		super();
+		this.userName = userName;
+		this.date = date;
+	}
+
+	public Long getSessionId() {
+		return sessionId;
+	}
+
+	public void setSessionId(Long sessionId) {
+		this.sessionId = sessionId;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	@Override
+	public String toString() {
+		return "UserSession [sessionId=" + sessionId + ", userName=" + userName + ", date=" + date + "]";
+	}
+
+	
+	
+}

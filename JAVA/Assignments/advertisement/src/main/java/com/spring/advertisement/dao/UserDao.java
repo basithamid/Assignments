@@ -2,7 +2,7 @@ package com.spring.advertisement.dao;
 
 import java.util.List;
 
-import com.spring.advertisement.collection.ItemCollection;
+//import com.spring.advertisement.collection.ItemCollection;
 import com.spring.advertisement.collection.SessionCollection;
 import com.spring.advertisement.entity.User;
 import com.spring.advertisement.entity.UserLogin;
@@ -10,11 +10,11 @@ import com.spring.advertisement.entity.UserLogin;
 public interface UserDao {
 	public User createUser(User user);
 
-	public List<ItemCollection> getCategoires();
+//	public List<ItemCollection> getCategoires();
+//
+	public void login(UserLogin user);
 
-	public SessionCollection login(UserLogin user);
-
-	public void logout(String authToken);
+//	public void logout(String authToken);
 
 	
 }

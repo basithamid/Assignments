@@ -1,0 +1,13 @@
+package com.spring.advertisement.table;
+
+import javax.persistence.*;
+
+@Table(name="UserSession")
+public class Session {
+	@Id
+	@Column(name="id")
+	private Long sessionId;
+	
+	@Column(name="userName")
+	private String userName;
+}

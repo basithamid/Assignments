@@ -1,0 +1,60 @@
+package com.spring.advertisement.table;
+
+import javax.persistence.*;
+
+@Table(name="UserSession")
+public class UserSession {
+	@Id
+	@GeneratedValue
+	@Column(name="id")
+	private Long sessionId;
+	
+	@Column(name="userName")
+	private String userName;
+	
+	@Column(name="password")
+	private String password;
+
+	public UserSession(String userName, String password) {
+		super();
+		this.userName = userName;
+		this.password = password;
+	}
+
+	public UserSession(Long sessionId, String userName, String password) {
+		super();
+		this.sessionId = sessionId;
+		this.userName = userName;
+		this.password = password;
+	}
+
+	public Long getSessionId() {
+		return sessionId;
+	}
+
+	public void setSessionId(Long sessionId) {
+		this.sessionId = sessionId;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	@Override
+	public String toString() {
+		return "Session [sessionId=" + sessionId + ", userName=" + userName + ", password=" + password + "]";
+	}
+	
+}
