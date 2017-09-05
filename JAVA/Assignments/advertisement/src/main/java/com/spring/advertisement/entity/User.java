@@ -1,6 +1,10 @@
 package com.spring.advertisement.entity;
 
+import java.util.Set;
+
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="Users")
@@ -20,6 +24,7 @@ public class User {
 	@Column(name="userName")
 	private String userName;
 	
+	
 	@Column(name="password")
 	private String password;
 	
@@ -28,6 +33,9 @@ public class User {
 	
 	@Column(name="phone")
 	private Long phone;
+	
+	@OneToMany(cascade={CascadeType.PERSIST}, fetch=FetchType.EAGER, mappedBy="user")
+	private Set<PostAd> advertisement;
 	
 	public User(){}
 

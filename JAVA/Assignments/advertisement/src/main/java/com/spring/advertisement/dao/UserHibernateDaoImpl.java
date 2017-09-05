@@ -3,7 +3,7 @@ package com.spring.advertisement.dao;
 import java.text.DateFormat;
 
 import java.text.SimpleDateFormat;
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -12,6 +12,9 @@ import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.spring.advertisement.collection.SessionCollection;
+import com.spring.advertisement.entity.Actions;
+import com.spring.advertisement.entity.Categories;
+import com.spring.advertisement.entity.PostAd;
 import com.spring.advertisement.entity.User;
 import com.spring.advertisement.entity.UserLogin;
 import com.spring.advertisement.table.UserSession;
@@ -22,6 +25,8 @@ import org.hibernate.Query;
 //import com.spring.advertisement.repository.UserRepository;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class UserHibernateDaoImpl extends HibernateDaoSupport implements UserDao {
 
@@ -37,49 +42,117 @@ public class UserHibernateDaoImpl extends HibernateDaoSupport implements UserDao
 		return null;
 		
 	}
-//	public List<ItemCollection> getCategoires() {
-//		List<ItemCollection> categories = itemRepository.findAll();
-//		System.out.println(categories);
-//		return categories;
-//	}
-//	
+	
+	public List<Categories> getCategories() {
+		List<Categories> categories = (List<Categories>) getHibernateTemplate().find("from Categories");
+		System.out.println(categories);
+		return categories;
+	}
+	
 	@Transactional
-	public void login(UserLogin user){
+	public String login(UserLogin user){
 		String userName = user.getUname();
 		String pass = user.getPwd();
 		List<User> userLogin = (List<User>)getHibernateTemplate().find("from User where userName =? AND password=?", userName, pass);
-		System.out.println("in login service");
 		if(!userLogin.isEmpty()){
 			System.out.println("login details"+ userLogin);
 			DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-			Date date = new Date(new java.util.Date().getDate());
-			UserSession userSession = new UserSession(UUID.randomUUID().toString(),userName, date);
+			Date date = new Date();
+			System.out.println(dateFormat.format(date)); //2016/11/16 12:08:43
+			String id = UUID.randomUUID().toString();
+			UserSession userSession = new UserSession(id ,userName, date);
 			getHibernateTemplate().save(userSession);
+			return id;
 		}
-		
-		
-//		System.out.println("User details:"+user);
-//		if(userLogin!=null){
-			
-			
-//			SessionCollection session = new SessionCollection();
-//			session.setUname(((User) userLogin).getUserName());
-			
-//			session.setLastUpdatedDate(dateFormat.format(date));
-//			
-//			
-//			return session;
-//		}
-		
-//		
+		return null;
 	}
-//	public void logout(String authToken) {
-//		
-//			sessionRepository.delete(authToken);
-//		
-//	}
-
 	
-	
+	@Transactional
+	public void logout(String authToken) {
+		List<UserSession> loggedInUsers = (List<UserSession>) getHibernateTemplate().find("from UserSession where sessionId =?", authToken );
+		System.out.println("list of logged in users: "+loggedInUsers);
+		UserSession user = loggedInUsers.get(0);
+		getHibernateTemplate().delete(user);
+	}
 
+	public List<Actions> getActions(String authToken) {
+		List<UserSession> loggenInUser = (List<UserSession>) getHibernateTemplate().find("from UserSession where sessionId =?", authToken );
+		if(!loggenInUser.isEmpty()){
+			List<Actions> actions = (List<Actions>) getHibernateTemplate().find("from Actions");
+			return actions;
+		}
+		return null;
+	}
+
+	public User getUser(String authToken, String userName) {
+		List<UserSession> loggenInUser = (List<UserSession>) getHibernateTemplate().find("from UserSession where sessionId =? ", authToken);
+		if(!loggenInUser.isEmpty()){
+			System.out.println("loggedInUser: "+loggenInUser);
+			List<User> userDetails = (List<User>) getHibernateTemplate().find("from User where userName=?", userName);
+			return userDetails.get(0);
+		}
+		return null;
+	}
+
+	@Transactional
+	public PostAd postAdvertisement(String authToken, PostAd ad) {
+		List<UserSession> loggenInUser = (List<UserSession>) getHibernateTemplate().find("from UserSession where sessionId =? ", authToken);
+		if(!loggenInUser.isEmpty()){
+			String cName = ad.getCategory().getCategoryName();
+			List<Categories> c = (List<Categories>) getHibernateTemplate().find("from Categories where categoryName=?", cName);
+			ad.setCategory(c.get(0));
+			
+			
+			List<UserSession> uName = (List<UserSession>) getHibernateTemplate().find("from UserSession where sessionId=?", authToken);
+			//System.out.println("Uname: "+uName);
+			List<User> user = (List<User>) getHibernateTemplate().find("from User where userName=?", uName.get(0).getUserName());
+			//System.out.println("User present:"+user);
+			ad.setUser(user.get(0));
+			
+			System.out.println("ad details: "+ad);
+			getHibernateTemplate().save(ad);
+			
+			return ad;
+		}
+		return null;
+	}
+
+	@Transactional
+	public void deleteAd(String authToken, String postId) {
+		List<UserSession> loggenInUser = (List<UserSession>) getHibernateTemplate().find("from UserSession where sessionId =? ", authToken);
+		if(!loggenInUser.isEmpty()){
+			List<User> user = (List<User>) getHibernateTemplate().find("from User where userName=?", loggenInUser.get(0).getUserName());
+			System.out.println("User present:"+user);
+			List<PostAd> advertise = (List<PostAd>) getHibernateTemplate().find("from PostAd where user=? AND id=?", user.get(0),Long.parseLong(postId));
+			getHibernateTemplate().delete(advertise.get(0));
+		}
+	}
+
+	public PostAd getAd(String authToken, String postId) {
+		List<UserSession> loggenInUser = (List<UserSession>) getHibernateTemplate().find("from UserSession where sessionId =? ", authToken);
+		if(!loggenInUser.isEmpty()){
+			List<User> user = (List<User>) getHibernateTemplate().find("from User where userName=?", loggenInUser.get(0).getUserName());
+			System.out.println("User present:"+user);
+			List<PostAd> advertise = (List<PostAd>) getHibernateTemplate().find("from PostAd where user=? AND id=?", user.get(0),Long.parseLong(postId));
+//			getHibernateTemplate().delete(advertise.get(0));
+			return advertise.get(0);
+		}
+		return null;
+	}
+
+	public PostAd getAnyAd(String postId) {
+		List<PostAd> advertise = (List<PostAd>) getHibernateTemplate().find("from PostAd where id=?", Long.parseLong(postId));
+		JSONObject obj=new JSONObject(); 
+		if(advertise.size()>0){
+			
+			return advertise.get(0);
+		}
+		try {
+			obj.put("message", "No such advertise");
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return obj;
+	}
 }

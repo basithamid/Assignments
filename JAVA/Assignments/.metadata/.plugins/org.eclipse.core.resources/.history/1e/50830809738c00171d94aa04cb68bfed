@@ -1,8 +1,0 @@
-package com.spring.restAssignment;
-
-import org.springframework.web.bind.annotation.RequestMapping;
-
-@RestController
-public class UserController {
-
-}

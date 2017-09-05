@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.spring.advertisement.collection.SessionCollection;
 import com.spring.advertisement.dao.UserDao;
+import com.spring.advertisement.entity.Actions;
+import com.spring.advertisement.entity.Categories;
+import com.spring.advertisement.entity.PostAd;
 import com.spring.advertisement.entity.User;
 import com.spring.advertisement.entity.UserLogin;
 
@@ -17,20 +20,45 @@ public class UserServiceImpl implements UserService {
 		return userDao.createUser(user);
 	}
 
-//	public List<ItemCollection> getCategories() {
-//		return userDao.getCategoires();
-//	}
-//
-	public void login(UserLogin user) {
+	public List<Categories> getCategories() {
+		return userDao.getCategories();
+	}
+
+	public String login(UserLogin user) {
 		System.out.println("in login service");
-		userDao.login(user);
+		return userDao.login(user);
 		
 	}
-//
-//	public void logout(String authToken) {
-//		userDao.logout(authToken);
-//		
-//	}
+
+	public void logout(String authToken) {
+		userDao.logout(authToken);
+		
+	}
+
+	public List<Actions> getActions(String authToken) {
+		return userDao.getActions(authToken);
+	}
+
+	public User getUser(String authToken, String userName) {
+		return userDao.getUser(authToken, userName);
+	}
+
+	public PostAd postAdvertisement(String authToken, PostAd ad) {
+		return userDao.postAdvertisement(authToken, ad);
+		
+	}
+
+	public void deleteAd(String authToken, String postId) {
+		userDao.deleteAd(authToken,postId);
+	}
+
+	public PostAd getAd(String authToken, String postId) {
+		return userDao.getAd(authToken,postId);
+	}
+
+	public PostAd getAnyAd(String postId) {
+		return userDao.getAnyAd(postId);
+	}
 	
 	
 }

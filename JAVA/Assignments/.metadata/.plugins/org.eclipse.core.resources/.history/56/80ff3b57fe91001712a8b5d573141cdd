@@ -1,0 +1,12 @@
+package com.spring.advertisement.entity;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="Actions")
+public class Actions {
+	@Id
+	@Column(name="Action")
+	private String actionName;
+	public Actions(){}
+}

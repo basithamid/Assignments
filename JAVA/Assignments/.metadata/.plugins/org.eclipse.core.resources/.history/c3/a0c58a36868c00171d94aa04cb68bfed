@@ -1,5 +1,0 @@
-package com.spring.advertisement.dao;
-
-public interface UserDao {
-
-}

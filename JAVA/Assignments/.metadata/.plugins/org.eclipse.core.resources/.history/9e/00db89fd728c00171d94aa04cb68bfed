@@ -1,6 +1,0 @@
-package com.spring.restAssignment;
-
-@RestController
-public class UserController {
-
-}

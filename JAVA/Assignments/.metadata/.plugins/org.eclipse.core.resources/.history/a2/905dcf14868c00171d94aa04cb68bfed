@@ -1,7 +1,0 @@
-package com.spring.advertisement.service;
-
-public class UserServiceImpl implements UserService {
-	public User createUser(User user){
-		
-	}
-}

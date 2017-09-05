@@ -1,0 +1,28 @@
+package com.spring.advertisement.entity;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="Advertisements")
+public class PostAd {
+
+	@Id
+	@GeneratedValue
+	@Column(name="AD_ID")
+	private Long id;
+	
+	@Column(name="title")
+	private String title;
+	
+	@Column(name="Publisher")
+	private String userName;
+	
+	@Column(name="Category")
+	private String category;
+	
+	@Column(name="Ad_Description")
+	private String desc;
+	
+	
+}
+
