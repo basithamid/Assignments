@@ -1,5 +1,0 @@
-package com.hibernate.mapping;
-
-public class Employee {
-
-}

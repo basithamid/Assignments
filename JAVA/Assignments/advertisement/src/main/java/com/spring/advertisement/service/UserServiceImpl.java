@@ -11,6 +11,7 @@ import com.spring.advertisement.entity.Categories;
 import com.spring.advertisement.entity.PostAd;
 import com.spring.advertisement.entity.User;
 import com.spring.advertisement.entity.UserLogin;
+import com.spring.advertisement.table.UserSession;
 
 public class UserServiceImpl implements UserService {
 	@Autowired
@@ -24,7 +25,7 @@ public class UserServiceImpl implements UserService {
 		return userDao.getCategories();
 	}
 
-	public String login(UserLogin user) {
+	public UserSession login(UserLogin user) {
 		System.out.println("in login service");
 		return userDao.login(user);
 		
@@ -58,6 +59,18 @@ public class UserServiceImpl implements UserService {
 
 	public PostAd getAnyAd(String postId) {
 		return userDao.getAnyAd(postId);
+	}
+
+	public List<PostAd> getAllAds(String authToken) {
+		return userDao.getAllAds(authToken);
+	}
+
+	public void editAd(String authToken, PostAd ad, String postId) {
+		userDao.editAd(authToken, ad, postId);
+	}
+
+	public List<PostAd> searchByText(String searchText) {
+		return userDao.searchByText(searchText);
 	}
 	
 	

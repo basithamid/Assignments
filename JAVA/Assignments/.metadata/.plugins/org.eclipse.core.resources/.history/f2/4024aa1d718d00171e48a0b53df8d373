@@ -1,9 +1,0 @@
-package com.hibernate.project2;
-
-import javax.persistence.*;
-
-@Entity
-@Table(name="EMP")
-public class Employee {
-
-}

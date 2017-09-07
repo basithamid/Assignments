@@ -1,0 +1,29 @@
+package com.spring.advertisement.entity;
+
+public class UserLogin {
+	private String userName;
+	private String password;
+	public UserLogin(){}
+	public UserLogin(String userName, String password) {
+		super();
+		this.userName = userName;
+		this.password = password;
+	}
+	public String getuserName() {
+		return userName;
+	}
+	public void setuserName(String userName) {
+		this.userName = userName;
+	}
+	public String getpassword() {
+		return password;
+	}
+	public void setpassword(String password) {
+		this.password = password;
+	}
+	@Override
+	public String toString() {
+		return "UserLogin [userName=" + userName + ", password=" + password + "]";
+	}
+	
+}

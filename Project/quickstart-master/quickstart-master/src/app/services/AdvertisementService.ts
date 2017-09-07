@@ -18,6 +18,7 @@ export class AdvertisementService{
     }
 
     loginService(login_details:any):any{
+        console.log("login details: ", login_details)
         let header = new Headers({'Content-Type':'application/json'});
         let options = new RequestOptions({headers:header});
         return this._http.post(this.url+'/login',JSON.stringify(login_details),options).map((response:Response)=>response.json())

@@ -50,9 +50,10 @@ public class UserHibernateDaoImpl extends HibernateDaoSupport implements UserDao
 	}
 	
 	@Transactional
-	public String login(UserLogin user){
-		String userName = user.getUname();
-		String pass = user.getPwd();
+	public UserSession login(UserLogin user){
+		System.out.println("User:"+user);
+		String userName = user.getUserName();
+		String pass = user.getPassword();
 		List<User> userLogin = (List<User>)getHibernateTemplate().find("from User where userName =? AND password=?", userName, pass);
 		if(!userLogin.isEmpty()){
 			System.out.println("login details"+ userLogin);
@@ -61,23 +62,24 @@ public class UserHibernateDaoImpl extends HibernateDaoSupport implements UserDao
 			System.out.println(dateFormat.format(date)); //2016/11/16 12:08:43
 			String id = UUID.randomUUID().toString();
 			UserSession userSession = new UserSession(id ,userName, date);
+			System.out.println(userSession);
 			getHibernateTemplate().save(userSession);
-			return id;
+			return userSession;
 		}
 		return null;
 	}
 	
 	@Transactional
 	public void logout(String authToken) {
-		List<UserSession> loggedInUsers = (List<UserSession>) getHibernateTemplate().find("from UserSession where sessionId =?", authToken );
+		List<UserSession> loggedInUsers = (List<UserSession>) getHibernateTemplate().find("from UserSession where auth_token =?", authToken );
 		System.out.println("list of logged in users: "+loggedInUsers);
 		UserSession user = loggedInUsers.get(0);
 		getHibernateTemplate().delete(user);
 	}
 
 	public List<Actions> getActions(String authToken) {
-		List<UserSession> loggenInUser = (List<UserSession>) getHibernateTemplate().find("from UserSession where sessionId =?", authToken );
-		if(!loggenInUser.isEmpty()){
+		List<UserSession> loggedInUser = (List<UserSession>) getHibernateTemplate().find("from UserSession where auth_token =?", authToken );
+		if(!loggedInUser.isEmpty()){
 			List<Actions> actions = (List<Actions>) getHibernateTemplate().find("from Actions");
 			return actions;
 		}
@@ -85,9 +87,9 @@ public class UserHibernateDaoImpl extends HibernateDaoSupport implements UserDao
 	}
 
 	public User getUser(String authToken, String userName) {
-		List<UserSession> loggenInUser = (List<UserSession>) getHibernateTemplate().find("from UserSession where sessionId =? ", authToken);
-		if(!loggenInUser.isEmpty()){
-			System.out.println("loggedInUser: "+loggenInUser);
+		List<UserSession> loggedInUser = (List<UserSession>) getHibernateTemplate().find("from UserSession where auth_token =? ", authToken);
+		if(!loggedInUser.isEmpty()){
+			System.out.println("loggedInUser: "+loggedInUser);
 			List<User> userDetails = (List<User>) getHibernateTemplate().find("from User where userName=?", userName);
 			return userDetails.get(0);
 		}
@@ -96,14 +98,14 @@ public class UserHibernateDaoImpl extends HibernateDaoSupport implements UserDao
 
 	@Transactional
 	public PostAd postAdvertisement(String authToken, PostAd ad) {
-		List<UserSession> loggenInUser = (List<UserSession>) getHibernateTemplate().find("from UserSession where sessionId =? ", authToken);
-		if(!loggenInUser.isEmpty()){
+		List<UserSession> loggedInUser = (List<UserSession>) getHibernateTemplate().find("from UserSession where auth_token =? ", authToken);
+		if(!loggedInUser.isEmpty()){
 			String cName = ad.getCategory().getCategoryName();
 			List<Categories> c = (List<Categories>) getHibernateTemplate().find("from Categories where categoryName=?", cName);
 			ad.setCategory(c.get(0));
 			
 			
-			List<UserSession> uName = (List<UserSession>) getHibernateTemplate().find("from UserSession where sessionId=?", authToken);
+			List<UserSession> uName = (List<UserSession>) getHibernateTemplate().find("from UserSession where auth_token=?", authToken);
 			//System.out.println("Uname: "+uName);
 			List<User> user = (List<User>) getHibernateTemplate().find("from User where userName=?", uName.get(0).getUserName());
 			//System.out.println("User present:"+user);
@@ -119,9 +121,9 @@ public class UserHibernateDaoImpl extends HibernateDaoSupport implements UserDao
 
 	@Transactional
 	public void deleteAd(String authToken, String postId) {
-		List<UserSession> loggenInUser = (List<UserSession>) getHibernateTemplate().find("from UserSession where sessionId =? ", authToken);
-		if(!loggenInUser.isEmpty()){
-			List<User> user = (List<User>) getHibernateTemplate().find("from User where userName=?", loggenInUser.get(0).getUserName());
+		List<UserSession> loggedInUser = (List<UserSession>) getHibernateTemplate().find("from UserSession where auth_token =? ", authToken);
+		if(!loggedInUser.isEmpty()){
+			List<User> user = (List<User>) getHibernateTemplate().find("from User where userName=?", loggedInUser.get(0).getUserName());
 			System.out.println("User present:"+user);
 			List<PostAd> advertise = (List<PostAd>) getHibernateTemplate().find("from PostAd where user=? AND id=?", user.get(0),Long.parseLong(postId));
 			getHibernateTemplate().delete(advertise.get(0));
@@ -129,9 +131,9 @@ public class UserHibernateDaoImpl extends HibernateDaoSupport implements UserDao
 	}
 
 	public PostAd getAd(String authToken, String postId) {
-		List<UserSession> loggenInUser = (List<UserSession>) getHibernateTemplate().find("from UserSession where sessionId =? ", authToken);
-		if(!loggenInUser.isEmpty()){
-			List<User> user = (List<User>) getHibernateTemplate().find("from User where userName=?", loggenInUser.get(0).getUserName());
+		List<UserSession> loggedInUser = (List<UserSession>) getHibernateTemplate().find("from UserSession where auth_token =? ", authToken);
+		if(!loggedInUser.isEmpty()){
+			List<User> user = (List<User>) getHibernateTemplate().find("from User where userName=?", loggedInUser.get(0).getUserName());
 			System.out.println("User present:"+user);
 			List<PostAd> advertise = (List<PostAd>) getHibernateTemplate().find("from PostAd where user=? AND id=?", user.get(0),Long.parseLong(postId));
 //			getHibernateTemplate().delete(advertise.get(0));
@@ -142,17 +144,42 @@ public class UserHibernateDaoImpl extends HibernateDaoSupport implements UserDao
 
 	public PostAd getAnyAd(String postId) {
 		List<PostAd> advertise = (List<PostAd>) getHibernateTemplate().find("from PostAd where id=?", Long.parseLong(postId));
-		JSONObject obj=new JSONObject(); 
 		if(advertise.size()>0){
-			
 			return advertise.get(0);
 		}
-		try {
-			obj.put("message", "No such advertise");
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return obj;
+		return null;
 	}
+
+	public List<PostAd> getAllAds(String authToken) {
+		List<UserSession> loggedInUser = (List<UserSession>) getHibernateTemplate().find("from UserSession where auth_token=?", authToken);
+		if(!loggedInUser.isEmpty()){
+			List<User> user = (List<User>) getHibernateTemplate().find("from User where userName=?", loggedInUser.get(0).getUserName());
+			System.out.println("User present:"+user);
+			List<PostAd> ads = (List<PostAd>) getHibernateTemplate().find("from PostAd where user=?", user.get(0));
+			return ads;
+		}
+		return null;
+	}
+
+	@Transactional
+	public void editAd(String authToken, PostAd ad, String postId) {
+		List<UserSession> loggedInUser = (List<UserSession>) getHibernateTemplate().find("from UserSession where auth_token=?", authToken);
+		System.out.println("Logged in user: " +loggedInUser);
+		if(!loggedInUser.isEmpty()){
+			List<User> user = (List<User>) getHibernateTemplate().find("from User where userName=?", loggedInUser.get(0).getUserName());
+			System.out.println("User present:"+user);
+			PostAd advertise = (PostAd) getHibernateTemplate().find("from PostAd where user=? AND id=?", user.get(0),Long.parseLong(postId)).get(0);
+			advertise.setCategory(ad.getCategory());
+			advertise.setId(Long.parseLong(postId));
+			advertise.setDesc(ad.getDesc());
+			advertise.setTitle(ad.getTitle());
+			getHibernateTemplate().update(advertise);
+		}
+	}
+
+	public List<PostAd> searchByText(String searchText) {
+		List<PostAd> searchedAds = (List<PostAd>) getHibernateTemplate().find("from PostAd where title like ? OR category.categoryName like ? OR user.userName like ?" , "%"+searchText+"%","%"+searchText+"%", "%"+searchText+"%");
+		System.out.println("searched ads: "+searchedAds);
+		return searchedAds;
+	}	
 }

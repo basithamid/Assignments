@@ -5,7 +5,7 @@ import { Http,Response,Headers, RequestOptions } from '@angular/http'
 @Injectable()
 
 export class UserService{
-    url:any='http://192.168.3.144:9000';
+    url:any='http://localhost:8002/advertisement';
     authToken:any;
     userName:string;
     constructor(private _http:Http){
@@ -29,8 +29,8 @@ export class UserService{
 
     logoutService(){
         let header = new Headers();
-        header.append('auth-token',sessionStorage.getItem('authenticationToken'))
-        console.log('auth-token',sessionStorage.getItem('authenticationToken'))
+        header.append('auth_token',sessionStorage.getItem('authenticationToken'))
+        console.log('auth_token',sessionStorage.getItem('authenticationToken'))
         let options = new RequestOptions({headers:header});
         return this._http.delete(this.url+'/logout',options)
     }

@@ -1,29 +1,29 @@
 package com.spring.advertisement.entity;
 
 public class UserLogin {
-	private String uname;
-	private String pwd;
+	private String userName;
+	private String password;
 	public UserLogin(){}
-	public UserLogin(String uname, String pwd) {
+	public UserLogin(String userName, String password) {
 		super();
-		this.uname = uname;
-		this.pwd = pwd;
+		this.userName = userName;
+		this.password = password;
 	}
-	public String getUname() {
-		return uname;
+	public String getUserName() {
+		return userName;
 	}
-	public void setUname(String uname) {
-		this.uname = uname;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
-	public String getPwd() {
-		return pwd;
+	public String getPassword() {
+		return password;
 	}
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	@Override
 	public String toString() {
-		return "UserLogin [uname=" + uname + ", pwd=" + pwd + "]";
+		return "UserLogin [userName=" + userName + ", password=" + password + "]";
 	}
 	
 }

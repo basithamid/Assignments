@@ -14,8 +14,8 @@ export class PostAdComponent{
     categoryArray:Array<any>=['Choose Category'];
     constructor(private adService:AdvertisementService, private userService:UserService, private router:Router){
         this.adService.getCategories().subscribe((data)=>{
-            for(let item of data.data.itemList){
-                this.categoryArray.push(item.name)
+            for(let item of data){
+                this.categoryArray.push(item.categoryName)
             }
             console.log('categories',this.categoryArray)
         });

@@ -21,8 +21,9 @@ export class NavbarComponent{
     isLoggedIn:boolean=false;
     constructor(private adService:AdvertisementService,private router:Router, private userService: UserService){
         adService.getCategories().subscribe((data)=>{
-            for(let item of data.data.itemList){
-                this.categoryArray.push(item.name)
+            console.log(data)
+            for(let item of data){   //.data.itemList
+                this.categoryArray.push(item.categoryName)
             }
             console.log(this.categoryArray)
         })
@@ -30,11 +31,14 @@ export class NavbarComponent{
     }
 
     serverLogin(loginForm:any){
+        console.log(loginForm)
         this.adService.loginService(loginForm).subscribe((res:any)=>{
-            console.log(res.data)
-            if(res.data['auth-token']!=null){
-                this.userName=res.data.userId;
-                this.authToken=res.data['auth-token']
+            console.log(res)
+            // console.log(res.data)
+            if(res['auth_token']!=null){
+                console.log("reading auth_token")
+                this.userName=res.userName;
+                this.authToken=res['auth_token']
                 this.isLoggedIn=true;
                 alert('Login Successful')
                 console.log("Login Successful")

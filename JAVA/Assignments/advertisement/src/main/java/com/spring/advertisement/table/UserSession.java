@@ -8,8 +8,8 @@ import javax.persistence.*;
 @Table(name="UserSession")
 public class UserSession {
 	@Id
-	@Column(name="id")
-	private String sessionId;
+	@Column(name="auth_token")
+	private String auth_token;
 	
 	@Column(name="userName")
 	private String userName;
@@ -17,9 +17,9 @@ public class UserSession {
 	@Column(name="logindate")
 	private Date date;
 
-	public UserSession(String sessionId, String userName, Date date) {
+	public UserSession(String auth_token, String userName, Date date) {
 		super();
-		this.sessionId = sessionId;
+		this.auth_token = auth_token;
 		this.userName = userName;
 		this.date = date;
 	}
@@ -31,12 +31,12 @@ public class UserSession {
 		this.date = date;
 	}
 
-	public String getSessionId() {
-		return sessionId;
+	public String getauth_token() {
+		return auth_token;
 	}
 
-	public void setSessionId(String sessionId) {
-		this.sessionId = sessionId;
+	public void setauth_token(String auth_token) {
+		this.auth_token = auth_token;
 	}
 
 	public String getUserName() {
@@ -57,7 +57,7 @@ public class UserSession {
 
 	@Override
 	public String toString() {
-		return "UserSession [sessionId=" + sessionId + ", userName=" + userName + ", date=" + date + "]";
+		return "UserSession [auth_token=" + auth_token + ", userName=" + userName + ", date=" + date + "]";
 	}
 
 	

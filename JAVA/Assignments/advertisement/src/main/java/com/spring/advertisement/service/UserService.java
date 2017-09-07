@@ -7,13 +7,14 @@ import com.spring.advertisement.entity.Categories;
 import com.spring.advertisement.entity.PostAd;
 import com.spring.advertisement.entity.User;
 import com.spring.advertisement.entity.UserLogin;
+import com.spring.advertisement.table.UserSession;
 
 public interface UserService {
 	public User createUser(User user);
 
 	public List<Categories> getCategories();
 
-	public String login(UserLogin user);
+	public UserSession login(UserLogin user);
 
 	public void logout(String authToken);
 
@@ -28,6 +29,12 @@ public interface UserService {
 	public PostAd getAd(String authToken, String postId);
 
 	public PostAd getAnyAd(String postId);
+
+	public List<PostAd> getAllAds(String authToken);
+
+	public void editAd(String authToken, PostAd ad, String postId);
+
+	public List<PostAd> searchByText(String searchText);
 
 	
 }

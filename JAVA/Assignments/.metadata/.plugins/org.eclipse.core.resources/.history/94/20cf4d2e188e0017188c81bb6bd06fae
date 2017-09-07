@@ -1,9 +1,0 @@
-package com.hibernate.mapping;
-
-import javax.persistence.*;
-
-@Entity
-@Table(name="Stock")
-public class Stock {
-
-}
